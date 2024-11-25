@@ -1,0 +1,2 @@
+# logdetective-sample
+Interresting logs
