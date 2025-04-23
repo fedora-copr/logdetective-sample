@@ -1,0 +1,926 @@
+Mock Version: 5.4
+Mock Version: 5.4
+Mock Version: 5.4
+ENTER ['do_with_status'](['bash', '--login', '-c', '/usr/bin/rpmbuild -bs --noclean --target x86_64 --nodeps /builddir/build/SPECS/libtiff.spec'], chrootPath='/var/lib/mock/c9s-build-671486-759558/root'env={'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOME': '/builddir', 'HOSTNAME': 'mock', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'PS1': '<mock-chroot> \\s-\\v\\$ ', 'LANG': 'C.UTF-8'}shell=Falselogger=<mockbuild.trace_decorator.getLog object at 0x7f79cbcd2a58>timeout=86400uid=988gid=135user='mockbuild'nspawn_args=[]unshare_net=FalseprintOutput=False)
+Executing command: ['bash', '--login', '-c', '/usr/bin/rpmbuild -bs --noclean --target x86_64 --nodeps /builddir/build/SPECS/libtiff.spec'] with env {'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOME': '/builddir', 'HOSTNAME': 'mock', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'PS1': '<mock-chroot> \\s-\\v\\$ ', 'LANG': 'C.UTF-8'} and shell False
+Building target platforms: x86_64
+Building for target x86_64
+setting SOURCE_DATE_EPOCH=1745280000
+Wrote: /builddir/build/SRPMS/libtiff-4.4.0-14.el9.src.rpm
+Child return code was: 0
+ENTER ['do_with_status'](['bash', '--login', '-c', '/usr/bin/rpmbuild -bb --noclean --target x86_64 --nodeps /builddir/build/SPECS/libtiff.spec'], chrootPath='/var/lib/mock/c9s-build-671486-759558/root'env={'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOME': '/builddir', 'HOSTNAME': 'mock', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'PS1': '<mock-chroot> \\s-\\v\\$ ', 'LANG': 'C.UTF-8'}shell=Falselogger=<mockbuild.trace_decorator.getLog object at 0x7f79cbcd2a58>timeout=86400uid=988gid=135user='mockbuild'nspawn_args=[]unshare_net=FalseprintOutput=False)
+Executing command: ['bash', '--login', '-c', '/usr/bin/rpmbuild -bb --noclean --target x86_64 --nodeps /builddir/build/SPECS/libtiff.spec'] with env {'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOME': '/builddir', 'HOSTNAME': 'mock', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'PS1': '<mock-chroot> \\s-\\v\\$ ', 'LANG': 'C.UTF-8'} and shell False
+Building target platforms: x86_64
+Building for target x86_64
+setting SOURCE_DATE_EPOCH=1745280000
+Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.En8rkb
++ umask 022
++ cd /builddir/build/BUILD
++ cd /builddir/build/BUILD
++ rm -rf tiff-4.4.0
++ /usr/bin/gzip -dc /builddir/build/SOURCES/tiff-4.4.0.tar.gz
++ /usr/bin/tar -xof -
++ STATUS=0
++ '[' 0 -ne 0 ']'
++ cd tiff-4.4.0
++ /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
++ /usr/bin/cat /builddir/build/SOURCES/0001-Back-off-the-minimum-required-automake-version-to-1..patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0002-Fix-Makefile.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0003-CVE-2022-2056-CVE-2022-2057-CVE-2022-2058-fix-the-FP.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0004-CVE-2022-2519-CVE-2022-2520-CVE-2022-2521-According-.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0005-CVE-2022-2519-CVE-2022-2520-CVE-2022-2521-tiffcrop-S.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0006-CVE-2022-3597-CVE-2022-3626-CVE-2022-3627-tiffcrop-d.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0007-CVE-2022-3599-Revised-handling-of-TIFFTAG_INKNAMES-a.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0008-CVE-2022-3570-CVE-2022-3598-tiffcrop-subroutines-req.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0009-CVE-2022-3970-TIFFReadRGBATileExt-fix-unsigned-integ.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0010-CVE-2022-48281-tiffcrop-Correct-simple-copy-paste-er.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0011-CVE-2023-0800-CVE-2023-0801-CVE-2023-0802-CVE-2023-0.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0012-Merge-branch-tiffcrop_correctly_update_buffersize_af.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0013-CVE-2023-0795-CVE-2023-0796-CVE-2023-0797-CVE-2023-0.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0014-CVE-2023-2731-LZWDecode-avoid-crash-when-trying-to-r.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0015-CVE-2023-26965-tiffcrop-Do-not-reuse-input-buffer-fo.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0016-CVE-2023-3316-TIFFClose-avoid-NULL-pointer-dereferen.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0017-CVE-2023-26966-tif_luv-Check-and-correct-for-NaN-dat.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0018-CVE-2023-3576-Fix-memory-leak-in-tiffcrop.c.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0019-CVE-2023-40090-Improved-IFD-Loop-Handling-fixes-455.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0020-CVE-2023-3618-tiffcrop-fix-553-by-considering-error-.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0021-CVE-2023-40745-CVE-2023-41175-raw2tiff-fix-integer-o.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/0022-CVE-2023-6228-Merge-branch-fix_606_tiffcp_check_also.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/libtiff-4.6.0-CVE-2024-7006.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ /usr/bin/cat /builddir/build/SOURCES/libtiff-4.4.0-CVE-2023-52356.patch
++ /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch
++ rm -f libtool.m4
++ libtoolize --force --copy
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'config'.
+libtoolize: copying file 'config/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
++ aclocal -I . -I m4
++ automake --add-missing --copy
+configure.ac:106: installing 'config/compile'
+configure.ac:36: installing 'config/missing'
+contrib/addtiffo/Makefile.am: installing 'config/depcomp'
++ autoconf
++ autoheader
++ RPM_EC=0
+++ jobs -p
++ exit 0
+Executing(%build): /bin/sh -e /var/tmp/rpm-tmp.JH52lB
++ umask 022
++ cd /builddir/build/BUILD
++ cd tiff-4.4.0
++ export 'CFLAGS=-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing'
++ CFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing'
++ CFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing'
++ export CFLAGS
++ CXXFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection'
++ export CXXFLAGS
++ FFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -I/usr/lib64/gfortran/modules'
++ export FFLAGS
++ FCFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -I/usr/lib64/gfortran/modules'
++ export FCFLAGS
++ LDFLAGS='-Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 '
++ export LDFLAGS
++ LT_SYS_LIBRARY_PATH=/usr/lib64:
++ export LT_SYS_LIBRARY_PATH
++ CC=gcc
++ export CC
++ CXX=g++
++ export CXX
++ '[' '-flto=auto -ffat-lto-objectsx' '!=' x ']'
+++ find . -type f -name configure -print
++ for file in $(find . -type f -name configure -print)
++ /usr/bin/sed -r --in-place=.backup 's/^char \(\*f\) \(\) = /__attribute__ ((used)) char (*f) () = /g' ./configure
++ diff -u ./configure.backup ./configure
++ mv ./configure.backup ./configure
++ /usr/bin/sed -r --in-place=.backup 's/^char \(\*f\) \(\);/__attribute__ ((used)) char (*f) ();/g' ./configure
++ diff -u ./configure.backup ./configure
++ mv ./configure.backup ./configure
++ /usr/bin/sed -r --in-place=.backup 's/^char \$2 \(\);/__attribute__ ((used)) char \$2 ();/g' ./configure
++ diff -u ./configure.backup ./configure
+--- ./configure.backup	2025-04-22 15:28:51.745095756 +0000
++++ ./configure	2025-04-22 15:28:51.918096713 +0000
+@@ -1967,7 +1967,7 @@
+ #ifdef __cplusplus
+ extern "C"
+ #endif
+-char $2 ();
++__attribute__ ((used)) char $2 ();
+ /* The GNU C library defines this for functions which it implements
+     to always fail with ENOSYS.  Some functions are actually named
+     something starting with __ and the normal name is an alias.  */
++ /usr/bin/sed --in-place=.backup '1{$!N;$!N};$!N;s/int x = 1;\nint y = 0;\nint z;\nint nan;/volatile int x = 1; volatile int y = 0; volatile int z, nan;/;P;D' ./configure
++ diff -u ./configure.backup ./configure
++ mv ./configure.backup ./configure
++ /usr/bin/sed --in-place=.backup 's#^lt_cv_sys_global_symbol_to_cdecl=.*#lt_cv_sys_global_symbol_to_cdecl="sed -n -e '\''s/^T .* \\(.*\\)$/extern int \\1();/p'\'' -e '\''s/^$symcode* .* \\(.*\\)$/extern char \\1;/p'\''"#' ./configure
++ diff -u ./configure.backup ./configure
+--- ./configure.backup	2025-04-22 15:28:51.918096713 +0000
++++ ./configure	2025-04-22 15:28:51.939096830 +0000
+@@ -7144,7 +7144,7 @@
+ # Transform an extracted symbol line into a proper C declaration.
+ # Some systems (esp. on ia64) link data and code symbols differently,
+ # so use this general approach.
+-lt_cv_sys_global_symbol_to_cdecl="sed -n"\
++lt_cv_sys_global_symbol_to_cdecl="sed -n -e 's/^T .* \(.*\)$/extern int \1();/p' -e 's/^$symcode* .* \(.*\)$/extern char \1;/p'"
+ $lt_cdecl_hook\
+ " -e 's/^T .* \(.*\)$/extern int \1();/p'"\
+ " -e 's/^$symcode$symcode* .* \(.*\)$/extern char \1;/p'"
+@@ -21852,7 +21852,7 @@
+ compiler='`$ECHO "$compiler" | $SED "$delay_single_quote_subst"`'
+ GCC='`$ECHO "$GCC" | $SED "$delay_single_quote_subst"`'
+ lt_cv_sys_global_symbol_pipe='`$ECHO "$lt_cv_sys_global_symbol_pipe" | $SED "$delay_single_quote_subst"`'
+-lt_cv_sys_global_symbol_to_cdecl='`$ECHO "$lt_cv_sys_global_symbol_to_cdecl" | $SED "$delay_single_quote_subst"`'
++lt_cv_sys_global_symbol_to_cdecl="sed -n -e 's/^T .* \(.*\)$/extern int \1();/p' -e 's/^$symcode* .* \(.*\)$/extern char \1;/p'"
+ lt_cv_sys_global_symbol_to_import='`$ECHO "$lt_cv_sys_global_symbol_to_import" | $SED "$delay_single_quote_subst"`'
+ lt_cv_sys_global_symbol_to_c_name_address='`$ECHO "$lt_cv_sys_global_symbol_to_c_name_address" | $SED "$delay_single_quote_subst"`'
+ lt_cv_sys_global_symbol_to_c_name_address_lib_prefix='`$ECHO "$lt_cv_sys_global_symbol_to_c_name_address_lib_prefix" | $SED "$delay_single_quote_subst"`'
++ '[' 1 = 1 ']'
++++ dirname ./configure
+++ find . -name config.guess -o -name config.sub
++ for i in $(find $(dirname ./configure) -name config.guess -o -name config.sub)
+++ basename ./config/config.guess
++ '[' -f /usr/lib/rpm/redhat/config.guess ']'
++ /usr/bin/rm -f ./config/config.guess
+++ basename ./config/config.guess
++ /usr/bin/cp -fv /usr/lib/rpm/redhat/config.guess ./config/config.guess
+'/usr/lib/rpm/redhat/config.guess' -> './config/config.guess'
++ for i in $(find $(dirname ./configure) -name config.guess -o -name config.sub)
+++ basename ./config/config.sub
++ '[' -f /usr/lib/rpm/redhat/config.sub ']'
++ /usr/bin/rm -f ./config/config.sub
+++ basename ./config/config.sub
++ /usr/bin/cp -fv /usr/lib/rpm/redhat/config.sub ./config/config.sub
+'/usr/lib/rpm/redhat/config.sub' -> './config/config.sub'
++ '[' 1 = 1 ']'
++ '[' x '!=' 'x-Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld' ']'
+++ find . -name ltmain.sh
++ for i in $(find . -name ltmain.sh)
++ /usr/bin/sed -i.backup -e 's~compiler_flags=$~compiler_flags="-Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld"~' ./config/ltmain.sh
++ ./configure --build=x86_64-redhat-linux-gnu --host=x86_64-redhat-linux-gnu --program-prefix= --disable-dependency-tracking --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc --datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib64 --libexecdir=/usr/libexec --localstatedir=/var --sharedstatedir=/var/lib --mandir=/usr/share/man --infodir=/usr/share/info --enable-ld-version-script
+checking build system type... x86_64-redhat-linux-gnu
+checking host system type... x86_64-redhat-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether UID '988' is supported by ustar format... yes
+checking whether GID '135' is supported by ustar format... yes
+checking how to create a ustar tar archive... gnutar
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking whether make supports the include directive... yes (GNU style)
+checking for x86_64-redhat-linux-gnu-gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... none
+checking for gcc option to accept ISO C99... none needed
+checking for C compiler warning flags... -Wall -W
+checking whether ln -s works... yes
+checking for cmake... no
+checking if LD -Wl,--version-script works... yes
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-redhat-linux-gnu file names to x86_64-redhat-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-redhat-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for x86_64-redhat-linux-gnu-objdump... no
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for x86_64-redhat-linux-gnu-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for x86_64-redhat-linux-gnu-ar... no
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for x86_64-redhat-linux-gnu-strip... no
+checking for strip... strip
+checking for x86_64-redhat-linux-gnu-ranlib... no
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ./configure: line 7150:  -e 's/^T .* \(.*\)$/extern int \1();/p' -e 's/^[ABCDGIRSTW][ABCDGIRSTW]* .* \(.*\)$/extern char \1;/p': No such file or directory
+ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for x86_64-redhat-linux-gnu-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... none
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... yes
+checking if g++ static flag -static works... no
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether make supports nested variables... (cached) yes
+checking for sin in -lm... yes
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking for assert.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking io.h usability... no
+checking io.h presence... no
+checking for io.h... no
+checking search.h usability... yes
+checking search.h presence... yes
+checking for search.h... yes
+checking for unistd.h... (cached) yes
+checking for an ANSI C-conforming const... yes
+checking whether byte ordering is bigendian... no
+checking for off_t... yes
+checking for size_t... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for _LARGEFILE_SOURCE value needed for large files... no
+checking whether optarg is declared... yes
+checking size of size_t... 8
+checking for signed size type... int64_t
+checking for mmap... yes
+checking for setmode... no
+checking for getopt... yes
+checking native cpu bit order... lsb2msb
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for inflateEnd in -lz... yes
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking for zlib.h... yes
+checking for libdeflate_zlib_decompress in -ldeflate... no
+checking libdeflate.h usability... no
+checking libdeflate.h presence... no
+checking for libdeflate.h... no
+checking for jpeg_read_scanlines in -ljpeg... yes
+checking jpeglib.h usability... yes
+checking jpeglib.h presence... yes
+checking for jpeglib.h... yes
+checking for jbg_dec_init in -ljbig... yes
+checking jbig.h usability... yes
+checking jbig.h presence... yes
+checking for jbig.h... yes
+checking for jbg_newlen... yes
+checking for lerc_decode in -l"LercLib"... no
+checking for lerc_decode in -l"Lerc"... no
+checking Lerc_c_api.h usability... no
+checking Lerc_c_api.h presence... no
+checking for Lerc_c_api.h... no
+checking for lzma_code in -llzma... no
+checking lzma.h usability... no
+checking lzma.h presence... no
+checking for lzma.h... no
+checking for ZSTD_decompressStream in -lzstd... yes
+checking zstd.h usability... yes
+checking zstd.h presence... yes
+checking for zstd.h... yes
+checking for WebPDecode in -lwebp... yes
+checking webp/decode.h usability... yes
+checking webp/decode.h presence... yes
+checking for webp/decode.h... yes
+checking for X... no
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... no
+checking whether we are using the Microsoft C compiler... no
+checking GL/gl.h usability... no
+checking GL/gl.h presence... no
+checking for GL/gl.h... no
+checking OpenGL/gl.h usability... no
+checking OpenGL/gl.h presence... no
+checking for OpenGL/gl.h... no
+checking windows.h usability... no
+checking windows.h presence... no
+checking for windows.h... no
+checking for OpenGL library... no
+checking GL/glu.h usability... no
+checking GL/glu.h presence... no
+checking for GL/glu.h... no
+checking OpenGL/glu.h usability... no
+checking OpenGL/glu.h presence... no
+checking for OpenGL/glu.h... no
+checking for OpenGL Utility library... no
+checking GL/glut.h usability... no
+checking GL/glut.h presence... no
+checking for GL/glut.h... no
+checking GLUT/glut.h usability... no
+checking GLUT/glut.h presence... no
+checking for GLUT/glut.h... no
+checking for GLUT library... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating build/Makefile
+config.status: creating contrib/Makefile
+config.status: creating contrib/addtiffo/Makefile
+config.status: creating contrib/dbs/Makefile
+config.status: creating contrib/dbs/xtiff/Makefile
+config.status: creating contrib/iptcutil/Makefile
+config.status: creating contrib/mfs/Makefile
+config.status: creating contrib/pds/Makefile
+config.status: creating contrib/ras/Makefile
+config.status: creating contrib/stream/Makefile
+config.status: creating contrib/tags/Makefile
+config.status: creating contrib/win_dib/Makefile
+config.status: creating html/Makefile
+config.status: creating html/images/Makefile
+config.status: creating html/man/Makefile
+config.status: creating libtiff-4.pc
+config.status: creating libtiff/Makefile
+config.status: creating man/Makefile
+config.status: creating port/Makefile
+config.status: creating test/Makefile
+config.status: creating tools/Makefile
+config.status: creating config/config.h
+config.status: creating libtiff/tif_config.h
+config.status: creating libtiff/tiffconf.h
+config.status: creating port/libport_config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+Libtiff is now configured for x86_64-redhat-linux-gnu
+  Installation directory:             /usr
+  Documentation directory:            ${prefix}/share/doc/tiff-4.4.0
+  C compiler:                         gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W
+  C++ compiler:                       g++ -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection
+  Enable runtime linker paths:        no
+  Enable linker symbol versioning:    yes
+  Support Microsoft Document Imaging: yes
+  Use Win32 IO:                       no
+ Support for internal codecs:
+  CCITT Group 3 & 4 algorithms:       yes
+  Macintosh PackBits algorithm:       yes
+  LZW algorithm:                      yes
+  ThunderScan 4-bit RLE algorithm:    yes
+  NeXT 2-bit RLE algorithm:           yes
+  LogLuv high dynamic range encoding: yes
+ Support for external codecs:
+  ZLIB support:                       yes
+  libdeflate support:                 no
+  Pixar log-format algorithm:         yes
+  JPEG support:                       yes
+  Old JPEG support:                   yes
+  JPEG 8/12 bit dual mode:            no
+  ISO JBIG support:                   yes
+  LERC support:                       no
+  LZMA2 support:                      no
+  ZSTD support:                       yes
+  WEBP support:                       yes
+  C++ support:                        yes
+  OpenGL support:                     no
++ /usr/bin/make -O -j40 V=1 VERBOSE=1
+Making all in port
+/usr/bin/make  all-am
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/port'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff   -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o dummy.lo dummy.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c dummy.c  -fPIC -DPIC -o .libs/dummy.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c dummy.c -o dummy.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/port'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/port'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o libport.la  dummy.lo  -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: ar cru .libs/libport.a .libs/dummy.o 
+libtool: link: ranlib .libs/libport.a
+libtool: link: ( cd ".libs" && rm -f "libport.la" && ln -s "../libport.la" "libport.la" )
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/port'
+Making all in libtiff
+/usr/bin/make  all-am
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o mkg3states.o mkg3states.c
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_lerc.lo tif_lerc.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_lerc.c  -fPIC -DPIC -o .libs/tif_lerc.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_lerc.c -o tif_lerc.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_error.lo tif_error.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_error.c  -fPIC -DPIC -o .libs/tif_error.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_error.c -o tif_error.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_jpeg_12.lo tif_jpeg_12.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_jpeg_12.c  -fPIC -DPIC -o .libs/tif_jpeg_12.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_jpeg_12.c -o tif_jpeg_12.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_lzma.lo tif_lzma.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_lzma.c  -fPIC -DPIC -o .libs/tif_lzma.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_lzma.c -o tif_lzma.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_dumpmode.lo tif_dumpmode.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_dumpmode.c  -fPIC -DPIC -o .libs/tif_dumpmode.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_dumpmode.c -o tif_dumpmode.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_close.lo tif_close.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_close.c  -fPIC -DPIC -o .libs/tif_close.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_close.c -o tif_close.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_codec.lo tif_codec.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_codec.c  -fPIC -DPIC -o .libs/tif_codec.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_codec.c -o tif_codec.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_warning.lo tif_warning.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_warning.c  -fPIC -DPIC -o .libs/tif_warning.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_warning.c -o tif_warning.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_version.lo tif_version.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_version.c  -fPIC -DPIC -o .libs/tif_version.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_version.c -o tif_version.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_flush.lo tif_flush.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_flush.c  -fPIC -DPIC -o .libs/tif_flush.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_flush.c -o tif_flush.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_next.lo tif_next.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_next.c  -fPIC -DPIC -o .libs/tif_next.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_next.c -o tif_next.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_swab.lo tif_swab.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_swab.c  -fPIC -DPIC -o .libs/tif_swab.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_swab.c -o tif_swab.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_jbig.lo tif_jbig.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_jbig.c  -fPIC -DPIC -o .libs/tif_jbig.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_jbig.c -o tif_jbig.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_extension.lo tif_extension.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_extension.c  -fPIC -DPIC -o .libs/tif_extension.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_extension.c -o tif_extension.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_fax3sm.lo tif_fax3sm.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_fax3sm.c  -fPIC -DPIC -o .libs/tif_fax3sm.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_fax3sm.c -o tif_fax3sm.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_strip.lo tif_strip.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_strip.c  -fPIC -DPIC -o .libs/tif_strip.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_strip.c -o tif_strip.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_compress.lo tif_compress.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_compress.c  -fPIC -DPIC -o .libs/tif_compress.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_compress.c -o tif_compress.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_tile.lo tif_tile.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_tile.c  -fPIC -DPIC -o .libs/tif_tile.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_tile.c -o tif_tile.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_packbits.lo tif_packbits.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_packbits.c  -fPIC -DPIC -o .libs/tif_packbits.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_packbits.c -o tif_packbits.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_thunder.lo tif_thunder.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_thunder.c  -fPIC -DPIC -o .libs/tif_thunder.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_thunder.c -o tif_thunder.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_color.lo tif_color.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_color.c  -fPIC -DPIC -o .libs/tif_color.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_color.c -o tif_color.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_open.lo tif_open.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_open.c  -fPIC -DPIC -o .libs/tif_open.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_open.c -o tif_open.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_aux.lo tif_aux.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_aux.c  -fPIC -DPIC -o .libs/tif_aux.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_aux.c -o tif_aux.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o mkg3states mkg3states.o ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o mkg3states mkg3states.o  ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_webp.lo tif_webp.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_webp.c  -fPIC -DPIC -o .libs/tif_webp.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_webp.c -o tif_webp.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_dirinfo.lo tif_dirinfo.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_dirinfo.c  -fPIC -DPIC -o .libs/tif_dirinfo.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_dirinfo.c -o tif_dirinfo.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_zstd.lo tif_zstd.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_zstd.c  -fPIC -DPIC -o .libs/tif_zstd.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_zstd.c -o tif_zstd.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_unix.lo tif_unix.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_unix.c  -fPIC -DPIC -o .libs/tif_unix.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_unix.c -o tif_unix.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_zip.lo tif_zip.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_zip.c  -fPIC -DPIC -o .libs/tif_zip.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_zip.c -o tif_zip.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_write.lo tif_write.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_write.c  -fPIC -DPIC -o .libs/tif_write.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_write.c -o tif_write.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_print.lo tif_print.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_print.c  -fPIC -DPIC -o .libs/tif_print.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_print.c -o tif_print.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_lzw.lo tif_lzw.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_lzw.c  -fPIC -DPIC -o .libs/tif_lzw.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_lzw.c -o tif_lzw.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_predict.lo tif_predict.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_predict.c  -fPIC -DPIC -o .libs/tif_predict.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_predict.c -o tif_predict.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_read.lo tif_read.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_read.c  -fPIC -DPIC -o .libs/tif_read.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_read.c -o tif_read.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -c -o tif_stream.lo tif_stream.cxx
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -c tif_stream.cxx  -fPIC -DPIC -o .libs/tif_stream.o
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -c tif_stream.cxx -o tif_stream.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_jpeg.lo tif_jpeg.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_jpeg.c  -fPIC -DPIC -o .libs/tif_jpeg.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_jpeg.c -o tif_jpeg.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_luv.lo tif_luv.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_luv.c  -fPIC -DPIC -o .libs/tif_luv.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_luv.c -o tif_luv.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_dir.lo tif_dir.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_dir.c  -fPIC -DPIC -o .libs/tif_dir.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_dir.c -o tif_dir.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_ojpeg.lo tif_ojpeg.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_ojpeg.c  -fPIC -DPIC -o .libs/tif_ojpeg.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_ojpeg.c -o tif_ojpeg.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_pixarlog.lo tif_pixarlog.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_pixarlog.c  -fPIC -DPIC -o .libs/tif_pixarlog.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_pixarlog.c -o tif_pixarlog.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_dirwrite.lo tif_dirwrite.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_dirwrite.c  -fPIC -DPIC -o .libs/tif_dirwrite.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_dirwrite.c -o tif_dirwrite.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_getimage.lo tif_getimage.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_getimage.c  -fPIC -DPIC -o .libs/tif_getimage.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_getimage.c -o tif_getimage.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+tif_getimage.c: In function 'TIFFReadRGBAStripExt':
+tif_getimage.c:2948:13: warning: implicit declaration of function 'TIFFErrorExtR'; did you mean 'TIFFErrorExt'? [-Wimplicit-function-declaration]
+ 2948 |             TIFFErrorExtR(tif, TIFFFileName(tif),
+      |             ^~~~~~~~~~~~~
+      |             TIFFErrorExt
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_fax3.lo tif_fax3.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_fax3.c  -fPIC -DPIC -o .libs/tif_fax3.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_fax3.c -o tif_fax3.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../config -I../port  -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tif_dirread.lo tif_dirread.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_dirread.c  -fPIC -DPIC -o .libs/tif_dirread.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../config -I../port -I../libtiff -I../port -DLERC_STATIC -DTIFF_DISABLE_DEPRECATED -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c tif_dirread.c -o tif_dirread.o >/dev/null 2>&1
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -no-undefined -version-info 13:0:8  -Wl,--version-script=./libtiff.map -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o libtiff.la -rpath /usr/lib64 tif_aux.lo tif_close.lo tif_codec.lo tif_color.lo tif_compress.lo tif_dir.lo tif_dirinfo.lo tif_dirread.lo tif_dirwrite.lo tif_dumpmode.lo tif_error.lo tif_extension.lo tif_fax3.lo tif_fax3sm.lo tif_flush.lo tif_getimage.lo tif_jbig.lo tif_jpeg.lo tif_jpeg_12.lo tif_lerc.lo tif_luv.lo tif_lzma.lo tif_lzw.lo tif_next.lo tif_ojpeg.lo tif_open.lo tif_packbits.lo tif_pixarlog.lo tif_predict.lo tif_print.lo tif_read.lo tif_strip.lo tif_swab.lo tif_thunder.lo tif_tile.lo tif_version.lo tif_warning.lo tif_webp.lo tif_write.lo tif_zip.lo tif_zstd.lo  tif_unix.lo  -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/tif_aux.o .libs/tif_close.o .libs/tif_codec.o .libs/tif_color.o .libs/tif_compress.o .libs/tif_dir.o .libs/tif_dirinfo.o .libs/tif_dirread.o .libs/tif_dirwrite.o .libs/tif_dumpmode.o .libs/tif_error.o .libs/tif_extension.o .libs/tif_fax3.o .libs/tif_fax3sm.o .libs/tif_flush.o .libs/tif_getimage.o .libs/tif_jbig.o .libs/tif_jpeg.o .libs/tif_jpeg_12.o .libs/tif_lerc.o .libs/tif_luv.o .libs/tif_lzma.o .libs/tif_lzw.o .libs/tif_next.o .libs/tif_ojpeg.o .libs/tif_open.o .libs/tif_packbits.o .libs/tif_pixarlog.o .libs/tif_predict.o .libs/tif_print.o .libs/tif_read.o .libs/tif_strip.o .libs/tif_swab.o .libs/tif_thunder.o .libs/tif_tile.o .libs/tif_version.o .libs/tif_warning.o .libs/tif_webp.o .libs/tif_write.o .libs/tif_zip.o .libs/tif_zstd.o .libs/tif_unix.o   -lwebp -lzstd -ljbig -ljpeg -lz -lm -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -O2 -flto=auto -g -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -Wl,--version-script=./libtiff.map -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1   -Wl,-soname -Wl,libtiff.so.5 -o .libs/libtiff.so.5.8.0
+libtool: link: (cd ".libs" && rm -f "libtiff.so.5" && ln -s "libtiff.so.5.8.0" "libtiff.so.5")
+libtool: link: (cd ".libs" && rm -f "libtiff.so" && ln -s "libtiff.so.5.8.0" "libtiff.so")
+libtool: link: ar cru .libs/libtiff.a  tif_aux.o tif_close.o tif_codec.o tif_color.o tif_compress.o tif_dir.o tif_dirinfo.o tif_dirread.o tif_dirwrite.o tif_dumpmode.o tif_error.o tif_extension.o tif_fax3.o tif_fax3sm.o tif_flush.o tif_getimage.o tif_jbig.o tif_jpeg.o tif_jpeg_12.o tif_lerc.o tif_luv.o tif_lzma.o tif_lzw.o tif_next.o tif_ojpeg.o tif_open.o tif_packbits.o tif_pixarlog.o tif_predict.o tif_print.o tif_read.o tif_strip.o tif_swab.o tif_thunder.o tif_tile.o tif_version.o tif_warning.o tif_webp.o tif_write.o tif_zip.o tif_zstd.o tif_unix.o
+libtool: link: ranlib .libs/libtiff.a
+libtool: link: ( cd ".libs" && rm -f "libtiff.la" && ln -s "../libtiff.la" "libtiff.la" )
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+make[2]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+/bin/sh ../libtool  --tag=CXX   --mode=link g++  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -no-undefined -version-info 13:0:8  -Wl,--version-script=./libtiffxx.map -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o libtiffxx.la -rpath /usr/lib64 tif_stream.lo ../libtiff/libtiff.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: g++  -fPIC -DPIC -shared -nostdlib /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbeginS.o  .libs/tif_stream.o   -Wl,-rpath -Wl,/builddir/build/BUILD/tiff-4.4.0/libtiff/.libs ../libtiff/.libs/libtiff.so -lwebp -lzstd -ljbig -ljpeg -lz -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. -lstdc++ -lm -lc -lgcc_s /usr/lib/gcc/x86_64-redhat-linux/11/crtendS.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -O2 -flto=auto -g -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -Wl,--version-script=./libtiffxx.map -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1   -Wl,-soname -Wl,libtiffxx.so.5 -o .libs/libtiffxx.so.5.8.0
+libtool: link: (cd ".libs" && rm -f "libtiffxx.so.5" && ln -s "libtiffxx.so.5.8.0" "libtiffxx.so.5")
+libtool: link: (cd ".libs" && rm -f "libtiffxx.so" && ln -s "libtiffxx.so.5.8.0" "libtiffxx.so")
+libtool: link: ar cru .libs/libtiffxx.a  tif_stream.o
+libtool: link: ranlib .libs/libtiffxx.a
+libtool: link: ( cd ".libs" && rm -f "libtiffxx.la" && ln -s "../libtiffxx.la" "libtiffxx.la" )
+make[2]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/libtiff'
+Making all in tools
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o fax2tiff.o fax2tiff.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tiffdither.o tiffdither.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o pal2rgb.o pal2rgb.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o ppm2tiff.o ppm2tiff.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tiffset.o tiffset.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tiff2bw.o tiff2bw.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tiff2rgba.o tiff2rgba.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o fax2ps.o fax2ps.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tiffsplit.o tiffsplit.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o raw2tiff.o raw2tiff.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tiffinfo.o tiffinfo.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tiffcmp.o tiffcmp.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tiffdump.o tiffdump.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+In file included from /usr/include/features.h:490,
+                 from /usr/include/bits/libc-header-start.h:33,
+                 from /usr/include/stdint.h:26,
+                 from /usr/lib/gcc/x86_64-redhat-linux/11/include/stdint.h:9,
+                 from ../libtiff/tiffconf.h:13,
+                 from ../libtiff/tif_config.h:4,
+                 from tiffdump.c:25:
+In function 'read',
+    inlined from 'dump' at tiffdump.c:208:7,
+    inlined from 'main' at tiffdump.c:151:3:
+/usr/include/bits/unistd.h:38:10: warning: '*read' writing 12 bytes into a region of size 2 overflows the destination [-Wstringop-overflow=]
+   38 |   return __glibc_fortify (read, __nbytes, sizeof (char),
+      |          ^~~~~~~~~~~~~~~
+In file included from ../libtiff/tiffio.h:31,
+                 from ../libtiff/tiffiop.h:49,
+                 from tiffdump.c:36:
+/usr/include/bits/unistd.h: In function 'main':
+../libtiff/tiff.h:116:18: note: destination object 'tiff_offsetsize' of size 2
+  116 |         uint16_t tiff_offsetsize; /* size of offsets, should be 8 */
+      |                  ^~~~~~~~~~~~~~~
+In file included from /usr/include/features.h:490,
+                 from /usr/include/bits/libc-header-start.h:33,
+                 from /usr/include/stdint.h:26,
+                 from /usr/lib/gcc/x86_64-redhat-linux/11/include/stdint.h:9,
+                 from ../libtiff/tiffconf.h:13,
+                 from ../libtiff/tif_config.h:4,
+                 from tiffdump.c:25:
+/usr/include/bits/unistd.h:26:16: note: in a call to function '*read' declared with attribute 'access (write_only, 2, 3)'
+   26 | extern ssize_t __REDIRECT (__read_alias, (int __fd, void *__buf,
+      |                ^~~~~~~~~~
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tiffmedian.o tiffmedian.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o tiffdither tiffdither.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/tiffdither tiffdither.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:653: tiffdither] Error 1
+make[1]: *** Waiting for unfinished jobs....
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o fax2tiff fax2tiff.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/fax2tiff fax2tiff.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:601: fax2tiff] Error 1
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o pal2rgb pal2rgb.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/pal2rgb pal2rgb.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:605: pal2rgb] Error 1
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o fax2ps fax2ps.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/fax2ps fax2ps.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:597: fax2ps] Error 1
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o ppm2tiff ppm2tiff.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/ppm2tiff ppm2tiff.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:609: ppm2tiff] Error 1
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o tiff2bw tiff2bw.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/tiff2bw tiff2bw.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:625: tiff2bw] Error 1
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o tiffset tiffset.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/tiffset tiffset.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:673: tiffset] Error 1
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o tiff2rgba tiff2rgba.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/tiff2rgba tiff2rgba.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:637: tiff2rgba] Error 1
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o tiffsplit tiffsplit.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/tiffsplit tiffsplit.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:677: tiffsplit] Error 1
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o tiffinfo tiffinfo.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/tiffinfo tiffinfo.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:665: tiffinfo] Error 1
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o raw2tiff raw2tiff.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/raw2tiff raw2tiff.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:613: raw2tiff] Error 1
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tiffcp.o tiffcp.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o tiffcmp tiffcmp.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/tiffcmp tiffcmp.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:641: tiffcmp] Error 1
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o tiffdump tiffdump.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/tiffdump tiffdump.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+In function 'read',
+    inlined from 'dump' at tiffdump.c:208:7,
+    inlined from 'main' at tiffdump.c:151:3:
+/usr/include/bits/unistd.h:38:10: warning: '__read_alias' writing 12 bytes into a region of size 2 overflows the destination [-Wstringop-overflow=]
+   38 |   return __glibc_fortify (read, __nbytes, sizeof (char),
+      |          ^
+/usr/include/bits/unistd.h: In function 'main':
+../libtiff/tiff.h:116:18: note: destination object 'tiff_offsetsize' of size 2
+  116 |         uint16_t tiff_offsetsize; /* size of offsets, should be 8 */
+      |                  ^
+/usr/include/bits/unistd.h:26:16: note: in a call to function '__read_alias' declared with attribute 'access (write_only, 2, 3)'
+   26 | extern ssize_t __REDIRECT (__read_alias, (int __fd, void *__buf,
+      |                ^
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:657: tiffdump] Error 1
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/bin/sh ../libtool  --tag=CC   --mode=link gcc  -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -o tiffmedian tiffmedian.o ../libtiff/libtiff.la ../port/libport.la -lwebp -lzstd -ljbig -ljpeg -lz -lm 
+libtool: link: gcc -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -Wl,-z -Wl,relro -Wl,--as-needed -Wl,-z -Wl,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -o .libs/tiffmedian tiffmedian.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -lwebp -lzstd -ljbig -ljpeg -lz -lm
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+/usr/bin/ld: ../libtiff/.libs/libtiff.so: undefined reference to `TIFFErrorExtR'
+collect2: error: ld returned 1 exit status
+make[1]: *** [Makefile:669: tiffmedian] Error 1
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tiff2ps.o tiff2ps.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tiff2pdf.o tiff2pdf.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+make[1]: Entering directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+gcc -DHAVE_CONFIG_H -I. -I../config -I../libtiff -I../port  -I../libtiff -I../port -DTIFF_DISABLE_DEPRECATED   -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64-v2 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-strict-aliasing -Wall -W -c -o tiffcrop.o tiffcrop.c
+make[1]: Leaving directory '/builddir/build/BUILD/tiff-4.4.0/tools'
+tiffcrop.c: In function 'writeBufferToSeparateStrips':
+tiffcrop.c:1244:28: warning: comparison of integer expressions of different signedness: 'tsize_t' {aka 'long int'} and 'long long unsigned int' [-Wsign-compare]
+ 1244 |           if (scanlinesize > 0x0ffffffffULL) {
+      |                            ^
+tiffcrop.c: In function 'loadImage':
+tiffcrop.c:6498:22: warning: comparison of integer expressions of different signedness: 'tmsize_t' {aka 'long int'} and 'long long unsigned int' [-Wsign-compare]
+ 6498 |     if (scanlinesize > 0x0ffffffffULL) {
+      |                      ^
+make: *** [Makefile:561: all-recursive] Error 1
+error: Bad exit status from /var/tmp/rpm-tmp.JH52lB (%build)
+RPM build errors:
+    Bad exit status from /var/tmp/rpm-tmp.JH52lB (%build)
+Child return code was: 1
+EXCEPTION: [Error("Command failed: \n # bash --login -c '/usr/bin/rpmbuild -bb --noclean --target x86_64 --nodeps /builddir/build/SPECS/libtiff.spec'\n", 1)]
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/mockbuild/trace_decorator.py", line 93, in trace
+    result = func(*args, **kw)
+  File "/usr/lib/python3.6/site-packages/mockbuild/util.py", line 612, in do_with_status
+    raise exception.Error("Command failed: \n # %s\n%s" % (cmd_pretty(command, env), output), child.returncode)
+mockbuild.exception.Error: Command failed: 
+ # bash --login -c '/usr/bin/rpmbuild -bb --noclean --target x86_64 --nodeps /builddir/build/SPECS/libtiff.spec'
+
