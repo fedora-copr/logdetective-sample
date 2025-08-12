@@ -7,7 +7,7 @@ tricky, or complicated and serve as a benchmark for Log Detective.
 ## Sample format
 
 All samples must be placed in the `./data/` path.
-Name of the sample directory must be generated with uuid4.
+Name of the sample directory must be valid uuid4, for example generated using `uuid -v4`.
 Sample must consist of original log file, without alterations or modifications,
 and a `sample_metadata.yaml` file.
 
