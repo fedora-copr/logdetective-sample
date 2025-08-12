@@ -7,7 +7,7 @@ issue: |
 log_detective_version: 2.0.0
 log_detective_analysis: |
     The RPM build for `libtiff` failed during the `%build` phase. The `make` command exited with an error, specifically `Error 1` during the `all-recursive` target. This was triggered by a comparison of signed and unsigned integer expressions in `tiffcrop.c`, which likely resulted in `scanlinesize` exceeding allowed maximum.
-    
+
     To resolve this, consider patching the `tiffcrop.c` code to handle the comparison between `tsize_t` and `long long unsigned int` correctly, or adjust the `scanlinesize` calculation to prevent it from exceeding the limit, or disable `-Wsign-compare` warning.
 log_file: build.log
 notes: |

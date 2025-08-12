@@ -11,7 +11,7 @@ Name of the sample directory must be generated with uuid4.
 Sample must consist of original log file, without alterations or modifications,
 and a `sample_metadata.yaml` file.
 
-Log file must be in plain text, and not compressed 
+Log file must be in plain text, and not compressed
 
 The `sample_metadata.yaml` must contain information about:
 - the project being built in `source_project_name` field
@@ -21,7 +21,7 @@ The `sample_metadata.yaml` must contain information about:
 - name of the log file making the sample in the `log_file` field
 
 The file may contain:
-- `references` field with a list of URLs 
+- `references` field with a list of URLs
 - `notes` field with more information about the sample
 - `api` field containing name of API endpoint used to obtain the analysis
 
@@ -43,4 +43,3 @@ notes: |
     Was I wrong?
 api: /analysis/staged
 ```
-
