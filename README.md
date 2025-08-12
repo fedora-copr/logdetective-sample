@@ -15,7 +15,7 @@ Log file must be in plain text, and not compressed
 
 The `sample_metadata.yaml` must contain information about:
 - the project being built in `source_project_name` field
-- issue encountered during the build in the `issue` field
+- primary issue encountered during the build in the `issue` field
 - version of Log Detective used in the `log_detective_version` field
 - full analysis provided by Log Detective at the time in the `log_detective_analysis` field
 - name of the log file making the sample in the `log_file` field
