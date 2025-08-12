@@ -1,0 +1,23 @@
+source_project_name: tiff
+source_project_version: 4.4.0
+issue: |
+    Symbol `TIFFErrorExtR` was not defined, causing failure during linking.
+    Several warnings were produced as well, including comparison between integer types using different signedness.
+    The issue with `TIFFErrorExtR` was hinted at by warning about its implicit declaration, earlier in the log.
+log_detective_version: 2.0.0
+log_detective_analysis: |
+    The RPM build for `libtiff` failed during the `%build` phase. The `make` command exited with an error, specifically `Error 1` during the `all-recursive` target. This was triggered by a comparison of signed and unsigned integer expressions in `tiffcrop.c`, which likely resulted in `scanlinesize` exceeding allowed maximum.
+    
+    To resolve this, consider patching the `tiffcrop.c` code to handle the comparison between `tsize_t` and `long long unsigned int` correctly, or adjust the `scanlinesize` calculation to prevent it from exceeding the limit, or disable `-Wsign-compare` warning.
+log_file: build.log
+notes: |
+    drain didn't find the correct line with the info about missing symbol and flagged a different one that was just a warning:
+
+    ```
+    Line 905: tiffcrop.c: In function 'writeBufferToSeparateStrips':
+    tiffcrop.c:1244:28: warning: comparison of integer expressions of different signedness: 'tsize_t' {aka 'long int'} and 'long long unsigned int' [-Wsign-compare]
+    1244 |           if (scanlinesize > 0x0ffffffffULL) {
+        |                            ^
+    ```
+
+    The RPM build log snippet indicates a compiler warning during the build process of the 'tiffcrop.c' file. The warning message specifically mentions a comparison of two data types with different signedness in line 1244 of the file: 'tsize_t' (a long int type) and 'long long unsigned int'. The compiler is advising that such a comparison may result in unexpected behavior due to potential sign conversions. The warning message concludes with the location of the issue in the code.
