@@ -1,0 +1,18 @@
+source_project_name: python-boto3
+source_project_version: 1.37.14
+issue: |
+    Build failed due to unavailable dependency. Package `python3dist(botocore)`` was not available in specified version range < 1.38 and >= 1.37.14.
+log_detective_version: 2.0.0
+log_detective_analysis: |
+    The RPM build failed due to an unresolved dependency. The build process requires `python3dist(botocore)` with a version greater than or equal to 1.37.14 but less than 1.38, and no package providing this specific version range is available in the configured repositories. To resolve this, either update the package requirements to align with available versions or add a repository containing the required version of `python3dist(botocore)`.
+log_file: root.log
+notes: |
+    Example of a package whose failure is in root.log, not build.log
+    When given root.log, Log Detective correctly determines the root cause.
+    Source: https://koji.fedoraproject.org/koji/taskinfo?taskID=130410241
+    build.log: https://kojipkgs.fedoraproject.org//work/tasks/241/130410241/build.log
+    root.log: https://kojipkgs.fedoraproject.org//work/tasks/241/130410241/root.log
+references:
+    - https://koji.fedoraproject.org/koji/taskinfo?taskID=130410241
+    - https://kojipkgs.fedoraproject.org//work/tasks/241/130410241/build.log
+    - https://kojipkgs.fedoraproject.org//work/tasks/241/130410241/root.log

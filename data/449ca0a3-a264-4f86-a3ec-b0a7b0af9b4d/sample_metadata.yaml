@@ -1,0 +1,15 @@
+source_project_name: dolphin-emu
+source_project_version: 2409
+issue: |
+    Multiple compilation errors in `MsgHandler.h`.
+    This includes warnings that were raised to the level of errors with `-Wtemplate-body` option.
+log_detective_version: 2.0.0
+log_detective_analysis: |
+    The RPM build process failed during the `%build` phase while building the `dolphin-emu.spec` file. The `gmake` command exited with an error code of 2, and the underlying issue is that the `rpmbuild` command failed within a `systemd-nspawn` container. The `Makefile` target `all` failed, causing the build to halt. Review the `Makefile` and build scripts for errors, and ensure all dependencies are met.
+log_file: build.log
+notes: |
+    Taken from https://koji.fedoraproject.org/koji/taskinfo?taskID=127945466
+
+    Drain3 fails to extract good data.
+references:
+    - https://koji.fedoraproject.org/koji/taskinfo?taskID=127945466

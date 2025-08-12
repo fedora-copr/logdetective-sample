@@ -1,0 +1,12 @@
+source_project_name: rubygem-actiontext
+source_project_version: 8.0.1-1
+issue: |
+    Error was encountered while running tests in the %check phase. Method `to_model` of ActiveStorage::VariantWithRecord was undefined.
+    Multiple warnings were raised about various non-breaking issues in the source.
+log_detective_version: 2.0.0
+log_detective_analysis: |
+    The RPM build failed during the `%check` phase, as indicated by the \"Bad exit status from /var/tmp/rpm-tmp.H6YM9X (%check)\" error. The test suite reported 1 error.
+    The root cause is a test failure during the check phase. Examine the test logs to identify the specific test that failed and address the underlying issue in the code or test setup.
+log_file: builder-live.log
+notes: |
+    LD completely misses on the error line

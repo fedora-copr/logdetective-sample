@@ -1,0 +1,24 @@
+source_project_name: LabPlot
+source_project_version: 2.11.80
+issue: |
+    Multiple compilation errors in `XLSXFilter.cpp`. Compiler couldn't deduce type in `const auto*` expression.
+log_detective_version: 2.0.0
+log_detective_analysis: |
+    The RPM build failed during the `%build` phase, specifically when running `gmake`. The `gmake` command exited with code 2, indicating an error while building the `all` target in the `Makefile`. This occurred during the build of the LabPlot package for the `aarch64` architecture within a `systemd-nspawn` container.
+    To resolve this, examine the `Makefile` at line 149 and the surrounding code to identify the cause of the build error. Check for missing dependencies, incorrect compiler flags, or other build-related issues.
+log_file: build.log
+notes: |
+    Source: https://kojipkgs.fedoraproject.org//work/tasks/9915/128879915/build.log
+
+    The error is hidden inside the file and not at the end. The error:
+    ```
+    /builddir/build/BUILD/LabPlot-2.11.80_20241117.082905.4e770ae-build/labplot-4e770ae2d988362dca637aef2b74610a4a1456c2/src/backend/datasources/filters/XLSXFilter.cpp: In member function ‘QXlsx::Cell::CellType XLSXFilterPrivate::columnTypeInRange(int, const QXlsx::CellRange&) const’:
+    /builddir/build/BUILD/LabPlot-2.11.80_20241117.082905.4e770ae-build/labplot-4e770ae2d988362dca637aef2b74610a4a1456c2/src/backend/datasources/filters/XLSXFilter.cpp:795:62: error: unable to deduce ‘const auto*’ from ‘QXlsx::Document::cellAt(int, int) const(row, ((int)column))’
+    795 |                         const auto* cell = m_document->cellAt(row, column);
+        |                                            ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+    /builddir/build/BUILD/LabPlot-2.11.80_20241117.082905.4e770ae-build/labplot-4e770ae2d988362dca637aef2b74610a4a1456c2/src/backend/datasources/filters/XLSXFilter.cpp:795:74: note:   mismatched types ‘const auto*’ and ‘std::shared_ptr<QXlsx::Cell>’
+    795 |                         const auto* cell = m_document->cellAt(row, column);
+        |                                                                          ^
+    ```
+references:
+    - https://kojipkgs.fedoraproject.org//work/tasks/9915/128879915/build.log
