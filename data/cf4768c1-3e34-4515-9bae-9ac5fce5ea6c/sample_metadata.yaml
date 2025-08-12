@@ -1,0 +1,20 @@
+source_project_name: firefox
+source_project_version: 128.10.0-2
+issue: |
+    Compilation of `neqo-crypto` target failed, as cargo couldn't find symbol `ssl_grp_kem_mlkem768x25519` in module `ssl::SSLNamedGroup`.
+    Numerous warnings were produced during the compilation, pointing out minor issues with the code.
+log_detective_version: 2.0.0
+log_detective_analysis: |
+    The RPM build failed during the `%build` phase with a non-zero exit status. This was triggered by a failure within a `systemd-nspawn` container, where the `rpmbuild` command itself failed while processing `firefox.spec`. The root cause appears to be related to a `gmake` error during the Rust cargo library build, and a missing configuration object required by the 'mach' tool.
+    
+    Recommendation:
+    
+    1.  Investigate the `rust.mk` file and the Rust build environment for potential issues.
+    2.  Ensure that the necessary configuration files for the 'mach' tool are present and accessible during the build process, potentially by running `mach build` as suggested.
+    3.  Address the 35 compiler warnings, as they might indicate underlying code problems that contribute to the build failure.
+log_file: build.log
+notes: |
+    Log contains many very long lines, this can lead to failure during tokenization by overflowing model context limit.
+    Heuristics employed by Log Detective before application of Drain are attempting to mitigate this,
+    by splitting lines that are too long. But this leads loss of information.
+
