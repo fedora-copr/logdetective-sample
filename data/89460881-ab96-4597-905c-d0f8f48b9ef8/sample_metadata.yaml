@@ -1,0 +1,12 @@
+source_project_name: python-boto3
+source_project_version: 1.37.14
+issue: |
+    Build failed, due to error 404 encountered during download of https://ftp.mozilla.org/pub/thunderbird/nightly/latest-comm-central-l10n/thunderbird-92.0a1.en-US.linux-x86_64.tar.bz2 .
+    Ensure that remote file name is correct before attempting the build again. Or find alternative source.
+log_detective_version: 2.0.0
+log_detective_analysis: |
+    The build failed because `curl` was unable to download `https://ftp.mozilla.org/pub/thunderbird/nightly/latest-comm-central-l10n/thunderbird-92.0a1.en-US.linux-x86_64.tar.bz2`, resulting in a 404 error.
+    This indicates the file is missing at the specified URL. The issue could be a temporary outage, incorrect URL, or the file was intentionally removed.
+    Verify the URL in the spec file, check for typos, and ensure the file exists at the specified location.
+    If the URL is dynamically generated, ensure that the variables are correctly defined and resolved. Consider adding a retry mechanism or using a mirror if the issue persists.
+log_file: root.log
