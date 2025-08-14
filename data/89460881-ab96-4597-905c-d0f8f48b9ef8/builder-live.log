@@ -1,0 +1,74 @@
+Warning: Permanently added '3.82.22.99' (ED25519) to the list of known hosts.
+
+You can reproduce this build on your computer by running:
+
+  sudo dnf install copr-rpmbuild
+  /usr/bin/copr-rpmbuild --verbose --drop-resultdir --srpm --task-url https://copr.fedorainfracloud.org/backend/get-srpm-build-task/9411983
+
+
+Version: 1.3
+PID: 8870
+Logging PID: 8871
+Task:
+{'appstream': False,
+ 'background': True,
+ 'build_id': 9411983,
+ 'chroot': None,
+ 'package_name': 'thunderbird-nightly',
+ 'project_dirname': 'thunderbird-nightly',
+ 'project_name': 'thunderbird-nightly',
+ 'project_owner': 'proletarius101',
+ 'repos': [],
+ 'sandbox': 'proletarius101/thunderbird-nightly--f954ad12-de32-48bc-bd5f-defea116d953',
+ 'source_json': {'clone_url': 'https://gitlab.com/accessable-net/thunderbird-nightly-copr.git',
+                 'committish': 'master-ci',
+                 'spec': 'thunderbird-nightly.spec',
+                 'srpm_build_method': 'rpkg',
+                 'subdirectory': '',
+                 'type': 'git'},
+ 'source_type': 8,
+ 'submitter': None,
+ 'task_id': '9411983'}
+
+Running: git clone https://gitlab.com/accessable-net/thunderbird-nightly-copr.git /var/lib/copr-rpmbuild/workspace/workdir-yc_spfqs/thunderbird-nightly-copr --depth 500 --no-single-branch --recursive
+
+cmd: ['git', 'clone', 'https://gitlab.com/accessable-net/thunderbird-nightly-copr.git', '/var/lib/copr-rpmbuild/workspace/workdir-yc_spfqs/thunderbird-nightly-copr', '--depth', '500', '--no-single-branch', '--recursive']
+cwd: .
+rc: 0
+stdout: 
+stderr: Cloning into '/var/lib/copr-rpmbuild/workspace/workdir-yc_spfqs/thunderbird-nightly-copr'...
+
+Running: git checkout master-ci --
+
+cmd: ['git', 'checkout', 'master-ci', '--']
+cwd: /var/lib/copr-rpmbuild/workspace/workdir-yc_spfqs/thunderbird-nightly-copr
+rc: 0
+stdout: Your branch is up to date with 'origin/master-ci'.
+stderr: Already on 'master-ci'
+
+Generated rpkg config:
+[rpkg]
+preprocess_spec = True
+
+[git]
+anon_clone_url = https://gitlab.com/%(repo_path)s
+
+[lookaside]
+download_url = https://${git_props:remote_netloc}/repo/pkgs/%(repo_path)s/%(filename)s/%(hashtype)s/%(hash)s/%(filename)s
+
+Writing config into /var/lib/copr-rpmbuild/workspace/workdir-yc_spfqs/.config/rpkg.conf
+Running: rpkg srpm --outdir /var/lib/copr-rpmbuild/results --spec /var/lib/copr-rpmbuild/workspace/workdir-yc_spfqs/thunderbird-nightly-copr/thunderbird-nightly.spec
+
+cmd: ['rpkg', 'srpm', '--outdir', '/var/lib/copr-rpmbuild/results', '--spec', '/var/lib/copr-rpmbuild/workspace/workdir-yc_spfqs/thunderbird-nightly-copr/thunderbird-nightly.spec']
+cwd: /var/lib/copr-rpmbuild/workspace/workdir-yc_spfqs/thunderbird-nightly-copr
+rc: 1
+stdout: Wrote: /var/lib/copr-rpmbuild/results/thunderbird-nightly.spec
+stderr: warning: Downloading https://ftp.mozilla.org/pub/thunderbird/nightly/latest-comm-central-l10n/thunderbird-92.0a1.en-US.linux-x86_64.tar.bz2 to /var/lib/copr-rpmbuild/results/thunderbird-92.0a1.en-US.linux-x86_64.tar.bz2
+curl: (22) The requested URL returned error: 404
+error: Executing url helper "/usr/bin/curl --proto -all,+https,+ftps  --silent --show-error --fail --globoff --location -o /var/lib/copr-rpmbuild/results/thunderbird-92.0a1.en-US.linux-x86_64.tar.bz2 https://ftp.mozilla.org/pub/thunderbird/nightly/latest-comm-central-l10n/thunderbird-92.0a1.en-US.linux-x86_64.tar.bz2" failed with status 22
+error: Couldn't download https://ftp.mozilla.org/pub/thunderbird/nightly/latest-comm-central-l10n/thunderbird-92.0a1.en-US.linux-x86_64.tar.bz2
+
+Copr build error: warning: Downloading https://ftp.mozilla.org/pub/thunderbird/nightly/latest-comm-central-l10n/thunderbird-92.0a1.en-US.linux-x86_64.tar.bz2 to /var/lib/copr-rpmbuild/results/thunderbird-92.0a1.en-US.linux-x86_64.tar.bz2
+curl: (22) The requested URL returned error: 404
+error: Executing url helper "/usr/bin/curl --proto -all,+https,+ftps  --silent --show-error --fail --globoff --location -o /var/lib/copr-rpmbuild/results/thunderbird-92.0a1.en-US.linux-x86_64.tar.bz2 https://ftp.mozilla.org/pub/thunderbird/nightly/latest-comm-central-l10n/thunderbird-92.0a1.en-US.linux-x86_64.tar.bz2" failed with status 22
+error: Couldn't download https://ftp.mozilla.org/pub/thunderbird/nightly/latest-comm-central-l10n/thunderbird-92.0a1.en-US.linux-x86_64.tar.bz2

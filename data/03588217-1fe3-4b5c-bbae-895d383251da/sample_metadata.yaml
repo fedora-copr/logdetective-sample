@@ -1,0 +1,13 @@
+source_project_name: gstreamer1-plugins-bad-free
+source_project_version: 1.26.5-3
+issue: |
+   RPM build failed due to missing dependency  `pkgconfig(mjpegtools) >= 2.0.0`.
+   In order to resolve the issue, make sure that all dependencies required by the package
+   are available in installed repositories.
+log_detective_version: 2.0.0
+log_detective_analysis: |
+    The build failed because a dependency, `pkgconfig(mjpegtools) >= 2.0.0`, could not be resolved during the `dnf5 builddep` stage within the mock environment.
+    This indicates that the required version of `mjpegtools` or its pkgconfig file is not available in the configured repositories.
+    Ensure that the repository containing `mjpegtools` is enabled and that the package version meets the requirement.
+    Alternatively, if the package is not essential, consider using `--skip-unavailable` to bypass the missing dependency, although this might lead to other issues if the package is indeed required.
+log_file: builder-live.log
