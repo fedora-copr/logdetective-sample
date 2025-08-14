@@ -1,0 +1,785 @@
+Warning: Permanently added '34.204.44.198' (ED25519) to the list of known hosts.
+
+You can reproduce this build on your computer by running:
+
+  sudo dnf install copr-rpmbuild
+  /usr/bin/copr-rpmbuild --verbose --drop-resultdir --task-url https://copr.fedorainfracloud.org/backend/get-build-task/9404986-fedora-eln-x86_64 --chroot fedora-eln-x86_64
+
+
+Version: 1.3
+PID: 8970
+Logging PID: 8971
+Task:
+{'allow_user_ssh': False,
+ 'appstream': False,
+ 'background': True,
+ 'build_id': 9404986,
+ 'buildroot_pkgs': ['clang-rpm-macros', 'clang', 'compiler-rt', 'libomp', 'libomp-devel', 'llvm'],
+ 'chroot': 'fedora-eln-x86_64',
+ 'enable_net': False,
+ 'fedora_review': False,
+ 'git_hash': '31636b6f76c076ef04d69c6dcef643782a27192f',
+ 'git_repo': 'https://copr-dist-git.fedorainfracloud.org/git/@fedora-llvm-team/clang-built-eln/whois',
+ 'isolation': 'default',
+ 'memory_reqs': 2048,
+ 'package_name': 'whois',
+ 'package_version': '5.6.4-1',
+ 'project_dirname': 'clang-built-eln',
+ 'project_name': 'clang-built-eln',
+ 'project_owner': '@fedora-llvm-team',
+ 'repo_priority': None,
+ 'repos': [{'baseurl': 'https://download.copr.fedorainfracloud.org/results/@fedora-llvm-team/clang-built-eln/fedora-eln-x86_64/',
+            'id': 'copr_base',
+            'name': 'Copr repository',
+            'priority': None},
+           {'baseurl': 'https://kojipkgs.fedoraproject.org/repos/eln-build/latest/$basearch/',
+            'id': 'https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch',
+            'name': 'Additional repo https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch'},
+           {'baseurl': 'https://download.copr.fedorainfracloud.org/results/@fedora-llvm-team/clang-rpm-macros/fedora-$releasever-$basearch/',
+            'id': 'https_download_copr_fedorainfracloud_org_results_fedora_llvm_team_clang_rpm_macros_fedora_releasever_basearch',
+            'name': 'Additional repo '
+                    'https_download_copr_fedorainfracloud_org_results_fedora_llvm_team_clang_rpm_macros_fedora_releasever_basearch'}],
+ 'sandbox': '@fedora-llvm-team/clang-built-eln--https://src.fedoraproject.org/user/ppisar',
+ 'source_json': {},
+ 'source_type': None,
+ 'ssh_public_keys': None,
+ 'storage': None,
+ 'submitter': 'https://src.fedoraproject.org/user/ppisar',
+ 'tags': [],
+ 'task_id': '9404986-fedora-eln-x86_64',
+ 'timeout': 18000,
+ 'uses_devel_repo': False,
+ 'with_opts': ['toolchain_clang', 'clang_lto'],
+ 'without_opts': []}
+
+Running: git clone https://copr-dist-git.fedorainfracloud.org/git/@fedora-llvm-team/clang-built-eln/whois /var/lib/copr-rpmbuild/workspace/workdir-a9wg2ks3/whois --depth 500 --no-single-branch --recursive
+
+cmd: ['git', 'clone', 'https://copr-dist-git.fedorainfracloud.org/git/@fedora-llvm-team/clang-built-eln/whois', '/var/lib/copr-rpmbuild/workspace/workdir-a9wg2ks3/whois', '--depth', '500', '--no-single-branch', '--recursive']
+cwd: .
+rc: 0
+stdout: 
+stderr: Cloning into '/var/lib/copr-rpmbuild/workspace/workdir-a9wg2ks3/whois'...
+
+Running: git checkout 31636b6f76c076ef04d69c6dcef643782a27192f --
+
+cmd: ['git', 'checkout', '31636b6f76c076ef04d69c6dcef643782a27192f', '--']
+cwd: /var/lib/copr-rpmbuild/workspace/workdir-a9wg2ks3/whois
+rc: 0
+stdout: 
+stderr: Note: switching to '31636b6f76c076ef04d69c6dcef643782a27192f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 31636b6 automatic import of whois
+
+Running: dist-git-client sources
+
+cmd: ['dist-git-client', 'sources']
+cwd: /var/lib/copr-rpmbuild/workspace/workdir-a9wg2ks3/whois
+rc: 0
+stdout: 
+stderr: INFO: Reading stdout from command: git rev-parse --abbrev-ref HEAD
+INFO: Reading stdout from command: git rev-parse HEAD
+INFO: Reading sources specification file: sources
+INFO: Downloading gpgkey-374D8CE4DB96E9CBD4C0972A606D084E4683C079.gpg
+INFO: Reading stdout from command: curl --help all
+INFO: Calling: curl -H Pragma: -o gpgkey-374D8CE4DB96E9CBD4C0972A606D084E4683C079.gpg --location --connect-timeout 60 --retry 3 --retry-delay 10 --remote-time --show-error --fail --retry-all-errors https://copr-dist-git.fedorainfracloud.org/repo/pkgs/@fedora-llvm-team/clang-built-eln/whois/gpgkey-374D8CE4DB96E9CBD4C0972A606D084E4683C079.gpg/md5/1e410f628a5b34eca56bcadb1a8dc374/gpgkey-374D8CE4DB96E9CBD4C0972A606D084E4683C079.gpg
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1199  100  1199    0     0   113k      0 --:--:-- --:--:-- --:--:--  117k
+INFO: Reading stdout from command: md5sum gpgkey-374D8CE4DB96E9CBD4C0972A606D084E4683C079.gpg
+INFO: Downloading whois_5.6.4.tar.xz
+INFO: Calling: curl -H Pragma: -o whois_5.6.4.tar.xz --location --connect-timeout 60 --retry 3 --retry-delay 10 --remote-time --show-error --fail --retry-all-errors https://copr-dist-git.fedorainfracloud.org/repo/pkgs/@fedora-llvm-team/clang-built-eln/whois/whois_5.6.4.tar.xz/md5/d8eed2686ec8244090165e180d24df04/whois_5.6.4.tar.xz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 92112  100 92112    0     0  8100k      0 --:--:-- --:--:-- --:--:-- 8177k
+INFO: Reading stdout from command: md5sum whois_5.6.4.tar.xz
+
+tail: /var/lib/copr-rpmbuild/main.log: file truncated
+Running (timeout=18000): unbuffer mock --spec /var/lib/copr-rpmbuild/workspace/workdir-a9wg2ks3/whois/whois.spec --sources /var/lib/copr-rpmbuild/workspace/workdir-a9wg2ks3/whois --resultdir /var/lib/copr-rpmbuild/results --uniqueext 1755004448.554015 -r /var/lib/copr-rpmbuild/results/configs/child.cfg --with toolchain_clang --with clang_lto
+INFO: mock.py version 6.3 starting (python version = 3.13.5, NVR = mock-6.3-1.fc42), args: /usr/libexec/mock/mock --spec /var/lib/copr-rpmbuild/workspace/workdir-a9wg2ks3/whois/whois.spec --sources /var/lib/copr-rpmbuild/workspace/workdir-a9wg2ks3/whois --resultdir /var/lib/copr-rpmbuild/results --uniqueext 1755004448.554015 -r /var/lib/copr-rpmbuild/results/configs/child.cfg --with toolchain_clang --with clang_lto
+Start(bootstrap): init plugins
+INFO: tmpfs initialized
+INFO: selinux enabled
+INFO: chroot_scan: initialized
+INFO: compress_logs: initialized
+Finish(bootstrap): init plugins
+Start: init plugins
+INFO: tmpfs initialized
+INFO: selinux enabled
+INFO: chroot_scan: initialized
+INFO: compress_logs: initialized
+Finish: init plugins
+INFO: Signal handler active
+Start: run
+INFO: Start(/var/lib/copr-rpmbuild/workspace/workdir-a9wg2ks3/whois/whois.spec)  Config(fedora-eln-x86_64)
+Start: clean chroot
+Finish: clean chroot
+Mock Version: 6.3
+INFO: Mock Version: 6.3
+Start(bootstrap): chroot init
+INFO: mounting tmpfs at /var/lib/mock/fedora-eln-x86_64-bootstrap-1755004448.554015/root.
+INFO: calling preinit hooks
+INFO: enabled root cache
+INFO: enabled package manager cache
+Start(bootstrap): cleaning package manager metadata
+Finish(bootstrap): cleaning package manager metadata
+INFO: Guessed host environment type: unknown
+INFO: Using container image: quay.io/fedora/eln:latest
+INFO: Pulling image: quay.io/fedora/eln:latest
+INFO: Tagging container image as mock-bootstrap-5b151954-0868-4bcc-8c8f-50ec72e771db
+INFO: Checking that 5dc120f46575508780ccec7271e2b1a43886f1c1f2c292a142869fe65868734a image matches host's architecture
+INFO: Copy content of container 5dc120f46575508780ccec7271e2b1a43886f1c1f2c292a142869fe65868734a to /var/lib/mock/fedora-eln-x86_64-bootstrap-1755004448.554015/root
+INFO: mounting 5dc120f46575508780ccec7271e2b1a43886f1c1f2c292a142869fe65868734a with podman image mount
+INFO: image 5dc120f46575508780ccec7271e2b1a43886f1c1f2c292a142869fe65868734a as /var/lib/containers/storage/overlay/636c2a9473cd331fc29e1f1ec9fabd86925df83c5c45aaa58da8ab2a0d31347c/merged
+INFO: umounting image 5dc120f46575508780ccec7271e2b1a43886f1c1f2c292a142869fe65868734a (/var/lib/containers/storage/overlay/636c2a9473cd331fc29e1f1ec9fabd86925df83c5c45aaa58da8ab2a0d31347c/merged) with podman image umount
+INFO: Removing image mock-bootstrap-5b151954-0868-4bcc-8c8f-50ec72e771db
+INFO: Package manager dnf5 detected and used (fallback)
+INFO: Not updating bootstrap chroot, bootstrap_image_ready=True
+Start(bootstrap): creating root cache
+Finish(bootstrap): creating root cache
+Finish(bootstrap): chroot init
+Start: chroot init
+INFO: mounting tmpfs at /var/lib/mock/fedora-eln-x86_64-1755004448.554015/root.
+INFO: calling preinit hooks
+INFO: enabled root cache
+INFO: enabled package manager cache
+Start: cleaning package manager metadata
+Finish: cleaning package manager metadata
+INFO: enabled HW Info plugin
+INFO: Package manager dnf5 detected and used (direct choice)
+INFO: Buildroot is handled by package management downloaded with a bootstrap image:
+  rpm-5.99.91-3.eln150.x86_64
+  rpm-sequoia-1.9.0-1.eln150.x86_64
+  dnf5-5.2.16.0-1.eln150.x86_64
+  dnf5-plugins-5.2.16.0-1.eln150.x86_64
+Start: installing minimal buildroot with dnf5
+Updating and loading repositories:
+ Additional repo https_download_copr_fe 100% |  12.7 KiB/s |   4.4 KiB |  00m00s
+ Copr repository                        100% | 152.4 KiB/s |  53.2 KiB |  00m00s
+ Additional repo https_kojipkgs_fedorap 100% |  26.5 MiB/s |  14.0 MiB |  00m01s
+ Fedora - ELN Extras - Developmental pa 100% |  98.6 KiB/s | 568.5 KiB |  00m06s
+ Fedora - ELN CodeReady Linux Builders  100% | 218.8 KiB/s | 338.2 KiB |  00m02s
+ Fedora - ELN BaseOS - Developmental pa 100% |   1.4 MiB/s |   1.7 MiB |  00m01s
+ Fedora - ELN AppStream - Developmental 100% | 980.9 KiB/s |   1.4 MiB |  00m01s
+Repositories loaded.
+Package                      Arch   Version                      Repository                                                            Size
+Installing:
+ bash                        x86_64 5.3.0-2.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   8.4 MiB
+ bzip2                       x86_64 1.0.8-21.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  95.3 KiB
+ coreutils                   x86_64 9.7-5.eln150                 https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   5.4 MiB
+ cpio                        x86_64 2.15-6.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.1 MiB
+ diffutils                   x86_64 3.12-3.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.6 MiB
+ fedora-release-eln          noarch 43-0.20.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   0.0   B
+ findutils                   x86_64 1:4.10.0-6.eln150            https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.9 MiB
+ gawk                        x86_64 5.3.2-2.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.8 MiB
+ glibc-minimal-langpack      x86_64 2.42-3.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   0.0   B
+ grep                        x86_64 3.12-2.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.0 MiB
+ gzip                        x86_64 1.13-4.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 388.8 KiB
+ info                        x86_64 7.2-6.eln150                 https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 357.9 KiB
+ patch                       x86_64 2.8-2.eln150                 https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 222.7 KiB
+ redhat-rpm-config           noarch 343-10.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 182.9 KiB
+ rpm-build                   x86_64 5.99.91-3.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 289.5 KiB
+ sed                         x86_64 4.9-5.eln150                 https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 857.3 KiB
+ tar                         x86_64 2:1.35-6.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   3.0 MiB
+ unzip                       x86_64 6.0-67.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 406.3 KiB
+ util-linux                  x86_64 2.41.1-15.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   3.5 MiB
+ which                       x86_64 2.23-3.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  83.1 KiB
+ xz                          x86_64 1:5.8.1-2.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.3 MiB
+Installing dependencies:
+ alternatives                x86_64 1.33-2.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  62.2 KiB
+ audit-libs                  x86_64 4.1.1-1.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 374.9 KiB
+ binutils                    x86_64 2.45-1.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  26.6 MiB
+ bzip2-libs                  x86_64 1.0.8-21.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  80.6 KiB
+ ca-certificates             noarch 2024.2.69_v8.0.401-7.eln150  https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   2.6 MiB
+ coreutils-common            x86_64 9.7-5.eln150                 https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  11.3 MiB
+ crypto-policies             noarch 20250804-1.git2ca4115.eln150 https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 118.8 KiB
+ curl                        x86_64 8.15.0-2.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 473.6 KiB
+ cyrus-sasl-lib              x86_64 2.1.28-33.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 719.6 KiB
+ debugedit                   x86_64 5.2-2.eln150                 https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 197.8 KiB
+ dwz                         x86_64 0.16-2.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 287.1 KiB
+ ed                          x86_64 1.22-2.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 142.7 KiB
+ efi-srpm-macros             noarch 6-4.eln150                   https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  40.1 KiB
+ elfutils                    x86_64 0.193-3.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   2.9 MiB
+ elfutils-debuginfod-client  x86_64 0.193-3.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  83.9 KiB
+ elfutils-default-yama-scope noarch 0.193-3.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.8 KiB
+ elfutils-libelf             x86_64 0.193-3.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.2 MiB
+ elfutils-libs               x86_64 0.193-3.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 683.4 KiB
+ fedora-gpg-keys             noarch 43-0.3.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 131.2 KiB
+ fedora-release-common       noarch 43-0.20.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  20.6 KiB
+ fedora-release-identity-eln noarch 43-0.20.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.7 KiB
+ fedora-repos-eln            noarch 43-0.3.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  10.9 KiB
+ file                        x86_64 5.46-6.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 100.3 KiB
+ file-libs                   x86_64 5.46-6.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  11.9 MiB
+ filesystem                  x86_64 3.18-50.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 112.0   B
+ filesystem-srpm-macros      noarch 3.18-50.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  38.2 KiB
+ fonts-srpm-macros           noarch 1:2.0.5-23.eln150            https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  55.8 KiB
+ forge-srpm-macros           noarch 0.4.0-3.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  38.9 KiB
+ gdb-minimal                 x86_64 16.3-4.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  13.1 MiB
+ gdbm-libs                   x86_64 1:1.23-10.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 129.9 KiB
+ glibc                       x86_64 2.42-3.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   6.3 MiB
+ glibc-common                x86_64 2.42-3.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.0 MiB
+ glibc-gconv-extra           x86_64 2.42-3.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   7.2 MiB
+ gmp                         x86_64 1:6.3.0-4.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 811.3 KiB
+ gnupg2                      x86_64 2.4.8-4.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   6.5 MiB
+ gnupg2-dirmngr              x86_64 2.4.8-4.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 622.5 KiB
+ gnupg2-gpg-agent            x86_64 2.4.8-4.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 671.4 KiB
+ gnupg2-gpgconf              x86_64 2.4.8-4.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 250.1 KiB
+ gnupg2-keyboxd              x86_64 2.4.8-4.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 201.4 KiB
+ gnupg2-verify               x86_64 2.4.8-4.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 348.5 KiB
+ gnutls                      x86_64 3.8.10-3.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   3.9 MiB
+ go-srpm-macros              noarch 3.7.0-1.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  61.4 KiB
+ gpgverify                   noarch 2.2-3.eln150                 https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   8.7 KiB
+ ima-evm-utils-libs          x86_64 1.6.2-6.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  60.7 KiB
+ jansson                     x86_64 2.14-3.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  89.1 KiB
+ java-srpm-macros            noarch 1-7.eln150                   https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 870.0   B
+ json-c                      x86_64 0.18-7.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  82.7 KiB
+ kernel-srpm-macros          noarch 1.0-27.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.9 KiB
+ keyutils-libs               x86_64 1.6.3-6.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  54.3 KiB
+ krb5-libs                   x86_64 1.21.3-7.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   2.3 MiB
+ libacl                      x86_64 2.3.2-4.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  35.9 KiB
+ libarchive                  x86_64 3.8.1-3.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 959.1 KiB
+ libassuan                   x86_64 2.5.7-4.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 163.8 KiB
+ libattr                     x86_64 2.5.2-6.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  24.4 KiB
+ libblkid                    x86_64 2.41.1-15.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 262.4 KiB
+ libbrotli                   x86_64 1.1.0-8.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 841.3 KiB
+ libcap                      x86_64 2.76-2.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 209.2 KiB
+ libcap-ng                   x86_64 0.8.5-6.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  68.9 KiB
+ libcom_err                  x86_64 1.47.3-2.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  63.1 KiB
+ libcurl                     x86_64 8.15.0-2.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 895.2 KiB
+ libeconf                    x86_64 0.7.9-2.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  64.9 KiB
+ libevent                    x86_64 2.1.12-16.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 883.1 KiB
+ libfdisk                    x86_64 2.41.1-15.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 380.4 KiB
+ libffi                      x86_64 3.5.1-2.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  83.6 KiB
+ libgcc                      x86_64 15.2.1-1.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 266.6 KiB
+ libgcrypt                   x86_64 1.11.1-2.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.6 MiB
+ libgomp                     x86_64 15.2.1-1.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 549.2 KiB
+ libgpg-error                x86_64 1.55-2.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 915.3 KiB
+ libidn2                     x86_64 2.3.8-2.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 556.5 KiB
+ libksba                     x86_64 1.6.7-4.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 394.5 KiB
+ liblastlog2                 x86_64 2.41.1-15.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  33.9 KiB
+ libmount                    x86_64 2.41.1-15.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 372.7 KiB
+ libnghttp2                  x86_64 1.66.0-2.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 162.2 KiB
+ libpkgconf                  x86_64 2.3.0-3.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  78.1 KiB
+ libpsl                      x86_64 0.21.5-6.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  76.4 KiB
+ libselinux                  x86_64 3.9-3.eln150                 https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 193.1 KiB
+ libsepol                    x86_64 3.9-2.eln150                 https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 821.8 KiB
+ libsmartcols                x86_64 2.41.1-15.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 180.5 KiB
+ libssh                      x86_64 0.11.2-2.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 566.7 KiB
+ libssh-config               noarch 0.11.2-2.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 277.0   B
+ libstdc++                   x86_64 15.2.1-1.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   2.9 MiB
+ libtasn1                    x86_64 4.20.0-2.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 176.3 KiB
+ libtool-ltdl                x86_64 2.5.4-7.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  70.1 KiB
+ libunistring                x86_64 1.1-10.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.7 MiB
+ libusb1                     x86_64 1.0.29-2.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 171.3 KiB
+ libuuid                     x86_64 2.41.1-15.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  37.4 KiB
+ libverto                    x86_64 0.3.2-11.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  25.4 KiB
+ libxcrypt                   x86_64 4.4.38-8.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 280.1 KiB
+ libxml2                     x86_64 2.12.10-3.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.7 MiB
+ libzstd                     x86_64 1.5.7-2.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 763.6 KiB
+ lua-libs                    x86_64 5.4.8-2.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 276.8 KiB
+ lua-srpm-macros             noarch 1-16.eln150                  https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.3 KiB
+ lz4-libs                    x86_64 1.10.0-3.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 165.4 KiB
+ mpfr                        x86_64 4.2.2-2.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 828.8 KiB
+ ncurses-base                noarch 6.5-7.20250614.eln150        https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 328.1 KiB
+ ncurses-libs                x86_64 6.5-7.20250614.eln150        https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 946.3 KiB
+ nettle                      x86_64 3.10.1-2.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.1 MiB
+ npth                        x86_64 1.8-3.eln150                 https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  49.6 KiB
+ ocaml-srpm-macros           noarch 11-2.eln150                  https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.9 KiB
+ openblas-srpm-macros        noarch 2-20.eln150                  https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 112.0   B
+ openldap                    x86_64 2.6.10-3.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 655.8 KiB
+ openssl-libs                x86_64 1:3.5.1-2.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   8.9 MiB
+ p11-kit                     x86_64 0.25.5-9.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   2.2 MiB
+ p11-kit-trust               x86_64 0.25.5-9.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 391.5 KiB
+ package-notes-srpm-macros   noarch 0.5-14.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.6 KiB
+ pam-libs                    x86_64 1.7.1-3.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 126.9 KiB
+ pcre2                       x86_64 10.45-1.eln150.1             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 697.7 KiB
+ pcre2-syntax                noarch 10.45-1.eln150.1             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 273.9 KiB
+ perl-srpm-macros            noarch 1-60.eln150                  https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 861.0   B
+ pkgconf                     x86_64 2.3.0-3.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  88.5 KiB
+ pkgconf-m4                  noarch 2.3.0-3.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  14.4 KiB
+ pkgconf-pkg-config          x86_64 2.3.0-3.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 989.0   B
+ popt                        x86_64 1.19-9.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 132.8 KiB
+ publicsuffix-list-dafsa     noarch 20250616-2.eln150            https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  69.1 KiB
+ pyproject-srpm-macros       noarch 1.18.3-2.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.9 KiB
+ python-srpm-macros          noarch 3.14-5.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  51.5 KiB
+ qt6-srpm-macros             noarch 6.9.1-2.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 464.0   B
+ readline                    x86_64 8.3-2.eln150                 https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 511.8 KiB
+ rpm                         x86_64 5.99.91-3.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   3.0 MiB
+ rpm-build-libs              x86_64 5.99.91-3.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 268.4 KiB
+ rpm-libs                    x86_64 5.99.91-3.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 933.8 KiB
+ rpm-sequoia                 x86_64 1.9.0-1.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   2.5 MiB
+ rpm-sign-libs               x86_64 5.99.91-3.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch  35.7 KiB
+ rust-toolset-srpm-macros    noarch 1.89.0-2.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   2.0 KiB
+ setup                       noarch 2.15.0-26.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 725.0 KiB
+ sqlite-libs                 x86_64 3.50.2-2.eln150              https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.5 MiB
+ systemd-libs                x86_64 257.7-1.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   2.2 MiB
+ systemd-standalone-sysusers x86_64 257.7-1.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 277.3 KiB
+ tpm2-tss                    x86_64 4.1.3-8.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.6 MiB
+ util-linux-core             x86_64 2.41.1-15.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.5 MiB
+ xz-libs                     x86_64 1:5.8.1-2.eln150             https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 217.8 KiB
+ zip                         x86_64 3.0-44.eln150                https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 702.5 KiB
+ zlib-ng-compat              x86_64 2.2.5-1.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch 137.6 KiB
+ zstd                        x86_64 1.5.7-2.eln150               https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch   1.6 MiB
+
+Transaction Summary:
+ Installing:       155 packages
+
+Total size of inbound packages is 55 MiB. Need to download 55 MiB.
+After this operation, 189 MiB extra will be used (install 189 MiB, remove 0 B).
+[  1/155] bzip2-0:1.0.8-21.eln150.x86_6 100% | 771.5 KiB/s |  51.7 KiB |  00m00s
+[  2/155] cpio-0:2.15-6.eln150.x86_64   100% |   5.7 MiB/s | 286.7 KiB |  00m00s
+[  3/155] bash-0:5.3.0-2.eln150.x86_64  100% |  12.7 MiB/s |   1.9 MiB |  00m00s
+[  4/155] diffutils-0:3.12-3.eln150.x86 100% |  13.4 MiB/s | 384.3 KiB |  00m00s
+[  5/155] coreutils-0:9.7-5.eln150.x86_ 100% |   7.5 MiB/s |   1.1 MiB |  00m00s
+[  6/155] fedora-release-eln-0:43-0.20. 100% |   1.0 MiB/s |  14.7 KiB |  00m00s
+[  7/155] findutils-1:4.10.0-6.eln150.x 100% |  29.4 MiB/s | 542.2 KiB |  00m00s
+[  8/155] glibc-minimal-langpack-0:2.42 100% |   2.6 MiB/s |  37.6 KiB |  00m00s
+[  9/155] gawk-0:5.3.2-2.eln150.x86_64  100% |  41.6 MiB/s |   1.1 MiB |  00m00s
+[ 10/155] grep-0:3.12-2.eln150.x86_64   100% |  17.7 MiB/s | 289.2 KiB |  00m00s
+[ 11/155] gzip-0:1.13-4.eln150.x86_64   100% |  11.5 MiB/s | 164.9 KiB |  00m00s
+[ 12/155] info-0:7.2-6.eln150.x86_64    100% |  11.9 MiB/s | 183.5 KiB |  00m00s
+[ 13/155] patch-0:2.8-2.eln150.x86_64   100% |   7.9 MiB/s | 113.9 KiB |  00m00s
+[ 14/155] redhat-rpm-config-0:343-10.el 100% |   4.8 MiB/s |  73.0 KiB |  00m00s
+[ 15/155] rpm-build-0:5.99.91-3.eln150. 100% |   8.9 MiB/s | 127.1 KiB |  00m00s
+[ 16/155] sed-0:4.9-5.eln150.x86_64     100% |  20.1 MiB/s | 308.6 KiB |  00m00s
+[ 17/155] tar-2:1.35-6.eln150.x86_64    100% |  43.7 MiB/s | 849.3 KiB |  00m00s
+[ 18/155] unzip-0:6.0-67.eln150.x86_64  100% |  12.1 MiB/s | 186.5 KiB |  00m00s
+[ 19/155] util-linux-0:2.41.1-15.eln150 100% |  42.5 MiB/s |   1.1 MiB |  00m00s
+[ 20/155] which-0:2.23-3.eln150.x86_64  100% |   2.9 MiB/s |  41.9 KiB |  00m00s
+[ 21/155] xz-1:5.8.1-2.eln150.x86_64    100% |  34.0 MiB/s | 556.8 KiB |  00m00s
+[ 22/155] xz-libs-1:5.8.1-2.eln150.x86_ 100% |   7.0 MiB/s | 114.3 KiB |  00m00s
+[ 23/155] audit-libs-0:4.1.1-1.eln150.x 100% |   8.0 MiB/s | 138.6 KiB |  00m00s
+[ 24/155] glibc-0:2.42-3.eln150.x86_64  100% |  89.3 MiB/s |   2.1 MiB |  00m00s
+[ 25/155] filesystem-0:3.18-50.eln150.x 100% |  54.9 MiB/s |   1.3 MiB |  00m00s
+[ 26/155] libblkid-0:2.41.1-15.eln150.x 100% |   6.1 MiB/s | 124.1 KiB |  00m00s
+[ 27/155] libcap-ng-0:0.8.5-6.eln150.x8 100% |   1.7 MiB/s |  32.1 KiB |  00m00s
+[ 28/155] liblastlog2-0:2.41.1-15.eln15 100% |   1.9 MiB/s |  23.1 KiB |  00m00s
+[ 29/155] libfdisk-0:2.41.1-15.eln150.x 100% |  11.3 MiB/s | 161.7 KiB |  00m00s
+[ 30/155] libgcc-0:15.2.1-1.eln150.x86_ 100% |   9.2 MiB/s | 132.4 KiB |  00m00s
+[ 31/155] libmount-0:2.41.1-15.eln150.x 100% |  11.4 MiB/s | 162.9 KiB |  00m00s
+[ 32/155] libsmartcols-0:2.41.1-15.eln1 100% |   5.9 MiB/s |  83.9 KiB |  00m00s
+[ 33/155] libselinux-0:3.9-3.eln150.x86 100% |   6.0 MiB/s |  98.3 KiB |  00m00s
+[ 34/155] libuuid-0:2.41.1-15.eln150.x8 100% |   2.0 MiB/s |  26.1 KiB |  00m00s
+[ 35/155] ncurses-libs-0:6.5-7.20250614 100% |  21.7 MiB/s | 333.2 KiB |  00m00s
+[ 36/155] pam-libs-0:1.7.1-3.eln150.x86 100% |   4.0 MiB/s |  57.7 KiB |  00m00s
+[ 37/155] readline-0:8.3-2.eln150.x86_6 100% |  14.6 MiB/s | 224.8 KiB |  00m00s
+[ 38/155] util-linux-core-0:2.41.1-15.e 100% |  29.1 MiB/s | 535.9 KiB |  00m00s
+[ 39/155] systemd-libs-0:257.7-1.eln150 100% |  41.0 MiB/s | 797.3 KiB |  00m00s
+[ 40/155] zlib-ng-compat-0:2.2.5-1.eln1 100% |   5.1 MiB/s |  78.8 KiB |  00m00s
+[ 41/155] libacl-0:2.3.2-4.eln150.x86_6 100% |   1.8 MiB/s |  24.3 KiB |  00m00s
+[ 42/155] bzip2-libs-0:1.0.8-21.eln150. 100% |   3.0 MiB/s |  43.6 KiB |  00m00s
+[ 43/155] libcap-0:2.76-2.eln150.x86_64 100% |   5.3 MiB/s |  87.4 KiB |  00m00s
+[ 44/155] debugedit-0:5.2-2.eln150.x86_ 100% |   5.3 MiB/s |  81.1 KiB |  00m00s
+[ 45/155] elfutils-0:0.193-3.eln150.x86 100% |  31.0 MiB/s | 570.9 KiB |  00m00s
+[ 46/155] elfutils-libelf-0:0.193-3.eln 100% |  11.3 MiB/s | 207.9 KiB |  00m00s
+[ 47/155] binutils-0:2.45-1.eln150.x86_ 100% | 117.4 MiB/s |   5.9 MiB |  00m00s
+[ 48/155] file-0:5.46-6.eln150.x86_64   100% |   2.5 MiB/s |  48.7 KiB |  00m00s
+[ 49/155] libarchive-0:3.8.1-3.eln150.x 100% |  24.4 MiB/s | 424.9 KiB |  00m00s
+[ 50/155] pkgconf-pkg-config-0:2.3.0-3. 100% | 641.6 KiB/s |   9.6 KiB |  00m00s
+[ 51/155] popt-0:1.19-9.eln150.x86_64   100% |   3.8 MiB/s |  59.1 KiB |  00m00s
+[ 52/155] libstdc++-0:15.2.1-1.eln150.x 100% |  50.9 MiB/s | 938.0 KiB |  00m00s
+[ 53/155] rpm-0:5.99.91-3.eln150.x86_64 100% |  29.0 MiB/s | 534.1 KiB |  00m00s
+[ 54/155] rpm-build-libs-0:5.99.91-3.el 100% |   7.3 MiB/s | 127.5 KiB |  00m00s
+[ 55/155] rpm-libs-0:5.99.91-3.eln150.x 100% |  23.2 MiB/s | 404.1 KiB |  00m00s
+[ 56/155] zstd-0:1.5.7-2.eln150.x86_64  100% |  28.5 MiB/s | 466.5 KiB |  00m00s
+[ 57/155] curl-0:8.15.0-2.eln150.x86_64 100% |  14.3 MiB/s | 233.9 KiB |  00m00s
+[ 58/155] glibc-gconv-extra-0:2.42-3.el 100% |  73.7 MiB/s |   1.5 MiB |  00m00s
+[ 59/155] dwz-0:0.16-2.eln150.x86_64    100% |   8.9 MiB/s | 136.6 KiB |  00m00s
+[ 60/155] efi-srpm-macros-0:6-4.eln150. 100% |   1.5 MiB/s |  22.4 KiB |  00m00s
+[ 61/155] filesystem-srpm-macros-0:3.18 100% |   1.8 MiB/s |  26.5 KiB |  00m00s
+[ 62/155] fonts-srpm-macros-1:2.0.5-23. 100% |   1.7 MiB/s |  27.3 KiB |  00m00s
+[ 63/155] forge-srpm-macros-0:0.4.0-3.e 100% |   1.2 MiB/s |  20.1 KiB |  00m00s
+[ 64/155] go-srpm-macros-0:3.7.0-1.eln1 100% |   1.3 MiB/s |  27.4 KiB |  00m00s
+[ 65/155] java-srpm-macros-0:1-7.eln150 100% | 500.1 KiB/s |   8.0 KiB |  00m00s
+[ 66/155] kernel-srpm-macros-0:1.0-27.e 100% | 558.1 KiB/s |   8.9 KiB |  00m00s
+[ 67/155] lua-srpm-macros-0:1-16.eln150 100% | 674.2 KiB/s |   8.8 KiB |  00m00s
+[ 68/155] ocaml-srpm-macros-0:11-2.eln1 100% | 716.3 KiB/s |   9.3 KiB |  00m00s
+[ 69/155] openblas-srpm-macros-0:2-20.e 100% | 546.1 KiB/s |   7.6 KiB |  00m00s
+[ 70/155] package-notes-srpm-macros-0:0 100% | 694.8 KiB/s |   9.0 KiB |  00m00s
+[ 71/155] perl-srpm-macros-0:1-60.eln15 100% | 644.8 KiB/s |   8.4 KiB |  00m00s
+[ 72/155] pyproject-srpm-macros-0:1.18. 100% |   1.0 MiB/s |  13.3 KiB |  00m00s
+[ 73/155] python-srpm-macros-0:3.14-5.e 100% |   1.8 MiB/s |  23.3 KiB |  00m00s
+[ 74/155] qt6-srpm-macros-0:6.9.1-2.eln 100% | 722.6 KiB/s |   9.4 KiB |  00m00s
+[ 75/155] rust-toolset-srpm-macros-0:1. 100% |   1.0 MiB/s |  14.4 KiB |  00m00s
+[ 76/155] zip-0:3.0-44.eln150.x86_64    100% |  15.2 MiB/s | 265.4 KiB |  00m00s
+[ 77/155] pkgconf-0:2.3.0-3.eln150.x86_ 100% |   3.3 MiB/s |  44.6 KiB |  00m00s
+[ 78/155] pkgconf-m4-0:2.3.0-3.eln150.n 100% |   1.0 MiB/s |  14.0 KiB |  00m00s
+[ 79/155] libpkgconf-0:2.3.0-3.eln150.x 100% |   2.3 MiB/s |  37.9 KiB |  00m00s
+[ 80/155] ed-0:1.22-2.eln150.x86_64     100% |   5.4 MiB/s |  82.7 KiB |  00m00s
+[ 81/155] libattr-0:2.5.2-6.eln150.x86_ 100% |   1.1 MiB/s |  17.9 KiB |  00m00s
+[ 82/155] libeconf-0:0.7.9-2.eln150.x86 100% |   1.7 MiB/s |  35.3 KiB |  00m00s
+[ 83/155] ncurses-base-0:6.5-7.20250614 100% |   3.9 MiB/s |  63.7 KiB |  00m00s
+[ 84/155] libsepol-0:3.9-2.eln150.x86_6 100% |  18.7 MiB/s | 345.5 KiB |  00m00s
+[ 85/155] pcre2-0:10.45-1.eln150.1.x86_ 100% |  17.1 MiB/s | 263.1 KiB |  00m00s
+[ 86/155] sqlite-libs-0:3.50.2-2.eln150 100% |  46.7 MiB/s | 765.6 KiB |  00m00s
+[ 87/155] libxml2-0:2.12.10-3.eln150.x8 100% |  42.3 MiB/s | 692.4 KiB |  00m00s
+[ 88/155] libzstd-0:1.5.7-2.eln150.x86_ 100% |  19.5 MiB/s | 299.8 KiB |  00m00s
+[ 89/155] lz4-libs-0:1.10.0-3.eln150.x8 100% |   5.9 MiB/s |  78.7 KiB |  00m00s
+[ 90/155] glibc-common-0:2.42-3.eln150. 100% |  20.9 MiB/s | 321.3 KiB |  00m00s
+[ 91/155] gmp-1:6.3.0-4.eln150.x86_64   100% |  18.4 MiB/s | 319.6 KiB |  00m00s
+[ 92/155] openssl-libs-1:3.5.1-2.eln150 100% |  82.0 MiB/s |   2.6 MiB |  00m00s
+[ 93/155] mpfr-0:4.2.2-2.eln150.x86_64  100% |  21.2 MiB/s | 347.2 KiB |  00m00s
+[ 94/155] setup-0:2.15.0-26.eln150.noar 100% |   9.8 MiB/s | 151.2 KiB |  00m00s
+[ 95/155] file-libs-0:5.46-6.eln150.x86 100% |  48.8 MiB/s | 848.8 KiB |  00m00s
+[ 96/155] fedora-release-common-0:43-0. 100% |   1.9 MiB/s |  25.7 KiB |  00m00s
+[ 97/155] fedora-repos-eln-0:43-0.3.eln 100% | 657.0 KiB/s |   9.2 KiB |  00m00s
+[ 98/155] fedora-release-identity-eln-0 100% |   1.2 MiB/s |  17.2 KiB |  00m00s
+[ 99/155] elfutils-debuginfod-client-0: 100% |   3.3 MiB/s |  46.9 KiB |  00m00s
+[100/155] elfutils-libs-0:0.193-3.eln15 100% |  19.0 MiB/s | 272.9 KiB |  00m00s
+[101/155] coreutils-common-0:9.7-5.eln1 100% |  90.2 MiB/s |   2.1 MiB |  00m00s
+[102/155] alternatives-0:1.33-2.eln150. 100% |   2.2 MiB/s |  40.8 KiB |  00m00s
+[103/155] jansson-0:2.14-3.eln150.x86_6 100% |   3.0 MiB/s |  45.4 KiB |  00m00s
+[104/155] libxcrypt-0:4.4.38-8.eln150.x 100% |   8.8 MiB/s | 126.8 KiB |  00m00s
+[105/155] lua-libs-0:5.4.8-2.eln150.x86 100% |   8.6 MiB/s | 132.1 KiB |  00m00s
+[106/155] rpm-sequoia-0:1.9.0-1.eln150. 100% |  54.4 MiB/s | 947.8 KiB |  00m00s
+[107/155] rpm-sign-libs-0:5.99.91-3.eln 100% |   1.8 MiB/s |  26.1 KiB |  00m00s
+[108/155] libgomp-0:15.2.1-1.eln150.x86 100% |  24.4 MiB/s | 375.2 KiB |  00m00s
+[109/155] pcre2-syntax-0:10.45-1.eln150 100% |  11.3 MiB/s | 161.8 KiB |  00m00s
+[110/155] crypto-policies-0:20250804-1. 100% |   4.6 MiB/s |  66.5 KiB |  00m00s
+[111/155] fedora-gpg-keys-0:43-0.3.eln1 100% |   8.3 MiB/s | 127.8 KiB |  00m00s
+[112/155] ca-certificates-0:2024.2.69_v 100% |  48.5 MiB/s | 944.0 KiB |  00m00s
+[113/155] elfutils-default-yama-scope-0 100% | 892.0 KiB/s |  12.5 KiB |  00m00s
+[114/155] json-c-0:0.18-7.eln150.x86_64 100% |   3.1 MiB/s |  45.1 KiB |  00m00s
+[115/155] libffi-0:3.5.1-2.eln150.x86_6 100% |   2.7 MiB/s |  41.1 KiB |  00m00s
+[116/155] p11-kit-0:0.25.5-9.eln150.x86 100% |  30.9 MiB/s | 474.7 KiB |  00m00s
+[117/155] p11-kit-trust-0:0.25.5-9.eln1 100% |   9.3 MiB/s | 132.9 KiB |  00m00s
+[118/155] gnupg2-0:2.4.8-4.eln150.x86_6 100% |  81.5 MiB/s |   1.6 MiB |  00m00s
+[119/155] ima-evm-utils-libs-0:1.6.2-6. 100% |   2.0 MiB/s |  29.4 KiB |  00m00s
+[120/155] gpgverify-0:2.2-3.eln150.noar 100% | 854.4 KiB/s |  11.1 KiB |  00m00s
+[121/155] libtasn1-0:4.20.0-2.eln150.x8 100% |   5.2 MiB/s |  74.9 KiB |  00m00s
+[122/155] gnupg2-verify-0:2.4.8-4.eln15 100% |  12.9 MiB/s | 171.6 KiB |  00m00s
+[123/155] tpm2-tss-0:4.1.3-8.eln150.x86 100% |  25.8 MiB/s | 423.1 KiB |  00m00s
+[124/155] libassuan-0:2.5.7-4.eln150.x8 100% |   4.1 MiB/s |  67.7 KiB |  00m00s
+[125/155] libgcrypt-0:1.11.1-2.eln150.x 100% |  34.5 MiB/s | 600.3 KiB |  00m00s
+[126/155] libgpg-error-0:1.55-2.eln150. 100% |  14.6 MiB/s | 239.1 KiB |  00m00s
+[127/155] npth-0:1.8-3.eln150.x86_64    100% |   1.8 MiB/s |  25.7 KiB |  00m00s
+[128/155] gnupg2-gpg-agent-0:2.4.8-4.el 100% |  19.1 MiB/s | 273.6 KiB |  00m00s
+[129/155] gnupg2-dirmngr-0:2.4.8-4.eln1 100% |  19.2 MiB/s | 275.0 KiB |  00m00s
+[130/155] gnupg2-gpgconf-0:2.4.8-4.eln1 100% |   9.4 MiB/s | 115.5 KiB |  00m00s
+[131/155] libusb1-0:1.0.29-2.eln150.x86 100% |   6.0 MiB/s |  79.4 KiB |  00m00s
+[132/155] gnupg2-keyboxd-0:2.4.8-4.eln1 100% |   6.6 MiB/s |  94.9 KiB |  00m00s
+[133/155] libksba-0:1.6.7-4.eln150.x86_ 100% |  10.5 MiB/s | 160.9 KiB |  00m00s
+[134/155] openldap-0:2.6.10-3.eln150.x8 100% |  16.9 MiB/s | 259.4 KiB |  00m00s
+[135/155] gnutls-0:3.8.10-3.eln150.x86_ 100% |  69.2 MiB/s |   1.4 MiB |  00m00s
+[136/155] cyrus-sasl-lib-0:2.1.28-33.el 100% |   7.1 MiB/s | 101.8 KiB |  00m00s
+[137/155] libevent-0:2.1.12-16.eln150.x 100% |  18.0 MiB/s | 258.6 KiB |  00m00s
+[138/155] libtool-ltdl-0:2.5.4-7.eln150 100% |   2.5 MiB/s |  36.3 KiB |  00m00s
+[139/155] libidn2-0:2.3.8-2.eln150.x86_ 100% |  11.0 MiB/s | 168.6 KiB |  00m00s
+[140/155] libunistring-0:1.1-10.eln150. 100% |  33.2 MiB/s | 543.1 KiB |  00m00s
+[141/155] gdbm-libs-1:1.23-10.eln150.x8 100% |   4.0 MiB/s |  57.3 KiB |  00m00s
+[142/155] nettle-0:3.10.1-2.eln150.x86_ 100% |  32.1 MiB/s | 558.7 KiB |  00m00s
+[143/155] libcurl-0:8.15.0-2.eln150.x86 100% |  21.9 MiB/s | 403.5 KiB |  00m00s
+[144/155] systemd-standalone-sysusers-0 100% |   8.3 MiB/s | 135.9 KiB |  00m00s
+[145/155] gdb-minimal-0:16.3-4.eln150.x 100% | 128.2 MiB/s |   4.4 MiB |  00m00s
+[146/155] krb5-libs-0:1.21.3-7.eln150.x 100% |  43.5 MiB/s | 756.8 KiB |  00m00s
+[147/155] libbrotli-0:1.1.0-8.eln150.x8 100% |  19.8 MiB/s | 345.4 KiB |  00m00s
+[148/155] libnghttp2-0:1.66.0-2.eln150. 100% |   5.1 MiB/s |  73.7 KiB |  00m00s
+[149/155] libpsl-0:0.21.5-6.eln150.x86_ 100% |   4.5 MiB/s |  65.1 KiB |  00m00s
+[150/155] libssh-0:0.11.2-2.eln150.x86_ 100% |  16.3 MiB/s | 233.3 KiB |  00m00s
+[151/155] keyutils-libs-0:1.6.3-6.eln15 100% |   2.0 MiB/s |  31.4 KiB |  00m00s
+[152/155] libcom_err-0:1.47.3-2.eln150. 100% |   2.0 MiB/s |  26.8 KiB |  00m00s
+[153/155] libverto-0:0.3.2-11.eln150.x8 100% |   1.6 MiB/s |  20.7 KiB |  00m00s
+[154/155] libssh-config-0:0.11.2-2.eln1 100% | 686.5 KiB/s |   8.9 KiB |  00m00s
+[155/155] publicsuffix-list-dafsa-0:202 100% |   4.1 MiB/s |  59.2 KiB |  00m00s
+--------------------------------------------------------------------------------
+[155/155] Total                         100% |  55.8 MiB/s |  55.4 MiB |  00m01s
+Running transaction
+[  1/157] Verify package files          100% | 824.0   B/s | 155.0   B |  00m00s
+[  2/157] Prepare transaction           100% |   4.5 KiB/s | 155.0   B |  00m00s
+[  3/157] Installing libgcc-0:15.2.1-1. 100% | 262.0 MiB/s | 268.3 KiB |  00m00s
+[  4/157] Installing publicsuffix-list- 100% |   0.0   B/s |  69.8 KiB |  00m00s
+[  5/157] Installing libssh-config-0:0. 100% |   0.0   B/s | 816.0   B |  00m00s
+[  6/157] Installing pcre2-syntax-0:10. 100% | 269.9 MiB/s | 276.4 KiB |  00m00s
+[  7/157] Installing coreutils-common-0 100% | 434.3 MiB/s |  11.3 MiB |  00m00s
+[  8/157] Installing fedora-release-ide 100% |   0.0   B/s |   2.5 KiB |  00m00s
+[  9/157] Installing fedora-gpg-keys-0: 100% |  58.3 MiB/s | 179.0 KiB |  00m00s
+[ 10/157] Installing fedora-repos-eln-0 100% |   0.0   B/s |  11.2 KiB |  00m00s
+[ 11/157] Installing fedora-release-com 100% |  24.3 MiB/s |  24.9 KiB |  00m00s
+[ 12/157] Installing fedora-release-eln 100% |  20.2 KiB/s | 124.0   B |  00m00s
+>>> Running sysusers scriptlet: setup-0:2.15.0-26.eln150.noarch                 
+>>> Finished sysusers scriptlet: setup-0:2.15.0-26.eln150.noarch                
+>>> Scriptlet output:                                                           
+>>> Creating group 'adm' with GID 4.                                            
+>>> Creating group 'audio' with GID 63.                                         
+>>> Creating group 'cdrom' with GID 11.                                         
+>>> Creating group 'clock' with GID 103.                                        
+>>> Creating group 'dialout' with GID 18.                                       
+>>> Creating group 'disk' with GID 6.                                           
+>>> Creating group 'floppy' with GID 19.                                        
+>>> Creating group 'ftp' with GID 50.                                           
+>>> Creating group 'games' with GID 20.                                         
+>>> Creating group 'input' with GID 104.                                        
+>>> Creating group 'kmem' with GID 9.                                           
+>>> Creating group 'kvm' with GID 36.                                           
+>>> Creating group 'lock' with GID 54.                                          
+>>> Creating group 'lp' with GID 7.                                             
+>>> Creating group 'mail' with GID 12.                                          
+>>> Creating group 'man' with GID 15.                                           
+>>> Creating group 'mem' with GID 8.                                            
+>>> Creating group 'nobody' with GID 65534.                                     
+>>> Creating group 'render' with GID 105.                                       
+>>> Creating group 'root' with GID 0.                                           
+>>> Creating group 'sgx' with GID 106.                                          
+>>> Creating group 'sys' with GID 3.                                            
+>>> Creating group 'tape' with GID 33.                                          
+>>> Creating group 'tty' with GID 5.                                            
+>>> Creating group 'users' with GID 100.                                        
+>>> Creating group 'utmp' with GID 22.                                          
+>>> Creating group 'video' with GID 39.                                         
+>>> Creating group 'wheel' with GID 10.                                         
+>>> Creating user 'adm' (adm) with UID 3 and GID 4.                             
+>>> Creating group 'bin' with GID 1.                                            
+>>> Creating user 'bin' (bin) with UID 1 and GID 1.                             
+>>> Creating group 'daemon' with GID 2.                                         
+>>> Creating user 'daemon' (daemon) with UID 2 and GID 2.                       
+>>> Creating user 'ftp' (FTP User) with UID 14 and GID 50.                      
+>>> Creating user 'games' (games) with UID 12 and GID 100.                      
+>>> Creating user 'halt' (halt) with UID 7 and GID 0.                           
+>>> Creating user 'lp' (lp) with UID 4 and GID 7.                               
+>>> Creating user 'mail' (mail) with UID 8 and GID 12.                          
+>>> Creating user 'nobody' (Kernel Overflow User) with UID 65534 and GID 65534. 
+>>> Creating user 'operator' (operator) with UID 11 and GID 0.                  
+>>> Creating user 'root' (Super User) with UID 0 and GID 0.                     
+>>> Creating user 'shutdown' (shutdown) with UID 6 and GID 0.                   
+>>> Creating user 'sync' (sync) with UID 5 and GID 0.                           
+>>>                                                                             
+[ 13/157] Installing setup-0:2.15.0-26. 100% |  64.9 MiB/s | 730.6 KiB |  00m00s
+>>> [RPM] /etc/hosts created as /etc/hosts.rpmnew                               
+[ 14/157] Installing filesystem-0:3.18- 100% |   3.1 MiB/s | 212.8 KiB |  00m00s
+[ 15/157] Installing ncurses-base-0:6.5 100% | 115.1 MiB/s | 353.5 KiB |  00m00s
+[ 16/157] Installing bash-0:5.3.0-2.eln 100% | 301.1 MiB/s |   8.4 MiB |  00m00s
+[ 17/157] Installing glibc-common-0:2.4 100% |  73.2 MiB/s |   1.0 MiB |  00m00s
+[ 18/157] Installing glibc-gconv-extra- 100% | 317.8 MiB/s |   7.3 MiB |  00m00s
+[ 19/157] Installing glibc-0:2.42-3.eln 100% | 203.2 MiB/s |   6.3 MiB |  00m00s
+[ 20/157] Installing ncurses-libs-0:6.5 100% | 310.1 MiB/s | 952.7 KiB |  00m00s
+[ 21/157] Installing glibc-minimal-lang 100% |   0.0   B/s | 124.0   B |  00m00s
+[ 22/157] Installing zlib-ng-compat-0:2 100% |   0.0   B/s | 138.4 KiB |  00m00s
+[ 23/157] Installing libgpg-error-0:1.5 100% |  75.0 MiB/s | 921.2 KiB |  00m00s
+[ 24/157] Installing bzip2-libs-0:1.0.8 100% |   0.0   B/s |  81.7 KiB |  00m00s
+[ 25/157] Installing libstdc++-0:15.2.1 100% | 418.7 MiB/s |   2.9 MiB |  00m00s
+[ 26/157] Installing xz-libs-1:5.8.1-2. 100% | 213.8 MiB/s | 218.9 KiB |  00m00s
+[ 27/157] Installing libassuan-0:2.5.7- 100% | 161.8 MiB/s | 165.6 KiB |  00m00s
+[ 28/157] Installing libgcrypt-0:1.11.1 100% | 396.7 MiB/s |   1.6 MiB |  00m00s
+[ 29/157] Installing readline-0:8.3-2.e 100% | 501.8 MiB/s | 513.9 KiB |  00m00s
+[ 30/157] Installing libuuid-0:2.41.1-1 100% |   0.0   B/s |  38.5 KiB |  00m00s
+[ 31/157] Installing popt-0:1.19-9.eln1 100% |  68.1 MiB/s | 139.4 KiB |  00m00s
+[ 32/157] Installing npth-0:1.8-3.eln15 100% |   0.0   B/s |  50.7 KiB |  00m00s
+[ 33/157] Installing libblkid-0:2.41.1- 100% | 257.4 MiB/s | 263.5 KiB |  00m00s
+[ 34/157] Installing sqlite-libs-0:3.50 100% | 380.0 MiB/s |   1.5 MiB |  00m00s
+[ 35/157] Installing libzstd-0:1.5.7-2. 100% | 373.5 MiB/s | 764.9 KiB |  00m00s
+[ 36/157] Installing elfutils-libelf-0: 100% | 583.3 MiB/s |   1.2 MiB |  00m00s
+[ 37/157] Installing gmp-1:6.3.0-4.eln1 100% | 397.3 MiB/s | 813.6 KiB |  00m00s
+[ 38/157] Installing gnupg2-gpgconf-0:2 100% |  24.6 MiB/s | 252.2 KiB |  00m00s
+[ 39/157] Installing libattr-0:2.5.2-6. 100% |   0.0   B/s |  25.4 KiB |  00m00s
+[ 40/157] Installing libacl-0:2.3.2-4.e 100% |   0.0   B/s |  36.8 KiB |  00m00s
+[ 41/157] Installing libxcrypt-0:4.4.38 100% | 276.2 MiB/s | 282.8 KiB |  00m00s
+[ 42/157] Installing libtasn1-0:4.20.0- 100% | 173.9 MiB/s | 178.1 KiB |  00m00s
+[ 43/157] Installing libunistring-0:1.1 100% | 432.7 MiB/s |   1.7 MiB |  00m00s
+[ 44/157] Installing libidn2-0:2.3.8-2. 100% |  68.7 MiB/s | 562.7 KiB |  00m00s
+[ 45/157] Installing crypto-policies-0: 100% |  45.7 MiB/s | 140.5 KiB |  00m00s
+[ 46/157] Installing mpfr-0:4.2.2-2.eln 100% | 405.5 MiB/s | 830.4 KiB |  00m00s
+[ 47/157] Installing gawk-0:5.3.2-2.eln 100% | 114.5 MiB/s |   1.8 MiB |  00m00s
+[ 48/157] Installing dwz-0:0.16-2.eln15 100% |  28.2 MiB/s | 288.5 KiB |  00m00s
+[ 49/157] Installing gnupg2-verify-0:2. 100% |  31.0 MiB/s | 349.7 KiB |  00m00s
+[ 50/157] Installing unzip-0:6.0-67.eln 100% |  36.4 MiB/s | 409.8 KiB |  00m00s
+[ 51/157] Installing libksba-0:1.6.7-4. 100% | 387.8 MiB/s | 397.1 KiB |  00m00s
+[ 52/157] Installing file-libs-0:5.46-6 100% | 740.8 MiB/s |  11.9 MiB |  00m00s
+[ 53/157] Installing file-0:5.46-6.eln1 100% |   9.9 MiB/s | 101.7 KiB |  00m00s
+[ 54/157] Installing libcap-ng-0:0.8.5- 100% |   0.0   B/s |  70.8 KiB |  00m00s
+[ 55/157] Installing audit-libs-0:4.1.1 100% | 368.7 MiB/s | 377.5 KiB |  00m00s
+[ 56/157] Installing libsmartcols-0:2.4 100% | 177.3 MiB/s | 181.6 KiB |  00m00s
+[ 57/157] Installing pcre2-0:10.45-1.el 100% | 341.4 MiB/s | 699.2 KiB |  00m00s
+[ 58/157] Installing grep-0:3.12-2.eln1 100% |  77.1 MiB/s |   1.0 MiB |  00m00s
+[ 59/157] Installing xz-1:5.8.1-2.eln15 100% |  88.8 MiB/s |   1.3 MiB |  00m00s
+[ 60/157] Installing lz4-libs-0:1.10.0- 100% | 162.6 MiB/s | 166.5 KiB |  00m00s
+[ 61/157] Installing alternatives-0:1.3 100% |   6.2 MiB/s |  63.8 KiB |  00m00s
+[ 62/157] Installing lua-libs-0:5.4.8-2 100% | 271.5 MiB/s | 278.0 KiB |  00m00s
+[ 63/157] Installing json-c-0:0.18-7.el 100% |   0.0   B/s |  84.0 KiB |  00m00s
+[ 64/157] Installing libffi-0:3.5.1-2.e 100% |  83.0 MiB/s |  85.0 KiB |  00m00s
+[ 65/157] Installing p11-kit-0:0.25.5-9 100% | 136.6 MiB/s |   2.2 MiB |  00m00s
+[ 66/157] Installing p11-kit-trust-0:0. 100% |  22.6 MiB/s | 393.0 KiB |  00m00s
+[ 67/157] Installing zstd-0:1.5.7-2.eln 100% | 116.5 MiB/s |   1.6 MiB |  00m00s
+[ 68/157] Installing gnupg2-keyboxd-0:2 100% |  39.6 MiB/s | 202.6 KiB |  00m00s
+[ 69/157] Installing zip-0:3.0-44.eln15 100% |  57.5 MiB/s | 706.4 KiB |  00m00s
+[ 70/157] Installing libpsl-0:0.21.5-6. 100% |   0.0   B/s |  77.6 KiB |  00m00s
+[ 71/157] Installing liblastlog2-0:2.41 100% |   7.0 MiB/s |  35.9 KiB |  00m00s
+[ 72/157] Installing libfdisk-0:2.41.1- 100% | 372.5 MiB/s | 381.4 KiB |  00m00s
+[ 73/157] Installing libxml2-0:2.12.10- 100% | 113.6 MiB/s |   1.7 MiB |  00m00s
+[ 74/157] Installing bzip2-0:1.0.8-21.e 100% |   9.7 MiB/s |  99.8 KiB |  00m00s
+[ 75/157] Installing cpio-0:2.15-6.eln1 100% |  84.6 MiB/s |   1.1 MiB |  00m00s
+[ 76/157] Installing diffutils-0:3.12-3 100% | 111.5 MiB/s |   1.6 MiB |  00m00s
+[ 77/157] Installing libpkgconf-0:2.3.0 100% |   0.0   B/s |  79.2 KiB |  00m00s
+[ 78/157] Installing pkgconf-0:2.3.0-3. 100% |   8.9 MiB/s |  91.0 KiB |  00m00s
+[ 79/157] Installing ed-0:1.22-2.eln150 100% |  14.2 MiB/s | 145.0 KiB |  00m00s
+[ 80/157] Installing patch-0:2.8-2.eln1 100% |  21.9 MiB/s | 224.2 KiB |  00m00s
+[ 81/157] Installing libeconf-0:0.7.9-2 100% |   0.0   B/s |  66.6 KiB |  00m00s
+[ 82/157] Installing pam-libs-0:1.7.1-3 100% | 126.1 MiB/s | 129.1 KiB |  00m00s
+[ 83/157] Installing libcap-0:2.76-2.el 100% |  19.0 MiB/s | 214.3 KiB |  00m00s
+[ 84/157] Installing systemd-libs-0:257 100% | 373.4 MiB/s |   2.2 MiB |  00m00s
+[ 85/157] Installing libusb1-0:1.0.29-2 100% | 168.9 MiB/s | 172.9 KiB |  00m00s
+[ 86/157] Installing libsepol-0:3.9-2.e 100% | 401.8 MiB/s | 822.8 KiB |  00m00s
+[ 87/157] Installing libselinux-0:3.9-3 100% | 189.8 MiB/s | 194.3 KiB |  00m00s
+[ 88/157] Installing findutils-1:4.10.0 100% | 124.1 MiB/s |   1.9 MiB |  00m00s
+[ 89/157] Installing sed-0:4.9-5.eln150 100% |  65.0 MiB/s | 865.5 KiB |  00m00s
+[ 90/157] Installing libmount-0:2.41.1- 100% | 365.1 MiB/s | 373.8 KiB |  00m00s
+[ 91/157] Installing util-linux-core-0: 100% |  98.7 MiB/s |   1.5 MiB |  00m00s
+[ 92/157] Installing openssl-libs-1:3.5 100% | 424.1 MiB/s |   8.9 MiB |  00m00s
+[ 93/157] Installing coreutils-0:9.7-5. 100% | 194.5 MiB/s |   5.4 MiB |  00m00s
+[ 94/157] Installing ca-certificates-0: 100% |   2.3 MiB/s |   2.4 MiB |  00m01s
+[ 95/157] Installing libarchive-0:3.8.1 100% | 104.3 MiB/s | 961.1 KiB |  00m00s
+>>> Running sysusers scriptlet: tpm2-tss-0:4.1.3-8.eln150.x86_64                
+>>> Finished sysusers scriptlet: tpm2-tss-0:4.1.3-8.eln150.x86_64               
+>>> Scriptlet output:                                                           
+>>> Creating group 'tss' with GID 59.                                           
+>>> Creating user 'tss' (Account used for TPM access) with UID 59 and GID 59.   
+>>>                                                                             
+[ 96/157] Installing tpm2-tss-0:4.1.3-8 100% | 315.0 MiB/s |   1.6 MiB |  00m00s
+[ 97/157] Installing ima-evm-utils-libs 100% |  60.5 MiB/s |  62.0 KiB |  00m00s
+[ 98/157] Installing gnupg2-gpg-agent-0 100% |  36.6 MiB/s | 675.4 KiB |  00m00s
+[ 99/157] Installing gzip-0:1.13-4.eln1 100% |  32.1 MiB/s | 394.4 KiB |  00m00s
+[100/157] Installing rpm-sequoia-0:1.9. 100% | 418.6 MiB/s |   2.5 MiB |  00m00s
+[101/157] Installing libevent-0:2.1.12- 100% | 433.0 MiB/s | 886.9 KiB |  00m00s
+[102/157] Installing tar-2:1.35-6.eln15 100% | 174.2 MiB/s |   3.0 MiB |  00m00s
+[103/157] Installing systemd-standalone 100% |  27.1 MiB/s | 277.8 KiB |  00m00s
+[104/157] Installing rpm-libs-0:5.99.91 100% | 304.5 MiB/s | 935.3 KiB |  00m00s
+[105/157] Installing jansson-0:2.14-3.e 100% |  88.3 MiB/s |  90.5 KiB |  00m00s
+[106/157] Installing libgomp-0:15.2.1-1 100% | 537.7 MiB/s | 550.6 KiB |  00m00s
+[107/157] Installing libtool-ltdl-0:2.5 100% |   0.0   B/s |  71.2 KiB |  00m00s
+[108/157] Installing nettle-0:3.10.1-2. 100% | 369.2 MiB/s |   1.1 MiB |  00m00s
+[109/157] Installing gnutls-0:3.8.10-3. 100% | 434.9 MiB/s |   3.9 MiB |  00m00s
+[110/157] Installing gdbm-libs-1:1.23-1 100% | 128.5 MiB/s | 131.6 KiB |  00m00s
+[111/157] Installing cyrus-sasl-lib-0:2 100% |  59.0 MiB/s | 725.1 KiB |  00m00s
+[112/157] Installing openldap-0:2.6.10- 100% | 322.1 MiB/s | 659.6 KiB |  00m00s
+[113/157] Installing gnupg2-dirmngr-0:2 100% |  33.9 MiB/s | 625.2 KiB |  00m00s
+[114/157] Installing gnupg2-0:2.4.8-4.e 100% | 262.0 MiB/s |   6.6 MiB |  00m00s
+[115/157] Installing rpm-sign-libs-0:5. 100% |   0.0   B/s |  36.5 KiB |  00m00s
+[116/157] Installing gpgverify-0:2.2-3. 100% |   0.0   B/s |   9.4 KiB |  00m00s
+[117/157] Installing libbrotli-0:1.1.0- 100% | 411.9 MiB/s | 843.6 KiB |  00m00s
+[118/157] Installing libnghttp2-0:1.66. 100% | 159.5 MiB/s | 163.3 KiB |  00m00s
+[119/157] Installing keyutils-libs-0:1. 100% |   0.0   B/s |  55.7 KiB |  00m00s
+[120/157] Installing libcom_err-0:1.47. 100% |   0.0   B/s |  64.2 KiB |  00m00s
+[121/157] Installing libverto-0:0.3.2-1 100% |   0.0   B/s |  27.2 KiB |  00m00s
+[122/157] Installing krb5-libs-0:1.21.3 100% | 382.6 MiB/s |   2.3 MiB |  00m00s
+[123/157] Installing libssh-0:0.11.2-2. 100% | 277.7 MiB/s | 568.8 KiB |  00m00s
+[124/157] Installing libcurl-0:8.15.0-2 100% | 437.6 MiB/s | 896.3 KiB |  00m00s
+[125/157] Installing curl-0:8.15.0-2.el 100% |  24.5 MiB/s | 476.3 KiB |  00m00s
+[126/157] Installing rpm-0:5.99.91-3.el 100% |  92.3 MiB/s |   2.5 MiB |  00m00s
+[127/157] Installing efi-srpm-macros-0: 100% |   0.0   B/s |  41.1 KiB |  00m00s
+[128/157] Installing java-srpm-macros-0 100% |   0.0   B/s |   1.1 KiB |  00m00s
+[129/157] Installing lua-srpm-macros-0: 100% |   0.0   B/s |   1.9 KiB |  00m00s
+[130/157] Installing filesystem-srpm-ma 100% |   0.0   B/s |  38.9 KiB |  00m00s
+[131/157] Installing elfutils-default-y 100% | 510.7 KiB/s |   2.0 KiB |  00m00s
+[132/157] Installing elfutils-libs-0:0. 100% | 334.6 MiB/s | 685.2 KiB |  00m00s
+[133/157] Installing elfutils-debuginfo 100% |   7.0 MiB/s |  86.2 KiB |  00m00s
+[134/157] Installing binutils-0:2.45-1. 100% | 369.3 MiB/s |  26.6 MiB |  00m00s
+[135/157] Installing elfutils-0:0.193-3 100% | 162.5 MiB/s |   2.9 MiB |  00m00s
+[136/157] Installing gdb-minimal-0:16.3 100% | 327.9 MiB/s |  13.1 MiB |  00m00s
+[137/157] Installing debugedit-0:5.2-2. 100% |  16.3 MiB/s | 200.5 KiB |  00m00s
+[138/157] Installing rpm-build-libs-0:5 100% | 262.9 MiB/s | 269.2 KiB |  00m00s
+[139/157] Installing pkgconf-m4-0:2.3.0 100% |   0.0   B/s |  14.8 KiB |  00m00s
+[140/157] Installing pkgconf-pkg-config 100% | 161.2 KiB/s |   1.8 KiB |  00m00s
+[141/157] Installing rust-toolset-srpm- 100% |   0.0   B/s |   2.3 KiB |  00m00s
+[142/157] Installing qt6-srpm-macros-0: 100% |   0.0   B/s | 740.0   B |  00m00s
+[143/157] Installing perl-srpm-macros-0 100% |   0.0   B/s |   1.1 KiB |  00m00s
+[144/157] Installing package-notes-srpm 100% |   0.0   B/s |   2.0 KiB |  00m00s
+[145/157] Installing openblas-srpm-macr 100% |   0.0   B/s | 392.0   B |  00m00s
+[146/157] Installing ocaml-srpm-macros- 100% |   0.0   B/s |   2.1 KiB |  00m00s
+[147/157] Installing kernel-srpm-macros 100% |   0.0   B/s |   2.3 KiB |  00m00s
+[148/157] Installing rpm-build-0:5.99.9 100% |  22.4 MiB/s | 298.4 KiB |  00m00s
+[149/157] Installing pyproject-srpm-mac 100% |   0.0   B/s |   2.5 KiB |  00m00s
+[150/157] Installing redhat-rpm-config- 100% | 184.9 MiB/s | 189.3 KiB |  00m00s
+[151/157] Installing forge-srpm-macros- 100% |   0.0   B/s |  40.3 KiB |  00m00s
+[152/157] Installing fonts-srpm-macros- 100% |   0.0   B/s |  57.0 KiB |  00m00s
+[153/157] Installing go-srpm-macros-0:3 100% |   0.0   B/s |  62.6 KiB |  00m00s
+[154/157] Installing python-srpm-macros 100% |  51.6 MiB/s |  52.8 KiB |  00m00s
+[155/157] Installing util-linux-0:2.41. 100% | 115.4 MiB/s |   3.6 MiB |  00m00s
+[156/157] Installing which-0:2.23-3.eln 100% |   7.6 MiB/s |  85.3 KiB |  00m00s
+[157/157] Installing info-0:7.2-6.eln15 100% | 259.6 KiB/s | 358.3 KiB |  00m01s
+Warning: skipped OpenPGP checks for 155 packages from repository: https_kojipkgs_fedoraproject_org_repos_eln_build_latest_basearch
+Complete!
+Updating and loading repositories:
+ Additional repo https_download_copr_fe 100% |  43.5 KiB/s |   3.3 KiB |  00m00s
+ Additional repo https_kojipkgs_fedorap 100% |  46.0 KiB/s |   3.5 KiB |  00m00s
+ Copr repository                        100% |  19.8 KiB/s |   1.5 KiB |  00m00s
+ Fedora - ELN CodeReady Linux Builders  100% |   6.1 KiB/s |   3.6 KiB |  00m01s
+ Fedora - ELN AppStream - Developmental 100% |   9.9 KiB/s |   3.6 KiB |  00m00s
+ Fedora - ELN BaseOS - Developmental pa 100% |  22.9 KiB/s |   3.6 KiB |  00m00s
+Repositories loaded.
+Failed to resolve the transaction:
+Problem: cannot install the best candidate for the job
+  - nothing provides clang = 13.0.0 needed by clang-rpm-macros-1-136.el115.noarch from https_download_copr_fedorainfracloud_org_results_fedora_llvm_team_clang_rpm_macros_fedora_releasever_basearch
+You can try to add to command line:
+  --no-best to not limit the transaction to the best candidates
+  --skip-broken to skip uninstallable packages
+WARNING: DNF5 command failed, retrying, attempt #2, sleeping 10s
+Updating and loading repositories:
+ Additional repo https_download_copr_fe 100% |  76.9 KiB/s |   3.3 KiB |  00m00s
+ Additional repo https_kojipkgs_fedorap 100% |  79.4 KiB/s |   3.5 KiB |  00m00s
+ Copr repository                        100% |  34.7 KiB/s |   1.5 KiB |  00m00s
+ Fedora - ELN CodeReady Linux Builders  100% |  11.8 KiB/s |   3.6 KiB |  00m00s
+ Fedora - ELN AppStream - Developmental 100% |  14.2 KiB/s |   3.6 KiB |  00m00s
+ Fedora - ELN BaseOS - Developmental pa 100% |  29.0 KiB/s |   3.6 KiB |  00m00s
+Repositories loaded.
+Failed to resolve the transaction:
+Problem: cannot install the best candidate for the job
+  - nothing provides clang = 13.0.0 needed by clang-rpm-macros-1-136.el115.noarch from https_download_copr_fedorainfracloud_org_results_fedora_llvm_team_clang_rpm_macros_fedora_releasever_basearch
+You can try to add to command line:
+  --no-best to not limit the transaction to the best candidates
+  --skip-broken to skip uninstallable packages
+WARNING: DNF5 command failed, retrying, attempt #3, sleeping 10s
+Updating and loading repositories:
+ Additional repo https_download_copr_fe 100% |  78.7 KiB/s |   3.3 KiB |  00m00s
+ Additional repo https_kojipkgs_fedorap 100% |  83.2 KiB/s |   3.5 KiB |  00m00s
+ Copr repository                        100% |  36.3 KiB/s |   1.5 KiB |  00m00s
+ Fedora - ELN CodeReady Linux Builders  100% |  10.4 KiB/s |   3.6 KiB |  00m00s
+ Fedora - ELN AppStream - Developmental 100% |  12.0 KiB/s |   3.6 KiB |  00m00s
+ Fedora - ELN BaseOS - Developmental pa 100% |  40.0 KiB/s |   3.6 KiB |  00m00s
+Repositories loaded.
+Failed to resolve the transaction:
+Problem: cannot install the best candidate for the job
+  - nothing provides clang = 13.0.0 needed by clang-rpm-macros-1-136.el115.noarch from https_download_copr_fedorainfracloud_org_results_fedora_llvm_team_clang_rpm_macros_fedora_releasever_basearch
+You can try to add to command line:
+  --no-best to not limit the transaction to the best candidates
+  --skip-broken to skip uninstallable packages
+INFO: chroot_scan: 1 files copied to /var/lib/copr-rpmbuild/results/chroot_scan
+INFO: /var/lib/mock/fedora-eln-x86_64-1755004448.554015/root/var/log/dnf5.log
+INFO: chroot_scan: creating tarball /var/lib/copr-rpmbuild/results/chroot_scan.tar.gz
+/bin/tar: Removing leading `/' from member names
+ERROR: Exception(/var/lib/copr-rpmbuild/workspace/workdir-a9wg2ks3/whois/whois.spec) Config(fedora-eln-x86_64) 0 minutes 47 seconds
+INFO: Results and/or logs in: /var/lib/copr-rpmbuild/results
+INFO: Cleaning up build root ('cleanup_on_failure=True')
+Start: clean chroot
+INFO: unmounting tmpfs.
+Finish: clean chroot
+ERROR: Command failed: 
+ # /usr/bin/systemd-nspawn -q -M fa2b0eaba1b44e35b4bade63bad09487 -D /var/lib/mock/fedora-eln-x86_64-bootstrap-1755004448.554015/root -a --capability=cap_ipc_lock --rlimit=RLIMIT_NOFILE=10240 --capability=cap_ipc_lock --bind=/tmp/mock-resolv.omadrizo:/etc/resolv.conf --console=pipe --setenv=TERM=vt100 --setenv=SHELL=/bin/bash --setenv=HOME=/var/lib/mock/fedora-eln-x86_64-1755004448.554015/root/installation-homedir --setenv=HOSTNAME=mock --setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin '--setenv=PROMPT_COMMAND=printf "\033]0;<mock-chroot>\007"' '--setenv=PS1=<mock-chroot> \s-\v\$ ' --setenv=LANG=C.UTF-8 --setenv=LC_MESSAGES=C.UTF-8 --setenv=SYSTEMD_NSPAWN_TMPFS_TMP=0 --setenv=SYSTEMD_SECCOMP=0 --resolv-conf=off /usr/bin/dnf5 --installroot /var/lib/mock/fedora-eln-x86_64-1755004448.554015/root/ --releasever eln install clang-rpm-macros clang compiler-rt libomp libomp-devel llvm --setopt=deltarpm=False --setopt=allow_vendor_change=yes --allowerasing --setopt=tsflags=nocontexts --setopt=tsflags=nocontexts --setopt=tsflags=nocontexts
+Updating and loading repositories:
+ Additional repo https_download_copr_fe 100% |  78.7 KiB/s |   3.3 KiB |  00m00s
+ Additional repo https_kojipkgs_fedorap 100% |  83.2 KiB/s |   3.5 KiB |  00m00s
+ Copr repository                        100% |  36.3 KiB/s |   1.5 KiB |  00m00s
+ Fedora - ELN CodeReady Linux Builders  100% |  10.4 KiB/s |   3.6 KiB |  00m00s
+ Fedora - ELN AppStream - Developmental 100% |  12.0 KiB/s |   3.6 KiB |  00m00s
+ Fedora - ELN BaseOS - Developmental pa 100% |  40.0 KiB/s |   3.6 KiB |  00m00s
+Repositories loaded.
+Failed to resolve the transaction:
+Problem: cannot install the best candidate for the job
+  - nothing provides clang = 13.0.0 needed by clang-rpm-macros-1-136.el115.noarch from https_download_copr_fedorainfracloud_org_results_fedora_llvm_team_clang_rpm_macros_fedora_releasever_basearch
+You can try to add to command line:
+  --no-best to not limit the transaction to the best candidates
+  --skip-broken to skip uninstallable packages
+
+Copr build error: Build failed

@@ -1,0 +1,12 @@
+source_project_name: clang-built-eln
+source_project_version: 5.6.4-1
+issue: |
+    Build failed due to unavailable dependency `clang = 13.0.0`.
+log_detective_version: 2.0.0
+log_detective_analysis: |
+    The build failed because the dependency `clang = 13.0.0` could not be resolved. The system was unable to find a suitable version of clang in the enabled repositories, including the Copr repository. The command that failed was trying to install clang and related packages using dnf5 within a mock chroot environment.
+
+    Solution:
+
+    Ensure that the repository containing `clang = 13.0.0` is enabled and accessible during the build process. If the package is in a Copr repository, verify that the repository is properly configured. If clang 13.0.0 is not available, consider updating the package's dependencies or using a different build environment with the correct clang version.
+log_file: builder-live.log
