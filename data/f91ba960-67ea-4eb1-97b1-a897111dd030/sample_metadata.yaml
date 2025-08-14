@@ -1,0 +1,11 @@
+source_project_name: gnome-shell
+source_project_version: 48.4-3
+issue: |
+    Build failed due to missing patch file `gnome-shell-notify-gnome-session.patch`.
+    TFixing the issue, requires making sure that all patch files specified in the `SOURCES` directory.
+log_detective_version: 2.0.0
+log_detective_analysis: |
+   The RPM build failed because the patch file `gnome-shell-notify-gnome-session.patch`, specified in the `gnome-shell.spec` file, was not found in the `SOURCES` directory.
+   This caused the `rpmbuild -bs` command to fail within the mock environment.
+   To resolve this, ensure that the patch file is present in the `SOURCES` directory or remove the reference to the missing patch from the spec file.
+log_file: builder-live.log

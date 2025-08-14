@@ -1,0 +1,981 @@
+Warning: Permanently added '2620:52:3:1:dead:beef:cafe:c11b' (ED25519) to the list of known hosts.
+
+You can reproduce this build on your computer by running:
+
+  sudo dnf install copr-rpmbuild
+  /usr/bin/copr-rpmbuild --verbose --drop-resultdir --task-url https://copr.fedorainfracloud.org/backend/get-build-task/9411894-epel-10-x86_64 --chroot epel-10-x86_64
+
+
+Version: 1.3
+PID: 6605
+Logging PID: 6606
+Task:
+{'allow_user_ssh': False,
+ 'appstream': False,
+ 'background': True,
+ 'build_id': 9411894,
+ 'buildroot_pkgs': [],
+ 'chroot': 'epel-10-x86_64',
+ 'enable_net': False,
+ 'fedora_review': False,
+ 'git_hash': '54ebb01d86f4a22f8369e382ed6ee9149526fb13',
+ 'git_repo': 'https://copr-dist-git.fedorainfracloud.org/git/jreilly1821/c10s-gnome-48/gnome-shell',
+ 'isolation': 'default',
+ 'memory_reqs': 2048,
+ 'package_name': 'gnome-shell',
+ 'package_version': '48.4-3',
+ 'project_dirname': 'c10s-gnome-48',
+ 'project_name': 'c10s-gnome-48',
+ 'project_owner': 'jreilly1821',
+ 'repo_priority': None,
+ 'repos': [{'baseurl': 'https://download.copr.fedorainfracloud.org/results/jreilly1821/c10s-gnome-48/epel-10-x86_64/',
+            'id': 'copr_base',
+            'name': 'Copr repository',
+            'priority': None},
+           {'baseurl': 'https://kojihub.stream.centos.org/kojifiles/repos/c${releasever}s-build/latest/$basearch/',
+            'id': 'https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch',
+            'name': 'Additional repo '
+                    'https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch'},
+           {'baseurl': 'https://mirror.stream.centos.org/SIGs/${releasever}-stream/proposed_updates/$basearch/packages-main/',
+            'id': 'https_mirror_stream_centos_org_SIGs_releasever_stream_proposed_updates_basearch_packages_main',
+            'name': 'Additional repo '
+                    'https_mirror_stream_centos_org_SIGs_releasever_stream_proposed_updates_basearch_packages_main'}],
+ 'sandbox': 'jreilly1821/c10s-gnome-48--https://src.fedoraproject.org/user/jreilly1821',
+ 'source_json': {},
+ 'source_type': None,
+ 'ssh_public_keys': None,
+ 'storage': 0,
+ 'submitter': 'https://src.fedoraproject.org/user/jreilly1821',
+ 'tags': [],
+ 'task_id': '9411894-epel-10-x86_64',
+ 'timeout': 18000,
+ 'uses_devel_repo': False,
+ 'with_opts': [],
+ 'without_opts': []}
+
+Running: git clone https://copr-dist-git.fedorainfracloud.org/git/jreilly1821/c10s-gnome-48/gnome-shell /var/lib/copr-rpmbuild/workspace/workdir-woz3m3y6/gnome-shell --depth 500 --no-single-branch --recursive
+
+cmd: ['git', 'clone', 'https://copr-dist-git.fedorainfracloud.org/git/jreilly1821/c10s-gnome-48/gnome-shell', '/var/lib/copr-rpmbuild/workspace/workdir-woz3m3y6/gnome-shell', '--depth', '500', '--no-single-branch', '--recursive']
+cwd: .
+rc: 0
+stdout: 
+stderr: Cloning into '/var/lib/copr-rpmbuild/workspace/workdir-woz3m3y6/gnome-shell'...
+
+Running: git checkout 54ebb01d86f4a22f8369e382ed6ee9149526fb13 --
+
+cmd: ['git', 'checkout', '54ebb01d86f4a22f8369e382ed6ee9149526fb13', '--']
+cwd: /var/lib/copr-rpmbuild/workspace/workdir-woz3m3y6/gnome-shell
+rc: 0
+stdout: 
+stderr: Note: switching to '54ebb01d86f4a22f8369e382ed6ee9149526fb13'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 54ebb01 automatic import of gnome-shell
+
+Running: dist-git-client sources
+100 2182k  100 2182k    0     0  16.6M      0 --:--:-- --:--:-- --:--:-- 16.6M
+INFO: Reading stdout from command: md5sum gnome-shell-48.4.tar.xz
+
+tail: /var/lib/copr-rpmbuild/main.log: file truncated
+Running (timeout=18000): unbuffer mock --spec /var/lib/copr-rpmbuild/workspace/workdir-woz3m3y6/gnome-shell/gnome-shell.spec --sources /var/lib/copr-rpmbuild/workspace/workdir-woz3m3y6/gnome-shell --resultdir /var/lib/copr-rpmbuild/results --uniqueext 1755159715.950892 -r /var/lib/copr-rpmbuild/results/configs/child.cfg
+INFO: mock.py version 6.3 starting (python version = 3.13.5, NVR = mock-6.3-1.fc42), args: /usr/libexec/mock/mock --spec /var/lib/copr-rpmbuild/workspace/workdir-woz3m3y6/gnome-shell/gnome-shell.spec --sources /var/lib/copr-rpmbuild/workspace/workdir-woz3m3y6/gnome-shell --resultdir /var/lib/copr-rpmbuild/results --uniqueext 1755159715.950892 -r /var/lib/copr-rpmbuild/results/configs/child.cfg
+Start(bootstrap): init plugins
+INFO: tmpfs initialized
+INFO: selinux enabled
+INFO: chroot_scan: initialized
+INFO: compress_logs: initialized
+Finish(bootstrap): init plugins
+Start: init plugins
+INFO: tmpfs initialized
+INFO: selinux enabled
+INFO: chroot_scan: initialized
+INFO: compress_logs: initialized
+Finish: init plugins
+INFO: Signal handler active
+Start: run
+INFO: Start(/var/lib/copr-rpmbuild/workspace/workdir-woz3m3y6/gnome-shell/gnome-shell.spec)  Config(centos-stream+epel-10-x86_64)
+Start: clean chroot
+Finish: clean chroot
+Mock Version: 6.3
+INFO: Mock Version: 6.3
+Start(bootstrap): chroot init
+INFO: mounting tmpfs at /var/lib/mock/centos-stream+epel-10-x86_64-bootstrap-1755159715.950892/root.
+INFO: calling preinit hooks
+INFO: enabled root cache
+INFO: enabled package manager cache
+Start(bootstrap): cleaning package manager metadata
+Finish(bootstrap): cleaning package manager metadata
+INFO: Guessed host environment type: unknown
+INFO: Using container image: quay.io/centos/centos:stream10
+INFO: Pulling image: quay.io/centos/centos:stream10
+INFO: Tagging container image as mock-bootstrap-626a5827-0265-4897-b57f-aabecf3ada0f
+INFO: Checking that f411d33ff55a49ebae8d74b6eb2fd7458a6b72542e71b3bba01e59601891e3aa image matches host's architecture
+INFO: Copy content of container f411d33ff55a49ebae8d74b6eb2fd7458a6b72542e71b3bba01e59601891e3aa to /var/lib/mock/centos-stream+epel-10-x86_64-bootstrap-1755159715.950892/root
+INFO: mounting f411d33ff55a49ebae8d74b6eb2fd7458a6b72542e71b3bba01e59601891e3aa with podman image mount
+INFO: image f411d33ff55a49ebae8d74b6eb2fd7458a6b72542e71b3bba01e59601891e3aa as /var/lib/containers/storage/overlay/5eabb043ad8dc0a3a18be72144369c4ecdc03a9f263c16e033476c4c4dd5be76/merged
+INFO: umounting image f411d33ff55a49ebae8d74b6eb2fd7458a6b72542e71b3bba01e59601891e3aa (/var/lib/containers/storage/overlay/5eabb043ad8dc0a3a18be72144369c4ecdc03a9f263c16e033476c4c4dd5be76/merged) with podman image umount
+INFO: Removing image mock-bootstrap-626a5827-0265-4897-b57f-aabecf3ada0f
+INFO: Package manager dnf4 detected and used (fallback)
+INFO: Not updating bootstrap chroot, bootstrap_image_ready=True
+Start(bootstrap): creating root cache
+Finish(bootstrap): creating root cache
+Finish(bootstrap): chroot init
+Start: chroot init
+INFO: mounting tmpfs at /var/lib/mock/centos-stream+epel-10-x86_64-1755159715.950892/root.
+INFO: calling preinit hooks
+INFO: enabled root cache
+INFO: enabled package manager cache
+Start: cleaning package manager metadata
+Finish: cleaning package manager metadata
+INFO: enabled HW Info plugin
+INFO: Package manager dnf4 detected and used (direct choice)
+INFO: Buildroot is handled by package management downloaded with a bootstrap image:
+  rpm-4.19.1.1-18.el10.x86_64
+  rpm-sequoia-1.9.0.1-1.el10.x86_64
+  python3-dnf-4.20.0-18.el10.noarch
+  python3-dnf-plugins-core-4.7.0-9.el10.noarch
+  yum-4.20.0-18.el10.noarch
+Start: installing minimal buildroot with dnf
+No matches found for the following disable plugin patterns: local, spacewalk, versionlock
+Copr repository                                 1.0 MB/s |  72 kB     00:00    
+Additional repo https_kojihub_stream_centos_org  16 MB/s | 4.2 MB     00:00    
+Additional repo https_mirror_stream_centos_org_ 106 kB/s | 8.0 kB     00:00    
+CentOS Stream 10 - BaseOS                        25 MB/s | 6.7 MB     00:00    
+CentOS Stream 10 - AppStream                     16 MB/s | 3.3 MB     00:00    
+CentOS Stream 10 - CRB                          4.2 MB/s | 748 kB     00:00    
+CentOS Stream 10 - Extras packages               57 kB/s | 6.9 kB     00:00    
+Extra Packages for Enterprise Linux 10 - x86_64 8.3 MB/s | 5.2 MB     00:00    
+Dependencies resolved.
+================================================================================================================================================================
+ Package                       Arch    Version                       Repository                                                                             Size
+================================================================================================================================================================
+Installing:
+ bash                          x86_64  5.2.26-6.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  1.8 M
+ bzip2                         x86_64  1.0.8-25.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   50 k
+ centos-stream-release         noarch  10.0-10.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   23 k
+ coreutils                     x86_64  9.5-6.el10                    https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  1.1 M
+ cpio                          x86_64  2.15-3.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  285 k
+ diffutils                     x86_64  3.10-8.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  399 k
+ epel-rpm-macros               noarch  10-5.el10_1                   epel                                                                                  8.1 k
+ findutils                     x86_64  1:4.10.0-5.el10               https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  541 k
+ gawk                          x86_64  5.3.0-6.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  1.1 M
+ glibc-minimal-langpack        x86_64  2.39-46.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   55 k
+ grep                          x86_64  3.11-10.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  289 k
+ gzip                          x86_64  1.13-3.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  164 k
+ info                          x86_64  7.1-6.el10                    https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  182 k
+ patch                         x86_64  2.7.6-26.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  131 k
+ redhat-rpm-config             noarch  293-1.el10                    https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   71 k
+ rpm-build                     x86_64  4.19.1.1-18.el10              https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   66 k
+ sed                           x86_64  4.9-3.el10                    https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  309 k
+ shadow-utils                  x86_64  2:4.15.0-8.el10               https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  1.3 M
+ tar                           x86_64  2:1.35-7.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  853 k
+ unzip                         x86_64  6.0-69.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  188 k
+ util-linux                    x86_64  2.40.2-10.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  1.1 M
+ which                         x86_64  2.21-44.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   41 k
+ xz                            x86_64  1:5.6.2-4.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  457 k
+Installing dependencies:
+ alternatives                  x86_64  1.30-2.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   41 k
+ ansible-srpm-macros           noarch  1-16.1.el10_0                 epel                                                                                   20 k
+ audit-libs                    x86_64  4.0.3-4.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  131 k
+ authselect                    x86_64  1.5.0-8.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  141 k
+ authselect-libs               x86_64  1.5.0-8.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  204 k
+ basesystem                    noarch  11-22.el10                    https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  7.2 k
+ binutils                      x86_64  2.41-57.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  6.3 M
+ binutils-gold                 x86_64  2.41-57.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  798 k
+ bzip2-libs                    x86_64  1.0.8-25.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   41 k
+ ca-certificates               noarch  2024.2.69_v8.0.303-102.3.el10 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  940 k
+ centos-gpg-keys               noarch  10.0-10.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  9.9 k
+ centos-stream-repos           noarch  10.0-10.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  8.0 k
+ coreutils-common              x86_64  9.5-6.el10                    https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  2.1 M
+ cracklib                      x86_64  2.9.11-8.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   82 k
+ cracklib-dicts                x86_64  2.9.11-8.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  3.6 M
+ crypto-policies               noarch  20250804-1.git2ca4115.el10    https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   66 k
+ curl                          x86_64  8.12.1-2.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  218 k
+ cyrus-sasl-lib                x86_64  2.1.28-27.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  101 k
+ debugedit                     x86_64  5.1-8.el10                    https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   79 k
+ dwz                           x86_64  0.16-1.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  139 k
+ ed                            x86_64  1.20-5.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   82 k
+ efi-srpm-macros               noarch  6-6.el10                      https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   23 k
+ elfutils                      x86_64  0.193-1.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  561 k
+ elfutils-debuginfod-client    x86_64  0.193-1.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   46 k
+ elfutils-default-yama-scope   noarch  0.193-1.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   12 k
+ elfutils-libelf               x86_64  0.193-1.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  207 k
+ elfutils-libs                 x86_64  0.193-1.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  268 k
+ file                          x86_64  5.45-8.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   48 k
+ file-libs                     x86_64  5.45-8.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  763 k
+ filesystem                    x86_64  3.18-17.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  1.1 M
+ fonts-srpm-macros             noarch  1:2.0.5-18.el10               https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   26 k
+ forge-srpm-macros             noarch  0.4.0-6.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   20 k
+ gdb-minimal                   x86_64  16.3-2.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  4.4 M
+ gdbm                          x86_64  1:1.23-14.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  147 k
+ gdbm-libs                     x86_64  1:1.23-14.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   57 k
+ ghc-srpm-macros               noarch  1.9.2-1.el10_0                epel                                                                                  9.1 k
+ glibc                         x86_64  2.39-46.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  2.1 M
+ glibc-common                  x86_64  2.39-46.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  338 k
+ glibc-gconv-extra             x86_64  2.39-46.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  1.6 M
+ gmp                           x86_64  1:6.2.1-12.el10               https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  317 k
+ go-srpm-macros                noarch  3.6.0-4.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   27 k
+ jansson                       x86_64  2.14-3.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   45 k
+ json-c                        x86_64  0.18-3.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   44 k
+ kernel-srpm-macros            noarch  1.0-25.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  9.7 k
+ keyutils-libs                 x86_64  1.6.3-5.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   31 k
+ krb5-libs                     x86_64  1.21.3-8.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  756 k
+ libacl                        x86_64  2.3.2-4.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   24 k
+ libarchive                    x86_64  3.7.7-3.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  415 k
+ libattr                       x86_64  2.5.2-5.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   18 k
+ libblkid                      x86_64  2.40.2-10.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  126 k
+ libbrotli                     x86_64  1.1.0-6.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  345 k
+ libcap                        x86_64  2.69-7.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   86 k
+ libcap-ng                     x86_64  0.8.4-6.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   32 k
+ libcom_err                    x86_64  1.47.1-4.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   26 k
+ libcurl                       x86_64  8.12.1-2.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  369 k
+ libeconf                      x86_64  0.6.2-4.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   32 k
+ libevent                      x86_64  2.1.12-16.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  258 k
+ libfdisk                      x86_64  2.40.2-10.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  160 k
+ libffi                        x86_64  3.4.4-10.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   40 k
+ libgcc                        x86_64  14.3.1-2.1.el10               https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  144 k
+ libgomp                       x86_64  14.3.1-2.1.el10               https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  367 k
+ libidn2                       x86_64  2.3.7-3.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  112 k
+ libmount                      x86_64  2.40.2-10.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  156 k
+ libnghttp2                    x86_64  1.64.0-2.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   77 k
+ libpkgconf                    x86_64  2.1.0-3.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   38 k
+ libpsl                        x86_64  0.21.5-6.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   64 k
+ libpwquality                  x86_64  1.4.5-12.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  108 k
+ libselinux                    x86_64  3.9-1.el10                    https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   97 k
+ libsemanage                   x86_64  3.9-1.el10                    https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  122 k
+ libsepol                      x86_64  3.9-1.el10                    https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  348 k
+ libsmartcols                  x86_64  2.40.2-10.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   84 k
+ libssh                        x86_64  0.11.1-1.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  232 k
+ libssh-config                 noarch  0.11.1-1.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  8.6 k
+ libstdc++                     x86_64  14.3.1-2.1.el10               https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  921 k
+ libtasn1                      x86_64  4.20.0-1.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   74 k
+ libunistring                  x86_64  1.1-10.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  547 k
+ libutempter                   x86_64  1.2.1-15.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   26 k
+ libuuid                       x86_64  2.40.2-10.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   29 k
+ libverto                      x86_64  0.3.2-10.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   20 k
+ libxcrypt                     x86_64  4.4.36-10.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  119 k
+ libxml2                       x86_64  2.12.5-9.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  691 k
+ libzstd                       x86_64  1.5.5-9.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  291 k
+ lua-libs                      x86_64  5.4.6-7.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  131 k
+ lua-srpm-macros               noarch  1-15.el10                     https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  8.7 k
+ lz4-libs                      x86_64  1.9.4-8.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   67 k
+ mpfr                          x86_64  4.2.1-5.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  345 k
+ ncurses-base                  noarch  6.4-14.20240127.el10          https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   64 k
+ ncurses-libs                  x86_64  6.4-14.20240127.el10          https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  331 k
+ ocaml-srpm-macros             noarch  10-4.el10                     https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  9.0 k
+ openblas-srpm-macros          noarch  2-19.el10                     https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  7.6 k
+ openldap                      x86_64  2.6.8-3.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  222 k
+ openssl-fips-provider         x86_64  1:3.5.1-3.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  812 k
+ openssl-libs                  x86_64  1:3.5.1-3.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  2.2 M
+ p11-kit                       x86_64  0.25.5-7.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  478 k
+ p11-kit-trust                 x86_64  0.25.5-7.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  133 k
+ package-notes-srpm-macros     noarch  0.5-13.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  9.1 k
+ pam                           x86_64  1.6.1-8.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  512 k
+ pam-libs                      x86_64  1.6.1-8.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   57 k
+ pcre2                         x86_64  10.44-1.el10.3                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  247 k
+ pcre2-syntax                  noarch  10.44-1.el10.3                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  150 k
+ perl-srpm-macros              noarch  1-57.el10                     https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  8.4 k
+ pkgconf                       x86_64  2.1.0-3.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   43 k
+ pkgconf-m4                    noarch  2.1.0-3.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   14 k
+ pkgconf-pkg-config            x86_64  2.1.0-3.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  9.7 k
+ popt                          x86_64  1.19-8.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   59 k
+ publicsuffix-list-dafsa       noarch  20240107-5.el10               https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   58 k
+ pyproject-srpm-macros         noarch  1.16.2-1.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   14 k
+ python-srpm-macros            noarch  3.12-10.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   23 k
+ qt6-srpm-macros               noarch  6.9.1-1.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  9.4 k
+ readline                      x86_64  8.2-11.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  213 k
+ rpm                           x86_64  4.19.1.1-18.el10              https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  506 k
+ rpm-build-libs                x86_64  4.19.1.1-18.el10              https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   93 k
+ rpm-libs                      x86_64  4.19.1.1-18.el10              https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  310 k
+ rpm-sequoia                   x86_64  1.9.0.1-1.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  975 k
+ rust-toolset-srpm-macros      noarch  1.88.0-1.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   12 k
+ setup                         noarch  2.14.5-7.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  147 k
+ sqlite-libs                   x86_64  3.46.1-4.el10                 https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  746 k
+ systemd-libs                  x86_64  257-11.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  817 k
+ util-linux-core               x86_64  2.40.2-10.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  518 k
+ xz-libs                       x86_64  1:5.6.2-4.el10                https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  112 k
+ zip                           x86_64  3.0-45.el10                   https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  267 k
+ zlib-ng-compat                x86_64  2.2.3-2.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch   78 k
+ zstd                          x86_64  1.5.5-9.el10                  https_kojihub_stream_centos_org_kojifiles_repos_c_releasever_s_build_latest_basearch  462 k
+
+Transaction Summary
+================================================================================================================================================================
+Install  146 Packages
+
+Total download size: 56 M
+Installed size: 188 M
+Downloading Packages:
+(1/146): alternatives-1.30-2.el10.x86_64.rpm    469 kB/s |  41 kB     00:00    
+(2/146): audit-libs-4.0.3-4.el10.x86_64.rpm     1.3 MB/s | 131 kB     00:00    
+(3/146): authselect-1.5.0-8.el10.x86_64.rpm     1.3 MB/s | 141 kB     00:00    
+(4/146): basesystem-11-22.el10.noarch.rpm       148 kB/s | 7.2 kB     00:00    
+(5/146): authselect-libs-1.5.0-8.el10.x86_64.rp 1.8 MB/s | 204 kB     00:00    
+(6/146): bash-5.2.26-6.el10.x86_64.rpm           11 MB/s | 1.8 MB     00:00    
+(7/146): binutils-gold-2.41-57.el10.x86_64.rpm  5.3 MB/s | 798 kB     00:00    
+(8/146): bzip2-1.0.8-25.el10.x86_64.rpm         622 kB/s |  50 kB     00:00    
+(9/146): binutils-2.41-57.el10.x86_64.rpm        28 MB/s | 6.3 MB     00:00    
+(10/146): bzip2-libs-1.0.8-25.el10.x86_64.rpm   514 kB/s |  41 kB     00:00    
+(11/146): centos-gpg-keys-10.0-10.el10.noarch.r 204 kB/s | 9.9 kB     00:00    
+(12/146): centos-stream-repos-10.0-10.el10.noar 165 kB/s | 8.0 kB     00:00    
+(13/146): ca-certificates-2024.2.69_v8.0.303-10 6.5 MB/s | 940 kB     00:00    
+(14/146): centos-stream-release-10.0-10.el10.no 363 kB/s |  23 kB     00:00    
+(15/146): cpio-2.15-3.el10.x86_64.rpm           2.4 MB/s | 285 kB     00:00    
+(16/146): coreutils-9.5-6.el10.x86_64.rpm       7.5 MB/s | 1.1 MB     00:00    
+(17/146): coreutils-common-9.5-6.el10.x86_64.rp  13 MB/s | 2.1 MB     00:00    
+(18/146): cracklib-2.9.11-8.el10.x86_64.rpm     1.0 MB/s |  82 kB     00:00    
+(19/146): crypto-policies-20250804-1.git2ca4115 806 kB/s |  66 kB     00:00    
+(20/146): curl-8.12.1-2.el10.x86_64.rpm         1.8 MB/s | 218 kB     00:00    
+(21/146): cracklib-dicts-2.9.11-8.el10.x86_64.r  19 MB/s | 3.6 MB     00:00    
+(22/146): cyrus-sasl-lib-2.1.28-27.el10.x86_64. 981 kB/s | 101 kB     00:00    
+(23/146): debugedit-5.1-8.el10.x86_64.rpm       959 kB/s |  79 kB     00:00    
+(24/146): diffutils-3.10-8.el10.x86_64.rpm      3.4 MB/s | 399 kB     00:00    
+(25/146): dwz-0.16-1.el10.x86_64.rpm            1.4 MB/s | 139 kB     00:00    
+(26/146): ed-1.20-5.el10.x86_64.rpm             959 kB/s |  82 kB     00:00    
+(27/146): efi-srpm-macros-6-6.el10.noarch.rpm   324 kB/s |  23 kB     00:00    
+(28/146): elfutils-default-yama-scope-0.193-1.e 238 kB/s |  12 kB     00:00    
+(29/146): elfutils-debuginfod-client-0.193-1.el 580 kB/s |  46 kB     00:00    
+(30/146): elfutils-0.193-1.el10.x86_64.rpm      4.3 MB/s | 561 kB     00:00    
+(31/146): file-5.45-8.el10.x86_64.rpm           594 kB/s |  48 kB     00:00    
+(32/146): elfutils-libelf-0.193-1.el10.x86_64.r 1.9 MB/s | 207 kB     00:00    
+(33/146): elfutils-libs-0.193-1.el10.x86_64.rpm 2.4 MB/s | 268 kB     00:00    
+(34/146): findutils-4.10.0-5.el10.x86_64.rpm    4.1 MB/s | 541 kB     00:00    
+(35/146): file-libs-5.45-8.el10.x86_64.rpm      5.2 MB/s | 763 kB     00:00    
+(36/146): filesystem-3.18-17.el10.x86_64.rpm    7.4 MB/s | 1.1 MB     00:00    
+(37/146): fonts-srpm-macros-2.0.5-18.el10.noarc 400 kB/s |  26 kB     00:00    
+(38/146): forge-srpm-macros-0.4.0-6.el10.noarch 310 kB/s |  20 kB     00:00    
+(39/146): gawk-5.3.0-6.el10.x86_64.rpm          7.5 MB/s | 1.1 MB     00:00    
+(40/146): gdbm-1.23-14.el10.x86_64.rpm          1.5 MB/s | 147 kB     00:00    
+(41/146): gdbm-libs-1.23-14.el10.x86_64.rpm     722 kB/s |  57 kB     00:00    
+(42/146): gdb-minimal-16.3-2.el10.x86_64.rpm     22 MB/s | 4.4 MB     00:00    
+(43/146): glibc-2.39-46.el10.x86_64.rpm          12 MB/s | 2.1 MB     00:00    
+(44/146): glibc-common-2.39-46.el10.x86_64.rpm  2.9 MB/s | 338 kB     00:00    
+(45/146): glibc-gconv-extra-2.39-46.el10.x86_64  10 MB/s | 1.6 MB     00:00    
+(46/146): glibc-minimal-langpack-2.39-46.el10.x 666 kB/s |  55 kB     00:00    
+(47/146): gmp-6.2.1-12.el10.x86_64.rpm          2.8 MB/s | 317 kB     00:00    
+(48/146): go-srpm-macros-3.6.0-4.el10.noarch.rp 397 kB/s |  27 kB     00:00    
+(49/146): grep-3.11-10.el10.x86_64.rpm          2.2 MB/s | 289 kB     00:00    
+(50/146): gzip-1.13-3.el10.x86_64.rpm           1.7 MB/s | 164 kB     00:00    
+(51/146): info-7.1-6.el10.x86_64.rpm            1.6 MB/s | 182 kB     00:00    
+(52/146): jansson-2.14-3.el10.x86_64.rpm        578 kB/s |  45 kB     00:00    
+(53/146): json-c-0.18-3.el10.x86_64.rpm         562 kB/s |  44 kB     00:00    
+(54/146): kernel-srpm-macros-1.0-25.el10.noarch 194 kB/s | 9.7 kB     00:00    
+(55/146): keyutils-libs-1.6.3-5.el10.x86_64.rpm 500 kB/s |  31 kB     00:00    
+(56/146): libacl-2.3.2-4.el10.x86_64.rpm        375 kB/s |  24 kB     00:00    
+(57/146): krb5-libs-1.21.3-8.el10.x86_64.rpm    5.9 MB/s | 756 kB     00:00    
+(58/146): libattr-2.5.2-5.el10.x86_64.rpm       282 kB/s |  18 kB     00:00    
+(59/146): libarchive-3.7.7-3.el10.x86_64.rpm    3.2 MB/s | 415 kB     00:00    
+(60/146): libblkid-2.40.2-10.el10.x86_64.rpm    1.1 MB/s | 126 kB     00:00    
+(61/146): libbrotli-1.1.0-6.el10.x86_64.rpm     3.0 MB/s | 345 kB     00:00    
+(62/146): libcap-2.69-7.el10.x86_64.rpm         1.0 MB/s |  86 kB     00:00    
+(63/146): libcap-ng-0.8.4-6.el10.x86_64.rpm     508 kB/s |  32 kB     00:00    
+(64/146): libcom_err-1.47.1-4.el10.x86_64.rpm   403 kB/s |  26 kB     00:00    
+(65/146): libeconf-0.6.2-4.el10.x86_64.rpm      507 kB/s |  32 kB     00:00    
+(66/146): libcurl-8.12.1-2.el10.x86_64.rpm      3.3 MB/s | 369 kB     00:00    
+(67/146): libevent-2.1.12-16.el10.x86_64.rpm    2.3 MB/s | 258 kB     00:00    
+(68/146): libffi-3.4.4-10.el10.x86_64.rpm       496 kB/s |  40 kB     00:00    
+(69/146): libfdisk-2.40.2-10.el10.x86_64.rpm    1.7 MB/s | 160 kB     00:00    
+(70/146): libgcc-14.3.1-2.1.el10.x86_64.rpm     1.5 MB/s | 144 kB     00:00    
+(71/146): libidn2-2.3.7-3.el10.x86_64.rpm       1.2 MB/s | 112 kB     00:00    
+(72/146): libgomp-14.3.1-2.1.el10.x86_64.rpm    2.9 MB/s | 367 kB     00:00    
+(73/146): libmount-2.40.2-10.el10.x86_64.rpm    1.6 MB/s | 156 kB     00:00    
+(74/146): libnghttp2-1.64.0-2.el10.x86_64.rpm   975 kB/s |  77 kB     00:00    
+(75/146): libpkgconf-2.1.0-3.el10.x86_64.rpm    607 kB/s |  38 kB     00:00    
+(76/146): libpsl-0.21.5-6.el10.x86_64.rpm       812 kB/s |  64 kB     00:00    
+(77/146): libpwquality-1.4.5-12.el10.x86_64.rpm 1.1 MB/s | 108 kB     00:00    
+(78/146): libselinux-3.9-1.el10.x86_64.rpm      1.0 MB/s |  97 kB     00:00    
+(79/146): libsemanage-3.9-1.el10.x86_64.rpm     1.3 MB/s | 122 kB     00:00    
+(80/146): libsmartcols-2.40.2-10.el10.x86_64.rp 1.0 MB/s |  84 kB     00:00    
+(81/146): libsepol-3.9-1.el10.x86_64.rpm        3.0 MB/s | 348 kB     00:00    
+(82/146): libssh-config-0.11.1-1.el10.noarch.rp 173 kB/s | 8.6 kB     00:00    
+(83/146): libssh-0.11.1-1.el10.x86_64.rpm       2.1 MB/s | 232 kB     00:00    
+(84/146): libtasn1-4.20.0-1.el10.x86_64.rpm     939 kB/s |  74 kB     00:00    
+(85/146): libstdc++-14.3.1-2.1.el10.x86_64.rpm  6.3 MB/s | 921 kB     00:00    
+(86/146): libutempter-1.2.1-15.el10.x86_64.rpm  412 kB/s |  26 kB     00:00    
+(87/146): libunistring-1.1-10.el10.x86_64.rpm   4.2 MB/s | 547 kB     00:00    
+(88/146): libuuid-2.40.2-10.el10.x86_64.rpm     459 kB/s |  29 kB     00:00    
+(89/146): libverto-0.3.2-10.el10.x86_64.rpm     326 kB/s |  20 kB     00:00    
+(90/146): libxcrypt-4.4.36-10.el10.x86_64.rpm   1.2 MB/s | 119 kB     00:00    
+(91/146): libxml2-2.12.5-9.el10.x86_64.rpm      5.3 MB/s | 691 kB     00:00    
+(92/146): libzstd-1.5.5-9.el10.x86_64.rpm       2.6 MB/s | 291 kB     00:00    
+(93/146): lua-libs-5.4.6-7.el10.x86_64.rpm      1.3 MB/s | 131 kB     00:00    
+(94/146): lua-srpm-macros-1-15.el10.noarch.rpm  175 kB/s | 8.7 kB     00:00    
+(95/146): lz4-libs-1.9.4-8.el10.x86_64.rpm      839 kB/s |  67 kB     00:00    
+(96/146): ncurses-base-6.4-14.20240127.el10.noa 815 kB/s |  64 kB     00:00    
+(97/146): mpfr-4.2.1-5.el10.x86_64.rpm          3.1 MB/s | 345 kB     00:00    
+(98/146): ocaml-srpm-macros-10-4.el10.noarch.rp 179 kB/s | 9.0 kB     00:00    
+(99/146): ncurses-libs-6.4-14.20240127.el10.x86 3.0 MB/s | 331 kB     00:00    
+(100/146): openblas-srpm-macros-2-19.el10.noarc 156 kB/s | 7.6 kB     00:00    
+(101/146): openldap-2.6.8-3.el10.x86_64.rpm     2.0 MB/s | 222 kB     00:00    
+(102/146): openssl-fips-provider-3.5.1-3.el10.x 5.6 MB/s | 812 kB     00:00    
+(103/146): openssl-libs-3.5.1-3.el10.x86_64.rpm  14 MB/s | 2.2 MB     00:00    
+(104/146): p11-kit-0.25.5-7.el10.x86_64.rpm     3.7 MB/s | 478 kB     00:00    
+(105/146): package-notes-srpm-macros-0.5-13.el1 187 kB/s | 9.1 kB     00:00    
+(106/146): p11-kit-trust-0.25.5-7.el10.x86_64.r 1.3 MB/s | 133 kB     00:00    
+(107/146): pam-libs-1.6.1-8.el10.x86_64.rpm     695 kB/s |  57 kB     00:00    
+(108/146): patch-2.7.6-26.el10.x86_64.rpm       1.4 MB/s | 131 kB     00:00    
+(109/146): pam-1.6.1-8.el10.x86_64.rpm          3.9 MB/s | 512 kB     00:00    
+(110/146): perl-srpm-macros-1-57.el10.noarch.rp 169 kB/s | 8.4 kB     00:00    
+(111/146): pcre2-10.44-1.el10.3.x86_64.rpm      2.1 MB/s | 247 kB     00:00    
+(112/146): pcre2-syntax-10.44-1.el10.3.noarch.r 1.5 MB/s | 150 kB     00:00    
+(113/146): pkgconf-2.1.0-3.el10.x86_64.rpm      541 kB/s |  43 kB     00:00    
+(114/146): pkgconf-pkg-config-2.1.0-3.el10.x86_ 201 kB/s | 9.7 kB     00:00    
+(115/146): pkgconf-m4-2.1.0-3.el10.noarch.rpm   223 kB/s |  14 kB     00:00    
+(116/146): pyproject-srpm-macros-1.16.2-1.el10. 220 kB/s |  14 kB     00:00    
+(117/146): popt-1.19-8.el10.x86_64.rpm          733 kB/s |  59 kB     00:00    
+(118/146): publicsuffix-list-dafsa-20240107-5.e 731 kB/s |  58 kB     00:00    
+(119/146): qt6-srpm-macros-6.9.1-1.el10.noarch. 195 kB/s | 9.4 kB     00:00    
+(120/146): python-srpm-macros-3.12-10.el10.noar 349 kB/s |  23 kB     00:00    
+(121/146): readline-8.2-11.el10.x86_64.rpm      1.9 MB/s | 213 kB     00:00    
+(122/146): redhat-rpm-config-293-1.el10.noarch. 901 kB/s |  71 kB     00:00    
+(123/146): rpm-4.19.1.1-18.el10.x86_64.rpm      4.0 MB/s | 506 kB     00:00    
+(124/146): rpm-build-4.19.1.1-18.el10.x86_64.rp 838 kB/s |  66 kB     00:00    
+(125/146): rpm-build-libs-4.19.1.1-18.el10.x86_ 1.2 MB/s |  93 kB     00:00    
+(126/146): rust-toolset-srpm-macros-1.88.0-1.el 241 kB/s |  12 kB     00:00    
+(127/146): rpm-libs-4.19.1.1-18.el10.x86_64.rpm 2.8 MB/s | 310 kB     00:00    
+(128/146): rpm-sequoia-1.9.0.1-1.el10.x86_64.rp 6.7 MB/s | 975 kB     00:00    
+(129/146): sed-4.9-3.el10.x86_64.rpm            2.8 MB/s | 309 kB     00:00    
+(130/146): setup-2.14.5-7.el10.noarch.rpm       1.5 MB/s | 147 kB     00:00    
+(131/146): shadow-utils-4.15.0-8.el10.x86_64.rp 8.8 MB/s | 1.3 MB     00:00    
+(132/146): sqlite-libs-3.46.1-4.el10.x86_64.rpm 5.4 MB/s | 746 kB     00:00    
+(133/146): systemd-libs-257-11.el10.x86_64.rpm  5.7 MB/s | 817 kB     00:00    
+(134/146): unzip-6.0-69.el10.x86_64.rpm         2.0 MB/s | 188 kB     00:00    
+(135/146): tar-1.35-7.el10.x86_64.rpm           6.0 MB/s | 853 kB     00:00    
+(136/146): util-linux-2.40.2-10.el10.x86_64.rpm 7.8 MB/s | 1.1 MB     00:00    
+(137/146): which-2.21-44.el10.x86_64.rpm        516 kB/s |  41 kB     00:00    
+(138/146): util-linux-core-2.40.2-10.el10.x86_6 4.0 MB/s | 518 kB     00:00    
+(139/146): xz-libs-5.6.2-4.el10.x86_64.rpm      1.2 MB/s | 112 kB     00:00    
+(140/146): xz-5.6.2-4.el10.x86_64.rpm           3.6 MB/s | 457 kB     00:00    
+(141/146): zip-3.0-45.el10.x86_64.rpm           2.4 MB/s | 267 kB     00:00    
+(142/146): zlib-ng-compat-2.2.3-2.el10.x86_64.r 992 kB/s |  78 kB     00:00    
+(143/146): zstd-1.5.5-9.el10.x86_64.rpm         3.7 MB/s | 462 kB     00:00    
+(144/146): epel-rpm-macros-10-5.el10_1.noarch.r  52 kB/s | 8.1 kB     00:00    
+(145/146): ansible-srpm-macros-1-16.1.el10_0.no  71 kB/s |  20 kB     00:00    
+(146/146): ghc-srpm-macros-1.9.2-1.el10_0.noarc  26 kB/s | 9.1 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                            11 MB/s |  56 MB     00:05     
+Extra Packages for Enterprise Linux 10 - x86_64 1.6 MB/s | 1.6 kB     00:00    
+Importing GPG key 0xE37ED158:
+ Userid     : "Fedora (epel10) <epel@fedoraproject.org>"
+ Fingerprint: 7D8D 15CB FC4E 6268 8591 FB26 33D9 8517 E37E D158
+ From       : /usr/share/distribution-gpg-keys/epel/RPM-GPG-KEY-EPEL-10
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Running scriptlet: filesystem-3.18-17.el10.x86_64                         1/1 
+  Preparing        :                                                        1/1 
+  Installing       : libgcc-14.3.1-2.1.el10.x86_64                        1/146 
+  Running scriptlet: libgcc-14.3.1-2.1.el10.x86_64                        1/146 
+  Installing       : ghc-srpm-macros-1.9.2-1.el10_0.noarch                2/146 
+  Installing       : ansible-srpm-macros-1-16.1.el10_0.noarch             3/146 
+  Installing       : rust-toolset-srpm-macros-1.88.0-1.el10.noarch        4/146 
+  Installing       : qt6-srpm-macros-6.9.1-1.el10.noarch                  5/146 
+  Installing       : publicsuffix-list-dafsa-20240107-5.el10.noarch       6/146 
+  Installing       : pkgconf-m4-2.1.0-3.el10.noarch                       7/146 
+  Installing       : perl-srpm-macros-1-57.el10.noarch                    8/146 
+  Installing       : pcre2-syntax-10.44-1.el10.3.noarch                   9/146 
+  Installing       : package-notes-srpm-macros-0.5-13.el10.noarch        10/146 
+  Installing       : openblas-srpm-macros-2-19.el10.noarch               11/146 
+  Installing       : ocaml-srpm-macros-10-4.el10.noarch                  12/146 
+  Installing       : ncurses-base-6.4-14.20240127.el10.noarch            13/146 
+  Installing       : libssh-config-0.11.1-1.el10.noarch                  14/146 
+  Installing       : kernel-srpm-macros-1.0-25.el10.noarch               15/146 
+  Installing       : coreutils-common-9.5-6.el10.x86_64                  16/146 
+  Installing       : centos-gpg-keys-10.0-10.el10.noarch                 17/146 
+  Installing       : centos-stream-repos-10.0-10.el10.noarch             18/146 
+  Installing       : centos-stream-release-10.0-10.el10.noarch           19/146 
+  Installing       : setup-2.14.5-7.el10.noarch                          20/146 
+warning: /etc/hosts created as /etc/hosts.rpmnew
+
+  Running scriptlet: setup-2.14.5-7.el10.noarch                          20/146 
+  Installing       : filesystem-3.18-17.el10.x86_64                      21/146 
+  Installing       : basesystem-11-22.el10.noarch                        22/146 
+  Installing       : glibc-gconv-extra-2.39-46.el10.x86_64               23/146 
+  Running scriptlet: glibc-gconv-extra-2.39-46.el10.x86_64               23/146 
+  Installing       : glibc-minimal-langpack-2.39-46.el10.x86_64          24/146 
+  Installing       : glibc-common-2.39-46.el10.x86_64                    25/146 
+  Running scriptlet: glibc-2.39-46.el10.x86_64                           26/146 
+  Installing       : glibc-2.39-46.el10.x86_64                           26/146 
+  Running scriptlet: glibc-2.39-46.el10.x86_64                           26/146 
+  Installing       : ncurses-libs-6.4-14.20240127.el10.x86_64            27/146 
+  Installing       : bash-5.2.26-6.el10.x86_64                           28/146 
+  Running scriptlet: bash-5.2.26-6.el10.x86_64                           28/146 
+  Installing       : zlib-ng-compat-2.2.3-2.el10.x86_64                  29/146 
+  Installing       : bzip2-libs-1.0.8-25.el10.x86_64                     30/146 
+  Installing       : xz-libs-1:5.6.2-4.el10.x86_64                       31/146 
+  Installing       : readline-8.2-11.el10.x86_64                         32/146 
+  Installing       : libstdc++-14.3.1-2.1.el10.x86_64                    33/146 
+  Installing       : libuuid-2.40.2-10.el10.x86_64                       34/146 
+  Installing       : popt-1.19-8.el10.x86_64                             35/146 
+  Installing       : libblkid-2.40.2-10.el10.x86_64                      36/146 
+  Installing       : gmp-1:6.2.1-12.el10.x86_64                          37/146 
+  Installing       : libattr-2.5.2-5.el10.x86_64                         38/146 
+  Installing       : libacl-2.3.2-4.el10.x86_64                          39/146 
+  Installing       : libxcrypt-4.4.36-10.el10.x86_64                     40/146 
+  Installing       : libzstd-1.5.5-9.el10.x86_64                         41/146 
+  Installing       : elfutils-libelf-0.193-1.el10.x86_64                 42/146 
+  Running scriptlet: crypto-policies-20250804-1.git2ca4115.el10.noarc    43/146 
+  Installing       : crypto-policies-20250804-1.git2ca4115.el10.noarc    43/146 
+  Running scriptlet: crypto-policies-20250804-1.git2ca4115.el10.noarc    43/146 
+  Installing       : gdbm-libs-1:1.23-14.el10.x86_64                     44/146 
+  Installing       : libeconf-0.6.2-4.el10.x86_64                        45/146 
+  Installing       : dwz-0.16-1.el10.x86_64                              46/146 
+  Installing       : mpfr-4.2.1-5.el10.x86_64                            47/146 
+  Installing       : gawk-5.3.0-6.el10.x86_64                            48/146 
+  Installing       : unzip-6.0-69.el10.x86_64                            49/146 
+  Installing       : file-libs-5.45-8.el10.x86_64                        50/146 
+  Installing       : file-5.45-8.el10.x86_64                             51/146 
+  Installing       : alternatives-1.30-2.el10.x86_64                     52/146 
+  Installing       : jansson-2.14-3.el10.x86_64                          53/146 
+  Installing       : libcap-ng-0.8.4-6.el10.x86_64                       54/146 
+  Installing       : audit-libs-4.0.3-4.el10.x86_64                      55/146 
+  Installing       : pam-libs-1.6.1-8.el10.x86_64                        56/146 
+  Installing       : libcap-2.69-7.el10.x86_64                           57/146 
+  Installing       : systemd-libs-257-11.el10.x86_64                     58/146 
+  Installing       : libsepol-3.9-1.el10.x86_64                          59/146 
+  Installing       : libsmartcols-2.40.2-10.el10.x86_64                  60/146 
+  Installing       : libtasn1-4.20.0-1.el10.x86_64                       61/146 
+  Installing       : libunistring-1.1-10.el10.x86_64                     62/146 
+  Installing       : libidn2-2.3.7-3.el10.x86_64                         63/146 
+  Installing       : lua-libs-5.4.6-7.el10.x86_64                        64/146 
+  Installing       : lz4-libs-1.9.4-8.el10.x86_64                        65/146 
+  Installing       : pcre2-10.44-1.el10.3.x86_64                         66/146 
+  Installing       : libselinux-3.9-1.el10.x86_64                        67/146 
+  Installing       : sed-4.9-3.el10.x86_64                               68/146 
+  Installing       : findutils-1:4.10.0-5.el10.x86_64                    69/146 
+  Installing       : grep-3.11-10.el10.x86_64                            70/146 
+  Installing       : xz-1:5.6.2-4.el10.x86_64                            71/146 
+  Installing       : libmount-2.40.2-10.el10.x86_64                      72/146 
+  Installing       : util-linux-core-2.40.2-10.el10.x86_64               73/146 
+  Installing       : libsemanage-3.9-1.el10.x86_64                       74/146 
+  Installing       : shadow-utils-2:4.15.0-8.el10.x86_64                 75/146 
+  Running scriptlet: libutempter-1.2.1-15.el10.x86_64                    76/146 
+  Installing       : libutempter-1.2.1-15.el10.x86_64                    76/146 
+  Installing       : tar-2:1.35-7.el10.x86_64                            77/146 
+  Installing       : zstd-1.5.5-9.el10.x86_64                            78/146 
+  Installing       : libpsl-0.21.5-6.el10.x86_64                         79/146 
+  Installing       : zip-3.0-45.el10.x86_64                              80/146 
+  Installing       : cyrus-sasl-lib-2.1.28-27.el10.x86_64                81/146 
+  Installing       : gdbm-1:1.23-14.el10.x86_64                          82/146 
+  Installing       : libfdisk-2.40.2-10.el10.x86_64                      83/146 
+  Installing       : libxml2-2.12.5-9.el10.x86_64                        84/146 
+  Installing       : bzip2-1.0.8-25.el10.x86_64                          85/146 
+  Installing       : sqlite-libs-3.46.1-4.el10.x86_64                    86/146 
+  Installing       : ed-1.20-5.el10.x86_64                               87/146 
+  Installing       : patch-2.7.6-26.el10.x86_64                          88/146 
+  Installing       : elfutils-default-yama-scope-0.193-1.el10.noarch     89/146 
+  Running scriptlet: elfutils-default-yama-scope-0.193-1.el10.noarch     89/146 
+  Installing       : cpio-2.15-3.el10.x86_64                             90/146 
+  Installing       : diffutils-3.10-8.el10.x86_64                        91/146 
+  Installing       : json-c-0.18-3.el10.x86_64                           92/146 
+  Installing       : keyutils-libs-1.6.3-5.el10.x86_64                   93/146 
+  Installing       : libbrotli-1.1.0-6.el10.x86_64                       94/146 
+  Installing       : libcom_err-1.47.1-4.el10.x86_64                     95/146 
+  Installing       : libffi-3.4.4-10.el10.x86_64                         96/146 
+  Installing       : p11-kit-0.25.5-7.el10.x86_64                        97/146 
+  Installing       : p11-kit-trust-0.25.5-7.el10.x86_64                  98/146 
+  Running scriptlet: p11-kit-trust-0.25.5-7.el10.x86_64                  98/146 
+  Installing       : openssl-fips-provider-1:3.5.1-3.el10.x86_64         99/146 
+  Installing       : openssl-libs-1:3.5.1-3.el10.x86_64                 100/146 
+  Installing       : coreutils-9.5-6.el10.x86_64                        101/146 
+  Running scriptlet: ca-certificates-2024.2.69_v8.0.303-102.3.el10.no   102/146 
+  Installing       : ca-certificates-2024.2.69_v8.0.303-102.3.el10.no   102/146 
+  Running scriptlet: ca-certificates-2024.2.69_v8.0.303-102.3.el10.no   102/146 
+  Installing       : authselect-libs-1.5.0-8.el10.x86_64                103/146 
+  Installing       : gzip-1.13-3.el10.x86_64                            104/146 
+  Installing       : cracklib-2.9.11-8.el10.x86_64                      105/146 
+  Installing       : libarchive-3.7.7-3.el10.x86_64                     106/146 
+  Installing       : cracklib-dicts-2.9.11-8.el10.x86_64                107/146 
+  Installing       : libpwquality-1.4.5-12.el10.x86_64                  108/146 
+  Installing       : pam-1.6.1-8.el10.x86_64                            109/146 
+  Installing       : libevent-2.1.12-16.el10.x86_64                     110/146 
+  Installing       : openldap-2.6.8-3.el10.x86_64                       111/146 
+  Installing       : rpm-sequoia-1.9.0.1-1.el10.x86_64                  112/146 
+  Installing       : rpm-libs-4.19.1.1-18.el10.x86_64                   113/146 
+  Installing       : libgomp-14.3.1-2.1.el10.x86_64                     114/146 
+  Installing       : libnghttp2-1.64.0-2.el10.x86_64                    115/146 
+  Installing       : libpkgconf-2.1.0-3.el10.x86_64                     116/146 
+  Installing       : pkgconf-2.1.0-3.el10.x86_64                        117/146 
+  Installing       : pkgconf-pkg-config-2.1.0-3.el10.x86_64             118/146 
+  Installing       : libverto-0.3.2-10.el10.x86_64                      119/146 
+  Installing       : krb5-libs-1.21.3-8.el10.x86_64                     120/146 
+  Installing       : libssh-0.11.1-1.el10.x86_64                        121/146 
+  Installing       : libcurl-8.12.1-2.el10.x86_64                       122/146 
+  Installing       : elfutils-libs-0.193-1.el10.x86_64                  123/146 
+  Installing       : elfutils-debuginfod-client-0.193-1.el10.x86_64     124/146 
+  Installing       : binutils-gold-2.41-57.el10.x86_64                  125/146 
+  Running scriptlet: binutils-gold-2.41-57.el10.x86_64                  125/146 
+  Installing       : binutils-2.41-57.el10.x86_64                       126/146 
+  Running scriptlet: binutils-2.41-57.el10.x86_64                       126/146 
+  Installing       : elfutils-0.193-1.el10.x86_64                       127/146 
+  Installing       : gdb-minimal-16.3-2.el10.x86_64                     128/146 
+  Installing       : debugedit-5.1-8.el10.x86_64                        129/146 
+  Installing       : rpm-build-libs-4.19.1.1-18.el10.x86_64             130/146 
+  Installing       : curl-8.12.1-2.el10.x86_64                          131/146 
+  Running scriptlet: rpm-4.19.1.1-18.el10.x86_64                        132/146 
+  Installing       : rpm-4.19.1.1-18.el10.x86_64                        132/146 
+  Installing       : efi-srpm-macros-6-6.el10.noarch                    133/146 
+  Installing       : lua-srpm-macros-1-15.el10.noarch                   134/146 
+  Installing       : fonts-srpm-macros-1:2.0.5-18.el10.noarch           135/146 
+  Installing       : forge-srpm-macros-0.4.0-6.el10.noarch              136/146 
+  Installing       : go-srpm-macros-3.6.0-4.el10.noarch                 137/146 
+  Installing       : python-srpm-macros-3.12-10.el10.noarch             138/146 
+  Installing       : redhat-rpm-config-293-1.el10.noarch                139/146 
+  Installing       : rpm-build-4.19.1.1-18.el10.x86_64                  140/146 
+  Installing       : pyproject-srpm-macros-1.16.2-1.el10.noarch         141/146 
+  Installing       : util-linux-2.40.2-10.el10.x86_64                   142/146 
+  Running scriptlet: util-linux-2.40.2-10.el10.x86_64                   142/146 
+  Installing       : authselect-1.5.0-8.el10.x86_64                     143/146 
+  Installing       : which-2.21-44.el10.x86_64                          144/146 
+  Installing       : info-7.1-6.el10.x86_64                             145/146 
+  Installing       : epel-rpm-macros-10-5.el10_1.noarch                 146/146 
+  Running scriptlet: filesystem-3.18-17.el10.x86_64                     146/146 
+  Running scriptlet: ca-certificates-2024.2.69_v8.0.303-102.3.el10.no   146/146 
+  Running scriptlet: authselect-libs-1.5.0-8.el10.x86_64                146/146 
+  Running scriptlet: rpm-4.19.1.1-18.el10.x86_64                        146/146 
+  Running scriptlet: epel-rpm-macros-10-5.el10_1.noarch                 146/146 
+
+Installed:
+  alternatives-1.30-2.el10.x86_64                                               
+  ansible-srpm-macros-1-16.1.el10_0.noarch                                      
+  audit-libs-4.0.3-4.el10.x86_64                                                
+  authselect-1.5.0-8.el10.x86_64                                                
+  authselect-libs-1.5.0-8.el10.x86_64                                           
+  basesystem-11-22.el10.noarch                                                  
+  bash-5.2.26-6.el10.x86_64                                                     
+  binutils-2.41-57.el10.x86_64                                                  
+  binutils-gold-2.41-57.el10.x86_64                                             
+  bzip2-1.0.8-25.el10.x86_64                                                    
+  bzip2-libs-1.0.8-25.el10.x86_64                                               
+  ca-certificates-2024.2.69_v8.0.303-102.3.el10.noarch                          
+  centos-gpg-keys-10.0-10.el10.noarch                                           
+  centos-stream-release-10.0-10.el10.noarch                                     
+  centos-stream-repos-10.0-10.el10.noarch                                       
+  coreutils-9.5-6.el10.x86_64                                                   
+  coreutils-common-9.5-6.el10.x86_64                                            
+  cpio-2.15-3.el10.x86_64                                                       
+  cracklib-2.9.11-8.el10.x86_64                                                 
+  cracklib-dicts-2.9.11-8.el10.x86_64                                           
+  crypto-policies-20250804-1.git2ca4115.el10.noarch                             
+  curl-8.12.1-2.el10.x86_64                                                     
+  cyrus-sasl-lib-2.1.28-27.el10.x86_64                                          
+  debugedit-5.1-8.el10.x86_64                                                   
+  diffutils-3.10-8.el10.x86_64                                                  
+  dwz-0.16-1.el10.x86_64                                                        
+  ed-1.20-5.el10.x86_64                                                         
+  efi-srpm-macros-6-6.el10.noarch                                               
+  elfutils-0.193-1.el10.x86_64                                                  
+  elfutils-debuginfod-client-0.193-1.el10.x86_64                                
+  elfutils-default-yama-scope-0.193-1.el10.noarch                               
+  elfutils-libelf-0.193-1.el10.x86_64                                           
+  elfutils-libs-0.193-1.el10.x86_64                                             
+  epel-rpm-macros-10-5.el10_1.noarch                                            
+  file-5.45-8.el10.x86_64                                                       
+  file-libs-5.45-8.el10.x86_64                                                  
+  filesystem-3.18-17.el10.x86_64                                                
+  findutils-1:4.10.0-5.el10.x86_64                                              
+  fonts-srpm-macros-1:2.0.5-18.el10.noarch                                      
+  forge-srpm-macros-0.4.0-6.el10.noarch                                         
+  gawk-5.3.0-6.el10.x86_64                                                      
+  gdb-minimal-16.3-2.el10.x86_64                                                
+  gdbm-1:1.23-14.el10.x86_64                                                    
+  gdbm-libs-1:1.23-14.el10.x86_64                                               
+  ghc-srpm-macros-1.9.2-1.el10_0.noarch                                         
+  glibc-2.39-46.el10.x86_64                                                     
+  glibc-common-2.39-46.el10.x86_64                                              
+  glibc-gconv-extra-2.39-46.el10.x86_64                                         
+  glibc-minimal-langpack-2.39-46.el10.x86_64                                    
+  gmp-1:6.2.1-12.el10.x86_64                                                    
+  go-srpm-macros-3.6.0-4.el10.noarch                                            
+  grep-3.11-10.el10.x86_64                                                      
+  gzip-1.13-3.el10.x86_64                                                       
+  info-7.1-6.el10.x86_64                                                        
+  jansson-2.14-3.el10.x86_64                                                    
+  json-c-0.18-3.el10.x86_64                                                     
+  kernel-srpm-macros-1.0-25.el10.noarch                                         
+  keyutils-libs-1.6.3-5.el10.x86_64                                             
+  krb5-libs-1.21.3-8.el10.x86_64                                                
+  libacl-2.3.2-4.el10.x86_64                                                    
+  libarchive-3.7.7-3.el10.x86_64                                                
+  libattr-2.5.2-5.el10.x86_64                                                   
+  libblkid-2.40.2-10.el10.x86_64                                                
+  libbrotli-1.1.0-6.el10.x86_64                                                 
+  libcap-2.69-7.el10.x86_64                                                     
+  libcap-ng-0.8.4-6.el10.x86_64                                                 
+  libcom_err-1.47.1-4.el10.x86_64                                               
+  libcurl-8.12.1-2.el10.x86_64                                                  
+  libeconf-0.6.2-4.el10.x86_64                                                  
+  libevent-2.1.12-16.el10.x86_64                                                
+  libfdisk-2.40.2-10.el10.x86_64                                                
+  libffi-3.4.4-10.el10.x86_64                                                   
+  libgcc-14.3.1-2.1.el10.x86_64                                                 
+  libgomp-14.3.1-2.1.el10.x86_64                                                
+  libidn2-2.3.7-3.el10.x86_64                                                   
+  libmount-2.40.2-10.el10.x86_64                                                
+  libnghttp2-1.64.0-2.el10.x86_64                                               
+  libpkgconf-2.1.0-3.el10.x86_64                                                
+  libpsl-0.21.5-6.el10.x86_64                                                   
+  libpwquality-1.4.5-12.el10.x86_64                                             
+  libselinux-3.9-1.el10.x86_64                                                  
+  libsemanage-3.9-1.el10.x86_64                                                 
+  libsepol-3.9-1.el10.x86_64                                                    
+  libsmartcols-2.40.2-10.el10.x86_64                                            
+  libssh-0.11.1-1.el10.x86_64                                                   
+  libssh-config-0.11.1-1.el10.noarch                                            
+  libstdc++-14.3.1-2.1.el10.x86_64                                              
+  libtasn1-4.20.0-1.el10.x86_64                                                 
+  libunistring-1.1-10.el10.x86_64                                               
+  libutempter-1.2.1-15.el10.x86_64                                              
+  libuuid-2.40.2-10.el10.x86_64                                                 
+  libverto-0.3.2-10.el10.x86_64                                                 
+  libxcrypt-4.4.36-10.el10.x86_64                                               
+  libxml2-2.12.5-9.el10.x86_64                                                  
+  libzstd-1.5.5-9.el10.x86_64                                                   
+  lua-libs-5.4.6-7.el10.x86_64                                                  
+  lua-srpm-macros-1-15.el10.noarch                                              
+  lz4-libs-1.9.4-8.el10.x86_64                                                  
+  mpfr-4.2.1-5.el10.x86_64                                                      
+  ncurses-base-6.4-14.20240127.el10.noarch                                      
+  ncurses-libs-6.4-14.20240127.el10.x86_64                                      
+  ocaml-srpm-macros-10-4.el10.noarch                                            
+  openblas-srpm-macros-2-19.el10.noarch                                         
+  openldap-2.6.8-3.el10.x86_64                                                  
+  openssl-fips-provider-1:3.5.1-3.el10.x86_64                                   
+  openssl-libs-1:3.5.1-3.el10.x86_64                                            
+  p11-kit-0.25.5-7.el10.x86_64                                                  
+  p11-kit-trust-0.25.5-7.el10.x86_64                                            
+  package-notes-srpm-macros-0.5-13.el10.noarch                                  
+  pam-1.6.1-8.el10.x86_64                                                       
+  pam-libs-1.6.1-8.el10.x86_64                                                  
+  patch-2.7.6-26.el10.x86_64                                                    
+  pcre2-10.44-1.el10.3.x86_64                                                   
+  pcre2-syntax-10.44-1.el10.3.noarch                                            
+  perl-srpm-macros-1-57.el10.noarch                                             
+  pkgconf-2.1.0-3.el10.x86_64                                                   
+  pkgconf-m4-2.1.0-3.el10.noarch                                                
+  pkgconf-pkg-config-2.1.0-3.el10.x86_64                                        
+  popt-1.19-8.el10.x86_64                                                       
+  publicsuffix-list-dafsa-20240107-5.el10.noarch                                
+  pyproject-srpm-macros-1.16.2-1.el10.noarch                                    
+  python-srpm-macros-3.12-10.el10.noarch                                        
+  qt6-srpm-macros-6.9.1-1.el10.noarch                                           
+  readline-8.2-11.el10.x86_64                                                   
+  redhat-rpm-config-293-1.el10.noarch                                           
+  rpm-4.19.1.1-18.el10.x86_64                                                   
+  rpm-build-4.19.1.1-18.el10.x86_64                                             
+  rpm-build-libs-4.19.1.1-18.el10.x86_64                                        
+  rpm-libs-4.19.1.1-18.el10.x86_64                                              
+  rpm-sequoia-1.9.0.1-1.el10.x86_64                                             
+  rust-toolset-srpm-macros-1.88.0-1.el10.noarch                                 
+  sed-4.9-3.el10.x86_64                                                         
+  setup-2.14.5-7.el10.noarch                                                    
+  shadow-utils-2:4.15.0-8.el10.x86_64                                           
+  sqlite-libs-3.46.1-4.el10.x86_64                                              
+  systemd-libs-257-11.el10.x86_64                                               
+  tar-2:1.35-7.el10.x86_64                                                      
+  unzip-6.0-69.el10.x86_64                                                      
+  util-linux-2.40.2-10.el10.x86_64                                              
+  util-linux-core-2.40.2-10.el10.x86_64                                         
+  which-2.21-44.el10.x86_64                                                     
+  xz-1:5.6.2-4.el10.x86_64                                                      
+  xz-libs-1:5.6.2-4.el10.x86_64                                                 
+  zip-3.0-45.el10.x86_64                                                        
+  zlib-ng-compat-2.2.3-2.el10.x86_64                                            
+  zstd-1.5.5-9.el10.x86_64                                                      
+
+Complete!
+Finish: installing minimal buildroot with dnf
+Start: creating root cache
+Finish: creating root cache
+Finish: chroot init
+INFO: Installed packages:
+INFO: alternatives-1.30-2.el10.x86_64
+ansible-srpm-macros-1-16.1.el10_0.noarch
+audit-libs-4.0.3-4.el10.x86_64
+authselect-1.5.0-8.el10.x86_64
+authselect-libs-1.5.0-8.el10.x86_64
+basesystem-11-22.el10.noarch
+bash-5.2.26-6.el10.x86_64
+binutils-2.41-57.el10.x86_64
+binutils-gold-2.41-57.el10.x86_64
+bzip2-1.0.8-25.el10.x86_64
+bzip2-libs-1.0.8-25.el10.x86_64
+ca-certificates-2024.2.69_v8.0.303-102.3.el10.noarch
+centos-gpg-keys-10.0-10.el10.noarch
+centos-stream-release-10.0-10.el10.noarch
+centos-stream-repos-10.0-10.el10.noarch
+coreutils-9.5-6.el10.x86_64
+coreutils-common-9.5-6.el10.x86_64
+cpio-2.15-3.el10.x86_64
+cracklib-2.9.11-8.el10.x86_64
+cracklib-dicts-2.9.11-8.el10.x86_64
+crypto-policies-20250804-1.git2ca4115.el10.noarch
+curl-8.12.1-2.el10.x86_64
+cyrus-sasl-lib-2.1.28-27.el10.x86_64
+debugedit-5.1-8.el10.x86_64
+diffutils-3.10-8.el10.x86_64
+dwz-0.16-1.el10.x86_64
+ed-1.20-5.el10.x86_64
+efi-srpm-macros-6-6.el10.noarch
+elfutils-0.193-1.el10.x86_64
+elfutils-debuginfod-client-0.193-1.el10.x86_64
+elfutils-default-yama-scope-0.193-1.el10.noarch
+elfutils-libelf-0.193-1.el10.x86_64
+elfutils-libs-0.193-1.el10.x86_64
+epel-rpm-macros-10-5.el10_1.noarch
+file-5.45-8.el10.x86_64
+file-libs-5.45-8.el10.x86_64
+filesystem-3.18-17.el10.x86_64
+findutils-4.10.0-5.el10.x86_64
+fonts-srpm-macros-2.0.5-18.el10.noarch
+forge-srpm-macros-0.4.0-6.el10.noarch
+gawk-5.3.0-6.el10.x86_64
+gdb-minimal-16.3-2.el10.x86_64
+gdbm-1.23-14.el10.x86_64
+gdbm-libs-1.23-14.el10.x86_64
+ghc-srpm-macros-1.9.2-1.el10_0.noarch
+glibc-2.39-46.el10.x86_64
+glibc-common-2.39-46.el10.x86_64
+glibc-gconv-extra-2.39-46.el10.x86_64
+glibc-minimal-langpack-2.39-46.el10.x86_64
+gmp-6.2.1-12.el10.x86_64
+go-srpm-macros-3.6.0-4.el10.noarch
+gpg-pubkey-e37ed158-65785fa9
+grep-3.11-10.el10.x86_64
+gzip-1.13-3.el10.x86_64
+info-7.1-6.el10.x86_64
+jansson-2.14-3.el10.x86_64
+json-c-0.18-3.el10.x86_64
+kernel-srpm-macros-1.0-25.el10.noarch
+keyutils-libs-1.6.3-5.el10.x86_64
+krb5-libs-1.21.3-8.el10.x86_64
+libacl-2.3.2-4.el10.x86_64
+libarchive-3.7.7-3.el10.x86_64
+libattr-2.5.2-5.el10.x86_64
+libblkid-2.40.2-10.el10.x86_64
+libbrotli-1.1.0-6.el10.x86_64
+libcap-2.69-7.el10.x86_64
+libcap-ng-0.8.4-6.el10.x86_64
+libcom_err-1.47.1-4.el10.x86_64
+libcurl-8.12.1-2.el10.x86_64
+libeconf-0.6.2-4.el10.x86_64
+libevent-2.1.12-16.el10.x86_64
+libfdisk-2.40.2-10.el10.x86_64
+libffi-3.4.4-10.el10.x86_64
+libgcc-14.3.1-2.1.el10.x86_64
+libgomp-14.3.1-2.1.el10.x86_64
+libidn2-2.3.7-3.el10.x86_64
+libmount-2.40.2-10.el10.x86_64
+libnghttp2-1.64.0-2.el10.x86_64
+libpkgconf-2.1.0-3.el10.x86_64
+libpsl-0.21.5-6.el10.x86_64
+libpwquality-1.4.5-12.el10.x86_64
+libselinux-3.9-1.el10.x86_64
+libsemanage-3.9-1.el10.x86_64
+libsepol-3.9-1.el10.x86_64
+libsmartcols-2.40.2-10.el10.x86_64
+libssh-0.11.1-1.el10.x86_64
+libssh-config-0.11.1-1.el10.noarch
+libstdc++-14.3.1-2.1.el10.x86_64
+libtasn1-4.20.0-1.el10.x86_64
+libunistring-1.1-10.el10.x86_64
+libutempter-1.2.1-15.el10.x86_64
+libuuid-2.40.2-10.el10.x86_64
+libverto-0.3.2-10.el10.x86_64
+libxcrypt-4.4.36-10.el10.x86_64
+libxml2-2.12.5-9.el10.x86_64
+libzstd-1.5.5-9.el10.x86_64
+lua-libs-5.4.6-7.el10.x86_64
+lua-srpm-macros-1-15.el10.noarch
+lz4-libs-1.9.4-8.el10.x86_64
+mpfr-4.2.1-5.el10.x86_64
+ncurses-base-6.4-14.20240127.el10.noarch
+ncurses-libs-6.4-14.20240127.el10.x86_64
+ocaml-srpm-macros-10-4.el10.noarch
+openblas-srpm-macros-2-19.el10.noarch
+openldap-2.6.8-3.el10.x86_64
+openssl-fips-provider-3.5.1-3.el10.x86_64
+openssl-libs-3.5.1-3.el10.x86_64
+p11-kit-0.25.5-7.el10.x86_64
+p11-kit-trust-0.25.5-7.el10.x86_64
+package-notes-srpm-macros-0.5-13.el10.noarch
+pam-1.6.1-8.el10.x86_64
+pam-libs-1.6.1-8.el10.x86_64
+patch-2.7.6-26.el10.x86_64
+pcre2-10.44-1.el10.3.x86_64
+pcre2-syntax-10.44-1.el10.3.noarch
+perl-srpm-macros-1-57.el10.noarch
+pkgconf-2.1.0-3.el10.x86_64
+pkgconf-m4-2.1.0-3.el10.noarch
+pkgconf-pkg-config-2.1.0-3.el10.x86_64
+popt-1.19-8.el10.x86_64
+publicsuffix-list-dafsa-20240107-5.el10.noarch
+pyproject-srpm-macros-1.16.2-1.el10.noarch
+python-srpm-macros-3.12-10.el10.noarch
+qt6-srpm-macros-6.9.1-1.el10.noarch
+readline-8.2-11.el10.x86_64
+redhat-rpm-config-293-1.el10.noarch
+rpm-4.19.1.1-18.el10.x86_64
+rpm-build-4.19.1.1-18.el10.x86_64
+rpm-build-libs-4.19.1.1-18.el10.x86_64
+rpm-libs-4.19.1.1-18.el10.x86_64
+rpm-sequoia-1.9.0.1-1.el10.x86_64
+rust-toolset-srpm-macros-1.88.0-1.el10.noarch
+sed-4.9-3.el10.x86_64
+setup-2.14.5-7.el10.noarch
+shadow-utils-4.15.0-8.el10.x86_64
+sqlite-libs-3.46.1-4.el10.x86_64
+systemd-libs-257-11.el10.x86_64
+tar-1.35-7.el10.x86_64
+unzip-6.0-69.el10.x86_64
+util-linux-2.40.2-10.el10.x86_64
+util-linux-core-2.40.2-10.el10.x86_64
+which-2.21-44.el10.x86_64
+xz-5.6.2-4.el10.x86_64
+xz-libs-5.6.2-4.el10.x86_64
+zip-3.0-45.el10.x86_64
+zlib-ng-compat-2.2.3-2.el10.x86_64
+zstd-1.5.5-9.el10.x86_64
+Start: buildsrpm
+Start: rpmbuild -bs
+Building target platforms: x86_64
+Building for target x86_64
+setting SOURCE_DATE_EPOCH=1755129600
+
+RPM build errors:
+error: Bad file: /builddir/build/SOURCES/gnome-shell-notify-gnome-session.patch: No such file or directory
+    Bad file: /builddir/build/SOURCES/gnome-shell-notify-gnome-session.patch: No such file or directory
+Finish: rpmbuild -bs
+INFO: chroot_scan: 3 files copied to /var/lib/copr-rpmbuild/results/chroot_scan
+INFO: /var/lib/mock/centos-stream+epel-10-x86_64-1755159715.950892/root/var/log/dnf.rpm.log
+/var/lib/mock/centos-stream+epel-10-x86_64-1755159715.950892/root/var/log/dnf.librepo.log
+/var/lib/mock/centos-stream+epel-10-x86_64-1755159715.950892/root/var/log/dnf.log
+INFO: chroot_scan: creating tarball /var/lib/copr-rpmbuild/results/chroot_scan.tar.gz
+/bin/tar: Removing leading `/' from member names
+Finish: buildsrpm
+ERROR: Exception(/var/lib/copr-rpmbuild/workspace/workdir-woz3m3y6/gnome-shell/gnome-shell.spec) Config(centos-stream+epel-10-x86_64) 0 minutes 42 seconds
+INFO: Results and/or logs in: /var/lib/copr-rpmbuild/results
+INFO: Cleaning up build root ('cleanup_on_failure=True')
+Start: clean chroot
+INFO: unmounting tmpfs.
+Finish: clean chroot
+ERROR: Command failed: 
+ # /usr/bin/systemd-nspawn -q -M 4264c98f9ec54c1c8905d725dc506a2b -D /var/lib/mock/centos-stream+epel-10-x86_64-1755159715.950892/root -a -u mockbuild --capability=cap_ipc_lock --rlimit=RLIMIT_NOFILE=10240 --capability=cap_ipc_lock --bind=/tmp/mock-resolv.44gdjsd3:/etc/resolv.conf --bind=/dev/btrfs-control --bind=/dev/mapper/control --bind=/dev/fuse --bind=/dev/loop-control --bind=/dev/loop0 --bind=/dev/loop1 --bind=/dev/loop2 --bind=/dev/loop3 --bind=/dev/loop4 --bind=/dev/loop5 --bind=/dev/loop6 --bind=/dev/loop7 --bind=/dev/loop8 --bind=/dev/loop9 --bind=/dev/loop10 --bind=/dev/loop11 --console=pipe --setenv=TERM=vt100 --setenv=SHELL=/bin/bash --setenv=HOME=/builddir --setenv=HOSTNAME=mock --setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin '--setenv=PROMPT_COMMAND=printf "\033]0;<mock-chroot>\007"' '--setenv=PS1=<mock-chroot> \s-\v\$ ' --setenv=LANG=C.UTF-8 --resolv-conf=off bash --login -c '/usr/bin/rpmbuild -bs  --target x86_64 --nodeps /builddir/build/SPECS/gnome-shell.spec'
+
+Copr build error: Build failed
