@@ -9,4 +9,4 @@ log_detective_analysis: |
     This indicates the file is missing at the specified URL. The issue could be a temporary outage, incorrect URL, or the file was intentionally removed.
     Verify the URL in the spec file, check for typos, and ensure the file exists at the specified location.
     If the URL is dynamically generated, ensure that the variables are correctly defined and resolved. Consider adding a retry mechanism or using a mirror if the issue persists.
-log_file: root.log
+log_file: builder-live.log
