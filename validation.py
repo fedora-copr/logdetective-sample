@@ -204,13 +204,16 @@ def main():
         print("Error: OPENAI_API_KEY environment variable not set.", file=sys.stderr)
         sys.exit(1)
 
-
     if not os.path.isdir(args.data_directory):
         print(f"Error: Directory not found at '{args.data_directory}'", file=sys.stderr)
         sys.exit(1)
 
     evaluate_samples(
-        args.data_directory, args.logdetective_url, args.llm_url, args.llm_model, API_KEY
+        args.data_directory,
+        args.logdetective_url,
+        args.llm_url,
+        args.llm_model,
+        API_KEY,
     )
 
 
