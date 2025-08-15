@@ -1,4 +1,4 @@
-pydantic
-requests
-openai
-pyyaml
+pydantic==2.11.7
+requests==2.32.4
+openai==1.99.9
+pyyaml==6.0.2
