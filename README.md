@@ -43,3 +43,45 @@ notes: |
     Was I wrong?
 api: /analysis/staged
 ```
+
+
+## Automated evaluation
+
+Evaluation of Log Detective performance can be performed automatically using
+the `validation.py`script. Dependencies for the tool are defined in the
+`requirements.txt` file and should be installed in a virtual environment.
+
+Before running the script, the API key for the LLM judge must be set
+in an environment variable `OPENAI_API_KEY`.
+
+Example:
+
+```
+./validation.py <DATA_PATH> <LOG_DETECTIVE_URL> <LLM_URL> <LLM_NAME>
+```
+Script sends each of the the stored log files for evaluation by Log Detective,
+then submits both results of final analysis from Log Detective and actual issue
+in the log to LLM to determine similarity of the two.
+
+Scores are assigned on scale from `1` to `10`. Where `10` stands for absolute and
+`1` for no match at all.
+
+Example:
+
+```
+[Expected Response]
+Build failed due to missing patch file `gnome-shell-notify-gnome-session.patch`.
+TFixing the issue, requires making sure that all patch files specified in the `SOURCES` directory.
+
+
+[Actual Response]
+The RPM build failed because the patch file `gnome-shell-notify-gnome-session.patch` was missing from the `SOURCES` directory during the `buildsrpm` phase. This caused the `rpmbuild -bs` command to fail.
+
+To resolve this, ensure that the `gnome-shell-notify-gnome-session.patch` file is present in the `SOURCES` directory and is correctly referenced in the RPM spec file.
+
+
+Similarity Score: 8/10
+--------------------------------------------------------------------------------
+```
+
+Scores higher or equal to 6 are considered sufficient for passing.
