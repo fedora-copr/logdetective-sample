@@ -146,7 +146,7 @@ def evaluate_samples(
                     # Extract the text from the 'explanation' object based on the provided schema
                     actual_issue = actual_response_data["explanation"]["text"]
                 except requests.exceptions.RequestException as e:
-                    print(f"Error calling API for {log_file_url}: {e}", file=sys.stderr)
+                    print(f"Error calling Log Detective API for {log_file_url}: {e}", file=sys.stderr)
                     continue
                 except ValueError:
                     print(
