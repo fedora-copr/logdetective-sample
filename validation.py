@@ -41,22 +41,17 @@ def get_similarity_score(
     """
 
     prompt = f"""
-    You are an AI performance evaluator. Your task is to compare two text snippets and rate their similarity on a scale of 1 to 10, where 1 is completely dissimilar and 10 is identical or semantically equivalent.
-    Provide only the integer score in your response.
+    Analyze the semantic similarity between the 'expected_output' and the 'actual_output'.
 
-    Expected Response:
-    ---
-    {expected_text}
-    ---
+    Your task is to rate their similarity on an integer scale from 1 to 10.
+    - A score of 1 means they are completely dissimilar in meaning, topic, and intent.
+    - **A score of 7-9 means the actual output contains all the critical information of the expected output, but also includes additional, relevant explanations or details.**
+    - A score of 10 means they are semantically identical, conveying the exact same information and intent, even if phrasing differs.
 
-    Actual Response:
     ---
-    {actual_text}
-    ---
-
-    Similarity Score (1-10):
+    "expected_output": "{expected_text}"
+    "actual_output": "{actual_text}"
     """
-
     try:
         response = llm_client.chat.completions.create(
             model=llm_model,
