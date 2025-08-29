@@ -41,30 +41,21 @@ def get_similarity_score(
     """
 
     prompt = f"""
-    You are an AI performance evaluator. Your task is to compare two text snippets and rate their similarity on a scale of 1 to 10, where 1 is completely dissimilar and 10 is identical or semantically equivalent.
-    Provide only the integer score in your response.
+    Analyze the semantic similarity between the 'expected_output' and the 'actual_output'.
 
-    Expected Response:
-    ---
-    {expected_text}
-    ---
+    Your task is to rate their similarity on an integer scale from 1 to 10.
+    - A score of 1 means they are completely dissimilar in meaning, topic, and intent.
+    - **A score of 7-9 means the actual output contains all the critical information of the expected output, but also includes additional, relevant explanations or details.**
+    - A score of 10 means they are semantically identical, conveying the exact same information and intent, even if phrasing differs.
 
-    Actual Response:
     ---
-    {actual_text}
-    ---
-
-    Similarity Score (1-10):
+    "expected_output": "{expected_text}"
+    "actual_output": "{actual_text}"
     """
-
     try:
         response = llm_client.chat.completions.create(
             model=llm_model,
             messages=[
-                {
-                    "role": "system",
-                    "content": "You are a helpful assistant that provides similarity scores.",
-                },
                 {"role": "user", "content": prompt},
             ],
             response_format={
@@ -95,7 +86,11 @@ def get_similarity_score(
 
 
 def evaluate_samples(
-    directory: str, server_address: str, llm_url: str, llm_model: str, llm_token: str,
+    directory: str,
+    server_address: str,
+    llm_url: str,
+    llm_model: str,
+    llm_token: str,
     log_detective_api_timeout: int,
 ) -> None:
     """
@@ -141,13 +136,18 @@ def evaluate_samples(
                     print(
                         f"Calling Log Detective API: {full_api_url} with log file URL: {log_file_url}"
                     )
-                    api_response = requests.post(full_api_url, json=payload, timeout=log_detective_api_timeout)
+                    api_response = requests.post(
+                        full_api_url, json=payload, timeout=log_detective_api_timeout
+                    )
                     api_response.raise_for_status()
                     actual_response_data = api_response.json()
                     # Extract the text from the 'explanation' object based on the provided schema
                     actual_issue = actual_response_data["explanation"]["text"]
                 except requests.exceptions.RequestException as e:
-                    print(f"Error calling Log Detective API for {log_file_url}: {e}", file=sys.stderr)
+                    print(
+                        f"Error calling Log Detective API for {log_file_url}: {e}",
+                        file=sys.stderr,
+                    )
                     continue
                 except ValueError:
                     print(
@@ -199,7 +199,12 @@ def main():
     )
     parser.add_argument("llm_url", help="URL of LLM API to use as judge")
     parser.add_argument("llm_model", help="Name of LLM model to use a judge")
-    parser.add_argument("log_detective_api_timeout", help="Request timeout for Log Detective API", type=int, default=60)
+    parser.add_argument(
+        "log_detective_api_timeout",
+        help="Request timeout for Log Detective API",
+        type=int,
+        default=60,
+    )
     args = parser.parse_args()
 
     if not API_KEY:
