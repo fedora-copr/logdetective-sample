@@ -90,7 +90,11 @@ def get_similarity_score(
 
 
 def evaluate_samples(
-    directory: str, server_address: str, llm_url: str, llm_model: str, llm_token: str,
+    directory: str,
+    server_address: str,
+    llm_url: str,
+    llm_model: str,
+    llm_token: str,
     log_detective_api_timeout: int,
 ) -> None:
     """
@@ -136,13 +140,18 @@ def evaluate_samples(
                     print(
                         f"Calling Log Detective API: {full_api_url} with log file URL: {log_file_url}"
                     )
-                    api_response = requests.post(full_api_url, json=payload, timeout=log_detective_api_timeout)
+                    api_response = requests.post(
+                        full_api_url, json=payload, timeout=log_detective_api_timeout
+                    )
                     api_response.raise_for_status()
                     actual_response_data = api_response.json()
                     # Extract the text from the 'explanation' object based on the provided schema
                     actual_issue = actual_response_data["explanation"]["text"]
                 except requests.exceptions.RequestException as e:
-                    print(f"Error calling Log Detective API for {log_file_url}: {e}", file=sys.stderr)
+                    print(
+                        f"Error calling Log Detective API for {log_file_url}: {e}",
+                        file=sys.stderr,
+                    )
                     continue
                 except ValueError:
                     print(
@@ -194,7 +203,12 @@ def main():
     )
     parser.add_argument("llm_url", help="URL of LLM API to use as judge")
     parser.add_argument("llm_model", help="Name of LLM model to use a judge")
-    parser.add_argument("log_detective_api_timeout", help="Request timeout for Log Detective API", type=int, default=60)
+    parser.add_argument(
+        "log_detective_api_timeout",
+        help="Request timeout for Log Detective API",
+        type=int,
+        default=60,
+    )
     args = parser.parse_args()
 
     if not API_KEY:
