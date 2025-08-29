@@ -56,10 +56,6 @@ def get_similarity_score(
         response = llm_client.chat.completions.create(
             model=llm_model,
             messages=[
-                {
-                    "role": "system",
-                    "content": "You are a helpful assistant that provides similarity scores.",
-                },
                 {"role": "user", "content": prompt},
             ],
             response_format={
