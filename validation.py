@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 import os
+from statistics import median
 import sys
 import requests
+import time
 import yaml
 import openai
 import argparse
@@ -105,6 +107,12 @@ def evaluate_samples(
     full_api_url = f"{server_address}{api_endpoint}"
 
     client = openai.OpenAI(base_url=llm_url, api_key=llm_token)
+    scores = []
+    elapsed_times = []
+
+    median_score = 0
+    median_elapsed_time = 0
+
     for root, _, files in os.walk(directory):
         for file in files:
             if file == "sample_metadata.yaml":
@@ -136,11 +144,13 @@ def evaluate_samples(
                     print(
                         f"Calling Log Detective API: {full_api_url} with log file URL: {log_file_url}"
                     )
+                    start_time = time.time()
                     api_response = requests.post(
                         full_api_url, json=payload, timeout=log_detective_api_timeout
                     )
                     api_response.raise_for_status()
                     actual_response_data = api_response.json()
+                    time_elapsed = time.time() - start_time
                     # Extract the text from the 'explanation' object based on the provided schema
                     actual_issue = actual_response_data["explanation"]["text"]
                 except requests.exceptions.RequestException as e:
@@ -176,11 +186,18 @@ def evaluate_samples(
                         f"Failed to retrieve similarity score with {e}", file=sys.stderr
                     )
                     continue
-
-                print(f"\nSimilarity Score: {score}/10")
+                scores.append(score)
+                elapsed_times.append(time_elapsed)
+                print(f"\nSimilarity Score: {score}/10 Time elapsed: {time_elapsed}s")
 
                 print("-" * (len(yaml_path) + 18))
                 print("\n")
+    if scores:
+        median_score = median(scores)
+    if elapsed_times:
+        median_elapsed_time = median(elapsed_times)
+
+    print(f"Median score: {median_score}, Median time: {median_elapsed_time}s")
 
 
 def main():
