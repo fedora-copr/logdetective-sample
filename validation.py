@@ -220,6 +220,7 @@ def main():
     """
     parser = argparse.ArgumentParser(
         description="Evaluate AI system performance by comparing expected and actual responses.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     parser.add_argument(
         "data_directory", help="Path to the directory containing the sample data."
@@ -231,7 +232,7 @@ def main():
     parser.add_argument("llm_url", help="URL of LLM API to use as judge")
     parser.add_argument("llm_model", help="Name of LLM model to use a judge")
     parser.add_argument(
-        "log_detective_api_timeout",
+        "--log-detective-api-timeout",
         help="Request timeout for Log Detective API",
         type=int,
         default=60,
