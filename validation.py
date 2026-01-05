@@ -19,6 +19,15 @@ LOG_REPO_BASE_URL = (
 )
 
 
+def get_api_key_from_file(path: str):
+    """Attempt to read API key from a file.
+    This is safer than typing it in CLI."""
+
+    with open(path) as key_file:
+
+        return key_file.read()
+
+
 class SimilarityScore(BaseModel):
     """Defines the structure for the similarity score response from the LLM."""
 
@@ -94,6 +103,7 @@ def evaluate_samples(
     llm_model: str,
     llm_token: str,
     log_detective_api_timeout: int,
+    log_detective_api_key: str = "",
 ) -> None:
     """
     Traverses a directory to find and evaluate log analysis samples.
@@ -105,6 +115,10 @@ def evaluate_samples(
     api_endpoint = "/analyze/staged"
 
     full_api_url = f"{server_address}{api_endpoint}"
+
+    log_detective_request_headers = {}
+    if log_detective_api_key:
+        log_detective_request_headers["Authorization"] = f"Bearer {log_detective_api_key}"
 
     client = openai.OpenAI(base_url=llm_url, api_key=llm_token)
     scores = []
@@ -146,8 +160,8 @@ def evaluate_samples(
                     )
                     start_time = time.time()
                     api_response = requests.post(
-                        full_api_url, json=payload, timeout=log_detective_api_timeout
-                    )
+                        full_api_url, json=payload, timeout=log_detective_api_timeout,
+                        headers=log_detective_request_headers)
                     api_response.raise_for_status()
                     actual_response_data = api_response.json()
                     time_elapsed = time.time() - start_time
@@ -222,6 +236,12 @@ def main():
         type=int,
         default=60,
     )
+    parser.add_argument(
+        "--log-detective-api-key",
+        help="Path to file with Log Detective API key, if one is necessary",
+        type=str,
+        default=""
+    )
     args = parser.parse_args()
 
     if not API_KEY:
@@ -232,13 +252,18 @@ def main():
         print(f"Error: Directory not found at '{args.data_directory}'", file=sys.stderr)
         sys.exit(1)
 
+    log_detective_api_key = ""
+    if args.log_detective_api_key:
+        log_detective_api_key = get_api_key_from_file(args.log_detective_api_key)
+
     evaluate_samples(
-        args.data_directory,
-        args.logdetective_url,
-        args.llm_url,
-        args.llm_model,
-        API_KEY,
-        args.log_detective_api_timeout,
+        directory=args.data_directory,
+        server_address=args.logdetective_url,
+        llm_url=args.llm_url,
+        llm_model=args.llm_model,
+        llm_token=API_KEY,
+        log_detective_api_timeout=args.log_detective_api_timeout,
+        log_detective_api_key=log_detective_api_key
     )
 
 
