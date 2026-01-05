@@ -51,13 +51,14 @@ Evaluation of Log Detective performance can be performed automatically using
 the `validation.py`script. Dependencies for the tool are defined in the
 `requirements.txt` file and should be installed in a virtual environment.
 
-Before running the script, the API key for the LLM judge must be set
-in an environment variable `OPENAI_API_KEY`.
+Keys for OpenAI compatible LLM inference provider and Log Detective itself,
+must be stored in files. These will be used at runtime.
+This prevents logging of secrets in history.
 
 Example:
 
 ```
-./validation.py <DATA_PATH> <LOG_DETECTIVE_URL> <LLM_URL> <LLM_NAME>
+./validation.py <PATH_TO_OPEN_AI_API_KEY> <DATA_PATH> <LOG_DETECTIVE_URL> <LLM_URL> <LLM_NAME>
 ```
 Script sends each of the the stored log files for evaluation by Log Detective,
 then submits both results of final analysis from Log Detective and actual issue

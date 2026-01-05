@@ -10,10 +10,6 @@ import openai
 import argparse
 from pydantic import BaseModel, Field, ValidationError
 
-# --- Configuration ---
-# Set your OpenAI API key as an environment variable named OPENAI_API_KEY
-# You can get a key from https://beta.openai.com/account/api-keys
-API_KEY = os.getenv("OPENAI_API_KEY")
 LOG_REPO_BASE_URL = (
     "https://raw.githubusercontent.com/fedora-copr/logdetective-sample/main/data/"
 )
@@ -223,6 +219,11 @@ def main():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     parser.add_argument(
+        "open_ai_api_key",
+        help="Path to file with API key to OpenAI compatible inference provider",
+        type=str,
+    )
+    parser.add_argument(
         "data_directory", help="Path to the directory containing the sample data."
     )
     parser.add_argument(
@@ -245,9 +246,7 @@ def main():
     )
     args = parser.parse_args()
 
-    if not API_KEY:
-        print("Error: OPENAI_API_KEY environment variable not set.", file=sys.stderr)
-        sys.exit(1)
+    open_ai_api_key = get_api_key_from_file(args.open_ai_api_key)
 
     if not os.path.isdir(args.data_directory):
         print(f"Error: Directory not found at '{args.data_directory}'", file=sys.stderr)
@@ -262,7 +261,7 @@ def main():
         server_address=args.logdetective_url,
         llm_url=args.llm_url,
         llm_model=args.llm_model,
-        llm_token=API_KEY,
+        llm_token=open_ai_api_key,
         log_detective_api_timeout=args.log_detective_api_timeout,
         log_detective_api_key=log_detective_api_key
     )
