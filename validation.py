@@ -21,7 +21,7 @@ def get_api_key_from_file(path: str):
 
     with open(path) as key_file:
 
-        return key_file.read()
+        return key_file.read().strip()
 
 
 class SimilarityScore(BaseModel):
