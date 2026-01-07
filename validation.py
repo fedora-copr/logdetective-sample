@@ -10,13 +10,18 @@ import openai
 import argparse
 from pydantic import BaseModel, Field, ValidationError
 
-# --- Configuration ---
-# Set your OpenAI API key as an environment variable named OPENAI_API_KEY
-# You can get a key from https://beta.openai.com/account/api-keys
-API_KEY = os.getenv("OPENAI_API_KEY")
 LOG_REPO_BASE_URL = (
     "https://raw.githubusercontent.com/fedora-copr/logdetective-sample/main/data/"
 )
+
+
+def get_api_key_from_file(path: str):
+    """Attempt to read API key from a file.
+    This is safer than typing it in CLI."""
+
+    with open(path) as key_file:
+
+        return key_file.read().strip()
 
 
 class SimilarityScore(BaseModel):
@@ -94,6 +99,7 @@ def evaluate_samples(
     llm_model: str,
     llm_token: str,
     log_detective_api_timeout: int,
+    log_detective_api_key: str = "",
 ) -> None:
     """
     Traverses a directory to find and evaluate log analysis samples.
@@ -105,6 +111,10 @@ def evaluate_samples(
     api_endpoint = "/analyze/staged"
 
     full_api_url = f"{server_address}{api_endpoint}"
+
+    log_detective_request_headers = {}
+    if log_detective_api_key:
+        log_detective_request_headers["Authorization"] = f"Bearer {log_detective_api_key}"
 
     client = openai.OpenAI(base_url=llm_url, api_key=llm_token)
     scores = []
@@ -146,8 +156,8 @@ def evaluate_samples(
                     )
                     start_time = time.time()
                     api_response = requests.post(
-                        full_api_url, json=payload, timeout=log_detective_api_timeout
-                    )
+                        full_api_url, json=payload, timeout=log_detective_api_timeout,
+                        headers=log_detective_request_headers)
                     api_response.raise_for_status()
                     actual_response_data = api_response.json()
                     time_elapsed = time.time() - start_time
@@ -206,6 +216,12 @@ def main():
     """
     parser = argparse.ArgumentParser(
         description="Evaluate AI system performance by comparing expected and actual responses.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument(
+        "open_ai_api_key",
+        help="Path to file with API key to OpenAI compatible inference provider",
+        type=str,
     )
     parser.add_argument(
         "data_directory", help="Path to the directory containing the sample data."
@@ -217,28 +233,37 @@ def main():
     parser.add_argument("llm_url", help="URL of LLM API to use as judge")
     parser.add_argument("llm_model", help="Name of LLM model to use a judge")
     parser.add_argument(
-        "log_detective_api_timeout",
+        "--log-detective-api-timeout",
         help="Request timeout for Log Detective API",
         type=int,
         default=60,
     )
+    parser.add_argument(
+        "--log-detective-api-key",
+        help="Path to file with Log Detective API key, if one is necessary",
+        type=str,
+        default=""
+    )
     args = parser.parse_args()
 
-    if not API_KEY:
-        print("Error: OPENAI_API_KEY environment variable not set.", file=sys.stderr)
-        sys.exit(1)
+    open_ai_api_key = get_api_key_from_file(args.open_ai_api_key)
 
     if not os.path.isdir(args.data_directory):
         print(f"Error: Directory not found at '{args.data_directory}'", file=sys.stderr)
         sys.exit(1)
 
+    log_detective_api_key = ""
+    if args.log_detective_api_key:
+        log_detective_api_key = get_api_key_from_file(args.log_detective_api_key)
+
     evaluate_samples(
-        args.data_directory,
-        args.logdetective_url,
-        args.llm_url,
-        args.llm_model,
-        API_KEY,
-        args.log_detective_api_timeout,
+        directory=args.data_directory,
+        server_address=args.logdetective_url,
+        llm_url=args.llm_url,
+        llm_model=args.llm_model,
+        llm_token=open_ai_api_key,
+        log_detective_api_timeout=args.log_detective_api_timeout,
+        log_detective_api_key=log_detective_api_key
     )
 
 

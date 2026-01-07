@@ -1,0 +1,2 @@
+# Ignore potential API keys in file form
+.*API*
