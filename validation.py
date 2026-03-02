@@ -20,7 +20,6 @@ def get_api_key_from_file(path: str):
     This is safer than typing it in CLI."""
 
     with open(path) as key_file:
-
         return key_file.read().strip()
 
 
@@ -114,7 +113,9 @@ def evaluate_samples(
 
     log_detective_request_headers = {}
     if log_detective_api_key:
-        log_detective_request_headers["Authorization"] = f"Bearer {log_detective_api_key}"
+        log_detective_request_headers["Authorization"] = (
+            f"Bearer {log_detective_api_key}"
+        )
 
     client = openai.OpenAI(base_url=llm_url, api_key=llm_token)
     scores = []
@@ -156,8 +157,11 @@ def evaluate_samples(
                     )
                     start_time = time.time()
                     api_response = requests.post(
-                        full_api_url, json=payload, timeout=log_detective_api_timeout,
-                        headers=log_detective_request_headers)
+                        full_api_url,
+                        json=payload,
+                        timeout=log_detective_api_timeout,
+                        headers=log_detective_request_headers,
+                    )
                     api_response.raise_for_status()
                     actual_response_data = api_response.json()
                     time_elapsed = time.time() - start_time
@@ -216,22 +220,30 @@ def main():
     """
     parser = argparse.ArgumentParser(
         description="Evaluate AI system performance by comparing expected and actual responses.",
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument(
-        "open_ai_api_key",
+        "--open-ai-api-key",
         help="Path to file with API key to OpenAI compatible inference provider",
         type=str,
+        required=True,
     )
     parser.add_argument(
-        "data_directory", help="Path to the directory containing the sample data."
+        "--data-directory",
+        help="Path to the directory containing the sample data.",
+        default="./data",
     )
     parser.add_argument(
-        "logdetective_url",
+        "--logdetective-url",
         help="Base URL of the Log Detective server (e.g., http://localhost:8080).",
+        required=True,
     )
-    parser.add_argument("llm_url", help="URL of LLM API to use as judge")
-    parser.add_argument("llm_model", help="Name of LLM model to use a judge")
+    parser.add_argument(
+        "--llm-url", help="URL of LLM API to use as judge", required=True
+    )
+    parser.add_argument(
+        "--llm-model", help="Name of LLM model to use a judge", required=True
+    )
     parser.add_argument(
         "--log-detective-api-timeout",
         help="Request timeout for Log Detective API",
@@ -242,7 +254,7 @@ def main():
         "--log-detective-api-key",
         help="Path to file with Log Detective API key, if one is necessary",
         type=str,
-        default=""
+        default="",
     )
     args = parser.parse_args()
 
@@ -263,7 +275,7 @@ def main():
         llm_model=args.llm_model,
         llm_token=open_ai_api_key,
         log_detective_api_timeout=args.log_detective_api_timeout,
-        log_detective_api_key=log_detective_api_key
+        log_detective_api_key=log_detective_api_key,
     )
 
 
