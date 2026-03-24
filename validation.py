@@ -1,25 +1,30 @@
 #!/usr/bin/env python3
 
-import os
-from statistics import median
-import sys
-import requests
-import time
-import yaml
-import openai
-import argparse
-from pydantic import BaseModel, Field, ValidationError
+"""
+Script that evaluates accuracy of Log Detective on a few samples of tricky failed build logs.
+Uses LLM as a judge to evaluate the accuracy of the responses
+in comparison to issue description in sample_metadata.yaml.
+"""
 
-LOG_REPO_BASE_URL = (
-    "https://raw.githubusercontent.com/fedora-copr/logdetective-sample/main/data/"
-)
+import argparse
+import os
+import sys
+import time
+from pathlib import Path
+from statistics import median
+from typing import Generator
+
+import openai
+import requests
+import yaml
+from pydantic import BaseModel, Field, ValidationError
 
 
 def get_api_key_from_file(path: str):
     """Attempt to read API key from a file.
     This is safer than typing it in CLI."""
 
-    with open(path) as key_file:
+    with open(path, encoding="utf-8") as key_file:
         return key_file.read().strip()
 
 
@@ -91,6 +96,15 @@ def get_similarity_score(
     return score.score
 
 
+def traverse_metadata_yamls(directory: str) -> Generator[str]:
+    """Generate recursively all paths to sample config YAMLs in a directory."""
+    for root, _, files in os.walk(directory):
+        for file in files:
+            if file == "sample_metadata.yaml":
+                yaml_path = os.path.join(root, file)
+                yield yaml_path
+
+
 def evaluate_samples(
     directory: str,
     server_address: str,
@@ -124,88 +138,98 @@ def evaluate_samples(
     median_score = 0
     median_elapsed_time = 0
 
-    for root, _, files in os.walk(directory):
-        for file in files:
-            if file == "sample_metadata.yaml":
-                yaml_path = os.path.join(root, file)
-                print(f"--- Processing: {yaml_path} ---")
+    for yaml_path in traverse_metadata_yamls(directory):
+        print(f"--- Processing: {yaml_path} ---")
 
-                try:
-                    with open(yaml_path, "r") as f:
-                        metadata = yaml.safe_load(f)
-                except yaml.YAMLError as e:
-                    print(f"Error parsing YAML file {yaml_path}: {e}", file=sys.stderr)
-                    continue
+        try:
+            with open(yaml_path, "r", encoding="utf-8") as f:
+                metadata = yaml.safe_load(f)
+        except yaml.YAMLError as e:
+            print(f"Error parsing YAML file {yaml_path}: {e}", file=sys.stderr)
+            continue
 
-                expected_issue = metadata.get("issue")
-                log_file_name = metadata.get("log_file")
-                sample_uuid = os.path.basename(root)
+        expected_issue = metadata.get("issue")
+        log_file_name = metadata.get("log_file")
 
-                if not expected_issue or not log_file_name:
-                    print(
-                        f"Skipping {yaml_path}: missing 'issue' or 'log_file' field.",
-                        file=sys.stderr,
-                    )
-                    continue
+        if not expected_issue or not log_file_name:
+            print(
+                f"Skipping {yaml_path}: missing 'issue' or 'log_file' field.",
+                file=sys.stderr,
+            )
+            continue
 
-                log_file_url = f"{LOG_REPO_BASE_URL}{sample_uuid}/{log_file_name}"
-                payload = {"url": log_file_url}
-                actual_response_data = None
-                try:
-                    print(
-                        f"Calling Log Detective API: {full_api_url} with log file URL: {log_file_url}"
-                    )
-                    start_time = time.time()
-                    api_response = requests.post(
-                        full_api_url,
-                        json=payload,
-                        timeout=log_detective_api_timeout,
-                        headers=log_detective_request_headers,
-                    )
-                    api_response.raise_for_status()
-                    actual_response_data = api_response.json()
-                    time_elapsed = time.time() - start_time
-                    # Extract the text from the 'explanation' object based on the provided schema
-                    actual_issue = actual_response_data["explanation"]["text"]
-                except requests.exceptions.RequestException as e:
-                    print(
-                        f"Error calling Log Detective API for {log_file_url}: {e}",
-                        file=sys.stderr,
-                    )
-                    continue
-                except ValueError:
-                    print(
-                        f"Error: Could not decode JSON from API response for {log_file_url}",
-                        file=sys.stderr,
-                    )
-                    continue
-                except (KeyError, TypeError):
-                    print(
-                        f"Error: Could not find 'explanation.text' in API response for {log_file_url}. Response: {actual_response_data}",
-                        file=sys.stderr,
-                    )
-                    continue
+        log_file_path = Path(yaml_path).with_name(log_file_name)
+        log_file_content = ""
+        with open(log_file_path, encoding="utf-8") as f:
+            log_file_content = f.read()
 
-                print("\n[Expected Response]")
-                print(expected_issue)
-                print("\n[Actual Response]")
-                print(actual_issue)
+        payload = {
+            "files": [
+                {
+                    "name": log_file_name,
+                    "content": log_file_content
+                }
+            ]
+        }
 
-                try:
-                    score = get_similarity_score(
-                        expected_issue, actual_issue, client, llm_model
-                    )
-                except (openai.APIError, ValidationError, TypeError) as e:
-                    print(
-                        f"Failed to retrieve similarity score with {e}", file=sys.stderr
-                    )
-                    continue
-                scores.append(score)
-                elapsed_times.append(time_elapsed)
-                print(f"\nSimilarity Score: {score}/10 Time elapsed: {time_elapsed}s")
+        actual_response_data = None
+        try:
+            print(f"Calling Log Detective API: {full_api_url}")
+            print(f"Request contains raw file content from: [{log_file_path}]")
+            start_time = time.time()
+            api_response = requests.post(
+                full_api_url,
+                json=payload,
+                timeout=log_detective_api_timeout,
+                headers=log_detective_request_headers,
+            )
+            api_response.raise_for_status()
+            actual_response_data = api_response.json()
+            time_elapsed = time.time() - start_time
+            # Extract the text from the 'explanation' object based on the provided schema
+            actual_issue = actual_response_data["explanation"]["text"]
+        except requests.exceptions.RequestException as e:
+            print(
+                f"Error calling Log Detective API for {log_file_name}: {e}",
+                file=sys.stderr,
+            )
+            continue
+        except ValueError:
+            print(
+                f"Error: Could not decode JSON from API response for {log_file_path}",
+                file=sys.stderr,
+            )
+            continue
+        except (KeyError, TypeError):
+            print(
+                (
+                    f"Error: Could not find 'explanation.text' in API response "
+                    f"for {log_file_path}. Response: {actual_response_data}"
+                ),
+                file=sys.stderr,
+            )
+            continue
 
-                print("-" * (len(yaml_path) + 18))
-                print("\n")
+        print("\n[Expected Response]")
+        print(expected_issue)
+        print("\n[Actual Response]")
+        print(actual_issue)
+
+        try:
+            score = get_similarity_score(
+                expected_issue, actual_issue, client, llm_model
+            )
+        except (openai.APIError, ValidationError, TypeError) as e:
+            print(
+                f"Failed to retrieve similarity score with {e}", file=sys.stderr
+            )
+            continue
+        scores.append(score)
+        elapsed_times.append(time_elapsed)
+        print(f"\nSimilarity Score: {score}/10 Time elapsed: {time_elapsed}s")
+
+        print("-" * (len(yaml_path) + 18))
+        print("\n")
     if scores:
         median_score = median(scores)
     if elapsed_times:
