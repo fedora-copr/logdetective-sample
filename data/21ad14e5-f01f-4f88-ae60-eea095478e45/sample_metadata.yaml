@@ -9,7 +9,8 @@ log_detective_analysis: |
     Solution:
 
     Address the patch failure by regenerating or updating the patch to match the current source code. Resolve the `verbose` field discrepancy and naming conflict by ensuring consistent definitions across all translation units, potentially by using namespaces or renaming conflicting fields.
-log_file: build.log
+log_files:
+    - build.log
 notes: |
     Drain3 does not extract the interesting part.
     There were multiple warnings in generated during compilation.

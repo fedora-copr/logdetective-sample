@@ -8,4 +8,5 @@ log_detective_analysis: |
    The RPM build failed because the patch file `gnome-shell-notify-gnome-session.patch`, specified in the `gnome-shell.spec` file, was not found in the `SOURCES` directory.
    This caused the `rpmbuild -bs` command to fail within the mock environment.
    To resolve this, ensure that the patch file is present in the `SOURCES` directory or remove the reference to the missing patch from the spec file.
-log_file: builder-live.log
+log_files:
+    - builder-live.log

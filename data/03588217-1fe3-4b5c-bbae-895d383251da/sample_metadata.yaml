@@ -10,4 +10,5 @@ log_detective_analysis: |
     This indicates that the required version of `mjpegtools` or its pkgconfig file is not available in the configured repositories.
     Ensure that the repository containing `mjpegtools` is enabled and that the package version meets the requirement.
     Alternatively, if the package is not essential, consider using `--skip-unavailable` to bypass the missing dependency, although this might lead to other issues if the package is indeed required.
-log_file: builder-live.log
+log_files:
+    - builder-live.log

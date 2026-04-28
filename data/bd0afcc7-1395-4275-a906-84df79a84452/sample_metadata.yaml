@@ -7,6 +7,7 @@ log_detective_version: 2.0.0
 log_detective_analysis: |
     The RPM build failed during the `%check` phase, as indicated by the \"Bad exit status from /var/tmp/rpm-tmp.H6YM9X (%check)\" error. The test suite reported 1 error.
     The root cause is a test failure during the check phase. Examine the test logs to identify the specific test that failed and address the underlying issue in the code or test setup.
-log_file: builder-live.log
+log_files:
+    - builder-live.log
 notes: |
     LD completely misses on the error line

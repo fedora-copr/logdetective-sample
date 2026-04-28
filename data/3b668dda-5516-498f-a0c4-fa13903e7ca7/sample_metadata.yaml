@@ -5,7 +5,9 @@ issue: |
 log_detective_version: 2.0.0
 log_detective_analysis: |
     The RPM build failed due to an unresolved dependency. The build process requires `python3dist(botocore)` with a version greater than or equal to 1.37.14 but less than 1.38, and no package providing this specific version range is available in the configured repositories. To resolve this, either update the package requirements to align with available versions or add a repository containing the required version of `python3dist(botocore)`.
-log_file: root.log
+log_files:
+    - root.log
+    - build.log
 notes: |
     Example of a package whose failure is in root.log, not build.log
     When given root.log, Log Detective correctly determines the root cause.
