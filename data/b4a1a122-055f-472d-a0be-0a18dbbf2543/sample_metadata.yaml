@@ -6,7 +6,8 @@ log_detective_version: 2.0.0
 log_detective_analysis: |
     The RPM build failed during the `%build` phase, specifically when running `gmake`. The `gmake` command exited with code 2, indicating an error while building the `all` target in the `Makefile`. This occurred during the build of the LabPlot package for the `aarch64` architecture within a `systemd-nspawn` container.
     To resolve this, examine the `Makefile` at line 149 and the surrounding code to identify the cause of the build error. Check for missing dependencies, incorrect compiler flags, or other build-related issues.
-log_file: build.log
+log_files:
+    - build.log
 notes: |
     Source: https://kojipkgs.fedoraproject.org//work/tasks/9915/128879915/build.log
 

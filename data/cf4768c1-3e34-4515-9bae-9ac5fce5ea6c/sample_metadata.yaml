@@ -12,7 +12,8 @@ log_detective_analysis: |
     1.  Investigate the `rust.mk` file and the Rust build environment for potential issues.
     2.  Ensure that the necessary configuration files for the 'mach' tool are present and accessible during the build process, potentially by running `mach build` as suggested.
     3.  Address the 35 compiler warnings, as they might indicate underlying code problems that contribute to the build failure.
-log_file: build.log
+log_files:
+    - build.log
 notes: |
     Log contains many very long lines, this can lead to failure during tokenization by overflowing model context limit.
     Heuristics employed by Log Detective before application of Drain are attempting to mitigate this,

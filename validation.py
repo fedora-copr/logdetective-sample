@@ -48,7 +48,14 @@ def get_similarity_score(
         llm_model (str): The LLM model to use for the evaluation.
 
     Returns:
-        int: A similarity score from 1 to 10, or None if an error occurs.
+        int: A similarity score from 1 to 10.
+
+    Raises:
+        `openai.APIError`:
+        `openai.APIConnectionError`:
+        `ValidationError`:
+        `KeyError`:
+        `TypeError`:
     """
 
     prompt = f"""
@@ -63,36 +70,25 @@ def get_similarity_score(
     "expected_output": "{expected_text}"
     "actual_output": "{actual_text}"
     """
-    try:
-        response = llm_client.chat.completions.create(
-            model=llm_model,
-            messages=[
-                {"role": "user", "content": prompt},
-            ],
-            response_format={
-                "type": "json_schema",
-                "json_schema": {
-                    "name": "rated-snippet-analysis",
-                    "schema": SimilarityScore.model_json_schema(),
-                },
+    response = llm_client.chat.completions.create(
+        model=llm_model,
+        messages=[
+            {"role": "user", "content": prompt},
+        ],
+        response_format={
+            "type": "json_schema",
+            "json_schema": {
+                "name": "rated-snippet-analysis",
+                "schema": SimilarityScore.model_json_schema(),
             },
-        )
-    except openai.APIError as e:
-        print(f"Error calling OpenAI API: {e}", file=sys.stderr)
-        raise e
+        },
+    )
     content = response.choices[0].message.content
-    if not isinstance(content, str):
-        print(f"Invalid response from LLM {content}")
-        raise TypeError
-    try:
-        score = SimilarityScore.model_validate_json(content)
-    except ValidationError as e:
-        print(
-            f"Error: Could not parse the score from the LLM response: '{content}'",
-            file=sys.stderr,
-        )
-        raise e
 
+    if not isinstance(content, str):
+        raise TypeError(f"Invalid response from LLM {content}")
+
+    score = SimilarityScore.model_validate_json(content)
     return score.score
 
 
@@ -103,6 +99,32 @@ def traverse_metadata_yamls(directory: str) -> Generator[str]:
             if file == "sample_metadata.yaml":
                 yaml_path = os.path.join(root, file)
                 yield yaml_path
+
+
+def create_payload_from_yaml(log_files: list, yaml_path: str) -> dict:
+    """
+    From the 'log_files' field in sample_metadata.yaml, create the payload
+    to be sent to Log Detective server.
+
+    Args:
+        log_files (list): List of log file names making the sample.
+        yaml_path (str): Path to yaml file, logs are expected to be in the same dir.
+
+    Raises:
+        ValueError: Some issue with reading log file read.
+    """
+
+    file_list = []
+    for log_name in log_files:
+        log_file_path = Path(yaml_path).with_name(log_name)
+        with open(log_file_path, encoding="utf-8") as f:
+            log_file_content = f.read()
+        if not log_file_content:
+            raise ValueError(f"Empty or invalid log file {log_name}")
+
+        file_list.append({"name": log_name, "content": log_file_content})
+
+    return {"files": file_list}
 
 
 def evaluate_samples(
@@ -137,45 +159,33 @@ def evaluate_samples(
 
     median_score = 0
     median_elapsed_time = 0
+    samples_passing = 0
 
     for yaml_path in traverse_metadata_yamls(directory):
         print(f"--- Processing: {yaml_path} ---")
 
         try:
             with open(yaml_path, "r", encoding="utf-8") as f:
-                metadata = yaml.safe_load(f)
+                metadata: dict = yaml.safe_load(f)
         except yaml.YAMLError as e:
-            print(f"Error parsing YAML file {yaml_path}: {e}", file=sys.stderr)
-            continue
+            raise RuntimeError(f"Could not parse {yaml_path}: {e}") from e
+
+        if not isinstance(metadata, dict):
+            raise TypeError(f"Unexpected YAML structure of {yaml_path}")
 
         expected_issue = metadata.get("issue")
-        log_file_name = metadata.get("log_file")
+        log_files = metadata.get("log_files")
+        sample_uuid = yaml_path.split("/")[-2] # ... data / uuid [-2] / sample_metadata.yaml [-1]
 
-        if not expected_issue or not log_file_name:
-            print(
-                f"Skipping {yaml_path}: missing 'issue' or 'log_file' field.",
-                file=sys.stderr,
-            )
-            continue
+        if not expected_issue or not log_files:
+            raise ValueError(f"Invalid {yaml_path}: missing 'issue' or 'log_files' field.")
 
-        log_file_path = Path(yaml_path).with_name(log_file_name)
-        log_file_content = ""
-        with open(log_file_path, encoding="utf-8") as f:
-            log_file_content = f.read()
-
-        payload = {
-            "files": [
-                {
-                    "name": log_file_name,
-                    "content": log_file_content
-                }
-            ]
-        }
+        payload = create_payload_from_yaml(log_files, yaml_path)
 
         actual_response_data = None
         try:
             print(f"Calling Log Detective API: {full_api_url}")
-            print(f"Request contains raw file content from: [{log_file_path}]")
+            print(f"Request contains logs from {sample_uuid}: {log_files}")
             start_time = time.time()
             api_response = requests.post(
                 full_api_url,
@@ -188,27 +198,21 @@ def evaluate_samples(
             time_elapsed = time.time() - start_time
             # Extract the text from the 'explanation' object based on the provided schema
             actual_issue = actual_response_data["explanation"]["text"]
-        except requests.exceptions.RequestException as e:
-            print(
-                f"Error calling Log Detective API for {log_file_name}: {e}",
-                file=sys.stderr,
-            )
-            continue
-        except ValueError:
-            print(
-                f"Error: Could not decode JSON from API response for {log_file_path}",
-                file=sys.stderr,
-            )
-            continue
-        except (KeyError, TypeError):
-            print(
-                (
-                    f"Error: Could not find 'explanation.text' in API response "
-                    f"for {log_file_path}. Response: {actual_response_data}"
-                ),
-                file=sys.stderr,
-            )
-            continue
+        except (
+            requests.exceptions.ConnectionError,
+            requests.exceptions.Timeout,
+            requests.exceptions.HTTPError,
+        ) as e:
+            raise ConnectionError(
+                f"Could not obtain Log Detective response at {full_api_url}: {e}"
+            ) from e
+        except ValueError as e:
+            raise ValueError(f"Could not decode JSON from API response for {sample_uuid}") from e
+        except (KeyError, TypeError) as e:
+            raise ValueError(
+                f"Could not find 'explanation.text' in API response "
+                f"for {sample_uuid}. Response: {actual_response_data}"
+            ) from e
 
         print("\n[Expected Response]")
         print(expected_issue)
@@ -219,23 +223,32 @@ def evaluate_samples(
             score = get_similarity_score(
                 expected_issue, actual_issue, client, llm_model
             )
-        except (openai.APIError, ValidationError, TypeError) as e:
-            print(
-                f"Failed to retrieve similarity score with {e}", file=sys.stderr
-            )
-            continue
-        scores.append(score)
-        elapsed_times.append(time_elapsed)
-        print(f"\nSimilarity Score: {score}/10 Time elapsed: {time_elapsed}s")
+        except (openai.APIError, openai.APIConnectionError) as e:
+            raise ConnectionError(f"Cannot reach LLM judge at {llm_url}") from e
+        except (ValidationError, KeyError, TypeError) as e:
+            raise ValueError(f"Failed to parse similarity score for {sample_uuid}: {e}") from e
 
+        scores.append(score)
+        if score >= 6:
+            samples_passing += 1
+        elapsed_times.append(time_elapsed)
+
+        print(f"\nSimilarity Score: {score}/10 Time elapsed: {time_elapsed:.3f}s")
         print("-" * (len(yaml_path) + 18))
         print("\n")
+
     if scores:
         median_score = median(scores)
+    else:
+        raise ValueError("No samples found.")
     if elapsed_times:
         median_elapsed_time = median(elapsed_times)
 
-    print(f"Median score: {median_score}, Median time: {median_elapsed_time}s")
+    print(
+        f"{samples_passing}/{len(scores)} samples pass, "
+        f"Median score: {median_score}, "
+        f"Median time: {median_elapsed_time:.3f}s."
+    )
 
 
 def main():
@@ -258,15 +271,15 @@ def main():
         default="./data",
     )
     parser.add_argument(
-        "--logdetective-url",
-        help="Base URL of the Log Detective server (e.g., http://localhost:8080).",
+        "--log-detective-url",
+        help="Base URL of the Log Detective server (e.g. http://localhost:8080).",
         required=True,
     )
     parser.add_argument(
-        "--llm-url", help="URL of LLM API to use as judge", required=True
+        "--llm-url", help="URL of LLM API to use as judge (e.g. https://generativelanguage.googleapis.com/v1beta/openai/)", required=True
     )
     parser.add_argument(
-        "--llm-model", help="Name of LLM model to use a judge", required=True
+        "--llm-model", help="Name of LLM model to use a judge (e.g. gemini-2.5-flash)", required=True
     )
     parser.add_argument(
         "--log-detective-api-timeout",
@@ -294,7 +307,7 @@ def main():
 
     evaluate_samples(
         directory=args.data_directory,
-        server_address=args.logdetective_url,
+        server_address=args.log_detective_url,
         llm_url=args.llm_url,
         llm_model=args.llm_model,
         llm_token=open_ai_api_key,
