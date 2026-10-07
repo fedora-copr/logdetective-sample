@@ -10,9 +10,11 @@ import argparse
 import os
 import sys
 import time
+from collections.abc import Generator
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from statistics import median
-from typing import Generator
+from urllib.parse import urljoin
 
 import openai
 import requests
@@ -141,6 +143,57 @@ def create_payload_from_yaml(log_files: list, yaml_path: str) -> dict:
     return {"files": file_list}
 
 
+def get_explanation(
+    url: str, data: dict, headers: dict, timeout: float
+) -> tuple[float, str]:
+    """Poll log detective's (async) API for the explanation."""
+    start_time = time.time()
+    deadline = time.monotonic() + timeout
+
+    api_response = requests.post(
+        url,
+        json=data,
+        timeout=max(deadline - time.monotonic(), 0),
+        headers=headers,
+    )
+    api_response.raise_for_status()
+
+    task_url = urljoin(url, api_response.headers["Location"])
+    task_data = api_response.json()
+
+    while task_data["status"] in {"scheduled", "in_progress", "cancelling"}:
+        retry_after = float(api_response.headers.get("Retry-After", 5))
+        sleep_time = min(retry_after, deadline - time.monotonic())
+        if sleep_time <= 0:
+            raise requests.exceptions.Timeout(
+                "Timed out waiting for Log Detective analysis"
+            )
+        time.sleep(sleep_time)
+        request_timeout = deadline - time.monotonic()
+        if request_timeout <= 0:
+            raise requests.exceptions.Timeout(
+                "Timed out waiting for Log Detective analysis"
+            )
+        api_response = requests.get(
+            task_url,
+            timeout=request_timeout,
+            headers=headers,
+        )
+        api_response.raise_for_status()
+        task_data = api_response.json()
+
+    if task_data["status"] != "done":
+        raise ValueError(
+            f"Log Detective analysis status: {task_data['status']}, task_data: {task_data}"
+        )
+
+    actual_response_data = task_data["result"]
+    time_elapsed = time.time() - start_time
+    actual_issue: str = actual_response_data["explanation"]
+
+    return time_elapsed, actual_issue
+
+
 def evaluate_samples(
     directory: str,
     server_address: str,
@@ -175,9 +228,10 @@ def evaluate_samples(
     median_elapsed_time = 0
     samples_passing = 0
 
-    for yaml_path in traverse_metadata_yamls(directory):
-        print(f"--- Processing: {yaml_path} ---")
+    print(f"Processing samples' YAML metadata in {directory}...")
 
+    samples = []
+    for idx, yaml_path in enumerate(traverse_metadata_yamls(directory), start=1):
         try:
             with open(yaml_path, "r", encoding="utf-8") as f:
                 metadata: dict = yaml.safe_load(f)
@@ -189,49 +243,85 @@ def evaluate_samples(
 
         expected_issue = metadata.get("issue")
         log_files = metadata.get("log_files")
-        sample_uuid = yaml_path.split("/")[-2] # ... data / uuid [-2] / sample_metadata.yaml [-1]
+        sample_uuid = yaml_path.split("/")[-2]
 
         if not expected_issue or not log_files:
-            raise ValueError(f"Invalid {yaml_path}: missing 'issue' or 'log_files' field.")
+            raise ValueError(
+                f"Invalid {yaml_path}: missing 'issue' or 'log_files' field."
+            )
 
         payload = create_payload_from_yaml(log_files, yaml_path)
 
-        actual_response_data = None
-        try:
-            print(f"Calling Log Detective API: {full_api_url}")
-            print(f"Request contains logs from {sample_uuid}: {log_files}")
-            start_time = time.time()
-            api_response = requests.post(
-                full_api_url,
-                json=payload,
-                timeout=log_detective_api_timeout,
-                headers=log_detective_request_headers,
-            )
-            api_response.raise_for_status()
-            actual_response_data = api_response.json()
-            time_elapsed = time.time() - start_time
-            # Extract the text from the 'explanation' object based on the provided schema
-            actual_issue = actual_response_data["explanation"]["text"]
-        except (
-            requests.exceptions.ConnectionError,
-            requests.exceptions.Timeout,
-            requests.exceptions.HTTPError,
-        ) as e:
-            raise ConnectionError(
-                f"Could not obtain Log Detective response for sample {sample_uuid}: {e}"
-            ) from e
-        except ValueError as e:
-            raise ValueError(f"Could not decode JSON from API response for {sample_uuid}") from e
-        except (KeyError, TypeError) as e:
-            raise ValueError(
-                f"Could not find 'explanation.text' in API response "
-                f"for {sample_uuid}. Response: {actual_response_data}"
-            ) from e
+        samples.append(
+            {
+                "expected_issue": expected_issue,
+                "log_files": log_files,
+                "payload": payload,
+                "sample_uuid": sample_uuid,
+                "yaml_path": yaml_path,
+            }
+        )
 
+    if not samples:
+        raise ValueError("No samples found.")
+
+    print(f"Calling Log Detective API: {full_api_url} for {len(samples)} samples...")
+
+    analysis_results: dict[str, tuple[float, str]] = {}
+    max_workers = min(32, len(samples))
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        future_to_sample = {}
+        for sample in samples:
+            sample_uuid = sample["sample_uuid"]
+            future_to_sample[
+                executor.submit(
+                    get_explanation,
+                    url=full_api_url,
+                    data=sample["payload"],
+                    headers=log_detective_request_headers,
+                    timeout=log_detective_api_timeout,
+                )
+            ] = sample
+
+        for future in as_completed(future_to_sample):
+            sample = future_to_sample[future]
+            sample_uuid = sample["sample_uuid"]
+
+            try:
+                analysis_results[sample_uuid] = future.result()
+            except (
+                requests.exceptions.ConnectionError,
+                requests.exceptions.Timeout,
+                requests.exceptions.HTTPError,
+            ) as e:
+                raise ConnectionError(
+                    f"Could not obtain Log Detective response for sample {sample_uuid}: {e}"
+                ) from e
+            except ValueError as e:
+                raise ValueError(
+                    f"Could not decode JSON from API response for {sample_uuid}"
+                ) from e
+            except (KeyError, TypeError) as e:
+                raise ValueError(
+                    f"Could not find 'explanation' in API response for {sample_uuid}."
+                ) from e
+
+    for idx, sample in enumerate(samples, start=1):
+        expected_issue: str = sample["expected_issue"]
+        sample_uuid: str = sample["sample_uuid"]
+        yaml_path: str = sample["yaml_path"]
+        logs: list[str] = sample["log_files"]
+        uuid_prefix = sample_uuid.split("-")[0]
+
+        time_elapsed, actual_issue = analysis_results[sample_uuid]
+
+        print(
+            f"\n--- ({idx}) Analyzing {uuid_prefix} : {' '.join(logs)} ".ljust(80, "-")
+        )
         print("\n[Expected Response]")
-        print(expected_issue)
+        print(expected_issue.strip())
         print("\n[Actual Response]")
-        print(actual_issue)
+        print(actual_issue.strip())
 
         try:
             score = get_similarity_score(
@@ -240,21 +330,20 @@ def evaluate_samples(
         except (openai.APIError, openai.APIConnectionError) as e:
             raise ConnectionError(f"Cannot reach LLM judge at {llm_url}") from e
         except (ValidationError, KeyError, TypeError) as e:
-            raise ValueError(f"Failed to parse similarity score for {sample_uuid}: {e}") from e
+            raise ValueError(
+                f"Failed to parse similarity score for {sample_uuid}: {e}"
+            ) from e
 
         scores.append(score)
         if score >= 6:
             samples_passing += 1
         elapsed_times.append(time_elapsed)
 
-        print(f"\nSimilarity Score: {score}/10 Time elapsed: {time_elapsed:.3f}s")
-        print("-" * (len(yaml_path) + 18))
-        print("\n")
+        print(
+            f"\n[Judge] Similarity Score: {score}/10 Time elapsed: {time_elapsed:.3f}s"
+        )
 
-    if scores:
-        median_score = median(scores)
-    else:
-        raise ValueError("No samples found.")
+    median_score = median(scores)
     if elapsed_times:
         median_elapsed_time = median(elapsed_times)
 
@@ -290,10 +379,14 @@ def main():
         required=True,
     )
     parser.add_argument(
-        "--llm-url", help="URL of LLM API to use as judge (e.g. https://generativelanguage.googleapis.com/v1beta/openai/)", required=True
+        "--llm-url",
+        help="URL of LLM API to use as judge (e.g. https://generativelanguage.googleapis.com/v1beta/openai/)",
+        required=True,
     )
     parser.add_argument(
-        "--llm-model", help="Name of LLM model to use a judge (e.g. gemini-2.5-flash)", required=True
+        "--llm-model",
+        help="Name of LLM model to use a judge (e.g. gemini-2.5-flash)",
+        required=True,
     )
     parser.add_argument(
         "--log-detective-api-timeout",
