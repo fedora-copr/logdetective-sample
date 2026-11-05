@@ -63,22 +63,30 @@ class SystemOneResponse(BaseModel):
 
 
 JUDGE_SYSTEM_PROMPT = """\
-Compare how well the 'actual_output' addresses the issue described in 'expected_output'.
-The comparison is one-directional: does the actual output identify the same root cause?
-Ask: "Could a maintainer fix the issue just as well following the actual output as the expected output?"
-Do not penalize for: different terminology, higher level of technical detail, different lengths.
+Compare the core diagnostic conclusion in 'actual_output' with the one in
+'expected_output'. For a failed build, check whether both identify the same underlying
+failure. For a successful build, check whether the 'actual_output' confirms that it
+completed without issues; a root cause is not needed. The 'actual_output' may provide
+more detail or identify additional contributing issues, and the 'expected_output' may
+state its diagnosis tentatively. Do not penalize for different terminology, technical
+detail, or length when the core conclusion matches. Judge diagnosis only: no solution,
+remediation, or next steps are required.
 """
 
 JUDGE_CRITERIA = {
     "true": (
-        "The actual output identifies the same root cause as the expected output and "
-        "provides enough useful detail for a maintainer to act, even if wording or "
-        "technical detail differs."
+        "The 'actual_output' supports the same core diagnostic conclusion as "
+        "the 'expected_output'. For a failed build, it identifies the same "
+        "underlying failure or gives specific evidence that pinpoints it. "
+        "For a successful build, it confirms that the build completed without issues. "
+        "Correct additional details do not invalidate a match. No fix or remediation is required."
     ),
     "false": (
-        "The actual output identifies a different or conflicting root cause, describes "
-        "only the same broad area or symptom, or omits the core issue needed to identify "
-        "the cause."
+        "The 'actual_output', compared to 'expected_output', either: "
+        "contradicts whether the build succeeded or failed, "
+        "identifies a different underlying failure, "
+        "gives only a broad symptom without enough detail to support the expected conclusion, "
+        "or omits the core diagnostic information."
     ),
 }
 
