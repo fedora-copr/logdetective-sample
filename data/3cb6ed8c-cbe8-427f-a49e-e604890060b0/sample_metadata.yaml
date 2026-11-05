@@ -1,7 +1,7 @@
 source_project_name: python-ipyparallel
 source_project_version: 8.6.1-6
 issue: |
-    Test assertion has been violated, as the tested code didn't raise expected exception.
+    Test assertion has been violated, as the tested code for TestAsyncResult::test_wait_for_send did not raise the expected exception - TimeoutError.
 log_detective_version: 3.10.0
 log_detective_analysis: |
     The RPM package build failed because the `%check` section exited with a non-zero status, indicating that a test, specifically `ipyparallel/tests/test_asyncresult.py::TestAsyncResult::test_wait_for_send`, failed during the build process. To resolve this, investigate and fix the failing test in the `ipyparallel` package.

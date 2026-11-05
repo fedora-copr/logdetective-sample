@@ -1,7 +1,7 @@
 source_project_name: dolphin-emu
 source_project_version: 2409
 issue: |
-    Multiple compilation errors in `MsgHandler.h`.
+    Multiple compilation errors in `Source/Core/Common/MsgHandler.h`, specifically in functions `Common::MsgAlertFmt` and `Common::MsgAlertFmtT`.
     This includes warnings that were raised to the level of errors with `-Wtemplate-body` option.
 log_detective_version: 2.0.0
 log_detective_analysis: |
