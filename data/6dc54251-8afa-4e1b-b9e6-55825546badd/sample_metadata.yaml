@@ -1,7 +1,7 @@
 source_project_name: rubygem-hitimes
 source_project_version: 2.0.0-10
 issue: |
-    The time-based tests were not bet ween 0 and 0.001 and 0.004.
+    Some time-based tests failed because their measured differences were not in the expected tolerances (0.001 and 0.004).
 log_detective_version: 3.10.0
 log_detective_analysis: |
     The RPM package build failed because the `%check` section of the spec file exited with a non-zero status. This was caused by unit tests failing during the build, specifically due to numerical comparison tolerances not being met. To resolve this, either adjust the test tolerances, fix the underlying code causing the discrepancies, or consider conditionally skipping the failing tests in the `%check` section of the spec file if they are not critical or are environment-dependent.
