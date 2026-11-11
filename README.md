@@ -56,30 +56,51 @@ Evaluation of Log Detective performance can be performed automatically using
 the `validation.py` script. Dependencies for the tool are defined in the
 `requirements.txt` file and should be installed in a virtual environment.
 
-Keys for OpenAI compatible LLM inference provider and Log Detective itself,
-must be stored in files. These will be used at runtime.
+Script requires access to `llama` binary (built from llama.cpp), with System One
+support (b11820 or newer, tested for commit `5851a8e5` (Nov 4 2026)).
+Make sure the binary is available on `PATH`. For instructions, see
+[Llama installation instructions](https://llama-cpp.com/getting-started/), or
+[llama.cpp build guide](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md).
+
+Optionally, you can replace the default judge model using CLI arguments, linking
+the HuggingFace repository. The repository must contain a System One compatible
+decision model. For the judge API used by the validator, see:
+[llama.cpp System One endpoint documentation](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md#post-v1systemone-typesafe-compatible-system-one-api).
+Depending on the `--judge-model` you choose, you might need to modify `--judge-timeout`.
+
+Key for Log Detective must be stored in a file, and will be used at runtime.
 This prevents logging of secrets in history.
 
 Example:
-
 ```bash
-./validation.py --open-ai-api-key OPENAI_API_KEY_FILE \
+./validation.py \
 --data-directory ./path/to/samples \
+--judge-model org/repository:quant \
+--judge-timeout 120 \
 --log-detective-url http://localhost:8080 \
---llm-url https://generativelanguage.googleapis.com/v1beta/openai/ \
---llm-model gemini-2.5-flash \
 --log-detective-api-timeout 300 \
---log-detective-api-key LD_API_KEY_FILE
+--log-detective-api-key LD_API_KEY_FILE \
+2> llama.log
 ```
 
-The only 3 required arguments are `--open-ai-api-key`, `--llm-url`, and `--llm-model`.
+The only required argument is `--log-detective-url` - the base URL of
+a reachable Log Detective server (not the endpoint).
+Other parameters have defaults in place.
+You can see what they do and how to override them using `./validation.py --help`.
+`llama` writes to stderr, so filter it out, if necessary.
 
 Script sends each of the the stored log files for evaluation by Log Detective,
 then submits both results of final analysis from Log Detective and actual issue
 in the log to LLM (judge) to determine the semantic similarity of the two.
 
-Scores are assigned on scale from `1` to `10`. Where `10` stands for absolute and
-`1` for no match at all.
+Results are % probabilities of the two descriptions covering the same root cause
+- 100 % meaning that the judge is certain that both analyses cover the same root cause.
+
+## Output format
+
+The judge returns a probability that the Log Detective analysis identifies the
+same root cause and gives a maintainer enough information to act. System One's
+`noul` field is the probability of yes.
 
 Example:
 
@@ -88,15 +109,14 @@ Example:
 Build failed due to missing patch file `gnome-shell-notify-gnome-session.patch`.
 Fixing the issue requires making sure that all patch files specified are in the `SOURCES` directory.
 
-
 [Actual Response]
 The RPM build failed because the patch file `gnome-shell-notify-gnome-session.patch` was missing from the `SOURCES` directory during the `buildsrpm` phase. This caused the `rpmbuild -bs` command to fail.
 
-To resolve this, ensure that the `gnome-shell-notify-gnome-session.patch` file is present in the `SOURCES` directory and is correctly referenced in the RPM spec file.
-
-
-Similarity Score: 8/10 Time elapsed: 4.5s
+[Judge] Similarity: 87.2 %, Response time: 4.515s, Judge time: 30.382s
 --------------------------------------------------------------------------------
 ```
 
-Scores higher or equal to 6 are considered sufficient for passing.
+A sample passes when `P(yes) >= 0.5`.
+Decisions from 0.45 through 0.55 are also marked low confidence; this does not
+change the pass threshold.
+Probabilities less than 0.05 or higher than 0.95 are marked as high confidence.

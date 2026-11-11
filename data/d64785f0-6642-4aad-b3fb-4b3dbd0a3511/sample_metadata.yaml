@@ -1,9 +1,7 @@
 source_project_name: python-beautifulsoup4
 source_project_version: 4.13.4-1
 issue: |
-    A deprecated flag is being used by koji while building the application i.e. --new-chroot.
-    Since this log appears in mock_output.log it seems like there is an issue with Koji's build system rather than the application.
-    Which is why the container fails to spawn later using /usr/bin/systemd-nspawn.
+    `soupsieve >= 2.6` requirement was not properly satisfied (root.log) because soupsieve version 2.5 was installed.
 log_detective_version: 3.10.0
 log_detective_analysis: |
     The build failed because a required dependency, `cchardet`, was identified as an "alien requirement" and consequently ignored by the build system. To resolve this, ensure that `cchardet` is properly declared as a build requirement in the spec file, removing any conditions that might cause it to be bypassed.
@@ -16,6 +14,26 @@ notes: |
     Additional text contains more context.
 
     Resolution: Instead of --new-chroot, the flag should that should be used is --isolation=nspawn.
+
+    The original annotation is probably wrong:
+    ````
+    A deprecated flag is being used by koji while building the application i.e. --new-chroot.
+    Since this log appears in mock_output.log it seems like there is an issue with Koji's build system rather than the application.
+    Which is why the container fails to spawn later using /usr/bin/systemd-nspawn.
+    ```
+    Other samples' mock_output.log also contains these deprecation warnings,
+    and the build can proceed further, either finishing successfully,
+    or failing on some different, unrelated issue.
+    Log Detective should also assume no issues with the build system itself.
+
+    The issue is probably due to not properly resolving the soupsieve requirement.
+    In build.log, soupsieve>1.2 requirement is satisfied by installing soupsieve version 2.5.
+    In root.log (and mock_output.log), we can see "No match for argument: python3dist(soupsieve) >= 2.6".
+    Either there is some mismatch between dependencies on soupsieve,
+    or, alternatively, the presence of patch `beautifulsoup4-4.13-disable-soupsieve.patch`
+    may suggest that this patch was not properly applied.
+    A comment in specfile also confirms this, as the soupsieve has to be sometimes disabled
+    due to circular import.
 
     Snippets:
 
